@@ -1,0 +1,44 @@
+/**
+ * Yeti Component
+ */
+
+.yeti__img {
+    position: absolute;
+    z-index: 2;
+    bottom: 2%;
+    right: 2%;
+}
+
+.yeti__img.yeti--xs {
+	width: 35%;
+}
+
+
+/**
+ * Tree Component
+ */
+
+.trees {  
+  width: 100%;
+  height: 110px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.trees__tree {
+	background: url('../images/tree.png') no-repeat;
+	background-size: 30px;
+	width: 30px;
+	height: 50px;
+	float: left;
+}
+
+.trees__tree.trees--1 {
+	margin: 0 0 0 6%;
+}
+
+.trees__tree.trees--2 {
+  margin: 2% 0 0 4%; 
+}

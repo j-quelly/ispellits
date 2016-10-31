@@ -1,0 +1,16 @@
+let words = ['union',
+'breed',
+'widen',
+'pottery',
+'east',
+'budget',
+'flock',
+'onion',
+'anxiety',
+'net',
+'qualify',
+'bed',
+'voter',
+'judge',
+'rider'];
+export default words;

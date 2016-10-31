@@ -1,0 +1,52 @@
+// todo: clean all of this up
+
+.word {
+    margin: 10px auto 0 auto;
+    padding: 2%;
+}
+
+.word:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.letter {
+    display: inline-block;
+    margin: 0 3px 0 0;
+    color: #000;
+    background: #DDF3FE;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    width: 40px;
+}
+
+.alphabet {
+    margin: 10px auto 0 auto;
+    padding: 4%;
+    color: #000;
+}
+
+.alphabet:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.char {
+    font-size: 26px;
+    padding: 0 8px;
+    cursor: pointer;
+    font-family: 'Gloria Hallelujah', cursive;
+    display: inline-block;
+}
+
+.char.used {
+    opacity: 0.2;
+    cursor: initial;
+}
+
+.clue {
+    font-family: 'Gloria Hallelujah', cursive;
+    margin: 60px 15px 30px 15px;
+}

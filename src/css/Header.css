@@ -1,0 +1,46 @@
+/**
+ * Logo Component
+ */
+
+.logo__img {
+    margin: 20px 0 0 0;
+}
+
+.logo__img.logo--xs {
+    width: 280px;
+}
+
+/**
+ * Score Component
+ */
+
+.score {    
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+}
+
+.score.score--right {
+    text-align: right;
+    right: 15px;
+    width: 200px;
+    position: absolute;    
+    margin: 0;
+    top: 1%;        
+}
+
+/**
+ * Lives Component
+ */
+
+.lives {    
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    left: 15px;
+    top: 1%;
+}
+
+.lives.lives--left {
+    text-align: left;
+}
