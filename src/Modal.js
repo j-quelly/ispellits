@@ -6,6 +6,9 @@ import './css/Modal.css';
 class Modal extends Component {
   render() {
     let props = this.props.state;
+    if (props.end) {
+      alert('end game');
+    }
     return (
       <Screen maxWidth={543}>
         <div className='modal'>
@@ -36,33 +39,19 @@ class Btn extends Component {
   }
 }
 
-// // todo: this may belong elsewhere...
-// class Odometer extends Component {
+// class Input extends Component {
+//   _handleInput(e) {
+//     let input = e.target.value;
+//     this.props.onInput(input);
+//   }
+
 //   render() {
-//     let toggle = (this.props.score > 0 ? 'highscore' : 'highscore hide');
-//     // let animate = (this.props.score > 0 ? 'odometer' : '');
 //     return (
-//       <div className={toggle}>
-//         <h2 className='odometer'>{this.props.score}</h2>
-//       </div>
+//       <form>
+//         <input onChange={this._handleInput.bind(this)} />
+//       </form>
 //       );
 //   }
 // }
-
-/*class Input extends Component {
-  _handleInput(e) {
-    let input = e.target.value;
-    this.props.onInput(input);
-    e.target.value = '';
-  }
-
-  render() {
-    return (
-      <form>
-        <input onChange={this._handleInput.bind(this)} />
-      </form>
-      );
-  }
-}*/
 
 export default Modal;

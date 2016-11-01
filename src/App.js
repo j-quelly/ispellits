@@ -13,37 +13,36 @@ import yetiHello from './images/yeti-hello.png';
 import yetiLose from './images/yeti-lose.png';
 import yetiWin from './images/yeti-win.png';
 
-// todo: refactor code to use hashmap data structure
+// test dictionary
 import dictionary from './data/test-dictionary';
 
-// testing
-import words from './data/test-words';
-import clues from './data/test-definitions';
-
 // data
-// import words from './data/words';
-// import definitions from './data/definitions';
+// import dictionary from './data/dictionary';
+
+let clues = (function() {
+    let vals = [];
+    for (let i in dictionary) {
+      if (dictionary.hasOwnProperty(i)) {
+        vals.push(dictionary[i]);  
+      }
+    }
+    return vals;
+})(dictionary);
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      gameStart: true,
-
-      // modal state
+      gameStart: true, // todo: confirm use of this
       title: 'Game Rules',
       body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
       btnText: 'Start',
-
-      start: false,
-
+      start: false, // todo: confirm use of this
       word: '',
-      totalWords: words.length,
-      words: words,
+      totalWords: Object.keys(dictionary).length,
+      words: Object.keys(dictionary),
       clues: clues,
       clue: '',
-
       input: [],
       correct: [],
       pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
@@ -51,10 +50,7 @@ class App extends Component {
       score: 0,
       roundScore: 0,
       lives: 1,
-      end: false,
-
-      // todo: replace words array with hashmap data structure
-      dictionary: dictionary,
+      end: false, // todo: confirm use of this
     };
   }
 
@@ -69,8 +65,6 @@ class App extends Component {
       correct: [],
       input: [],
       start: true,
-
-      // hide modal
       gameStart: false,
     });
   }
@@ -154,50 +148,49 @@ class App extends Component {
   }
 
   _updateLives = (cb) => {
-    let lives = this.state.lives;
+    let score = this.state.score;
+    let lives = this.state.lives;    
+    let previousRoundScore = this.state.roundScore;
+    if (score - previousRoundScore >= 100) {
+      lives++;
+    }   
     if (this.state.correct.length === this.state.input.length) {
       lives++;
     } else if (this.state.input.length === 26) {
       lives--;
     }
     this.setState({
-      lives: lives
+      lives: lives,
+      roundScore: (score >= 100 ? score : this.state.roundScore),
     }, () => {
       cb();
     });
   }
 
   _nextWord = () => {
-    if (this.state.totalWords === 0 || this.state.lives === 0) {
+    if (this.state.totalWords === 0) {
+      this.setState({
+        title: 'You beat da game!',
+        body: `Enter your name or something`,
+        'btnText': 'Submit',
+        end: true,
+        gameStart: true,
+      });
+    } else if (this.state.lives === 0) {
       this.setState({
         title: 'Good Job!',
         body: `Enter your name or something`,
-
         'btnText': 'Submit',
-
-        // may no longer needs this..
         end: true,
-
-      // testing this state..
-      gameStart: true,        
-      });
-    } else {
+        gameStart: true,
+      });      
+    } else {     
       this.setState({
         title: 'Good Job!',
         body: `You're a subs-hero!`,
         btnText: 'Next Word',
-
-        // may no longer needs this??
         start: false,
-
-        // testing this state..
         gameStart: true,
-      }, () => {
-        setTimeout(() => {
-          this.setState({
-            roundScore: this.state.score
-          });
-        }, 2000);
       });
     }
   }
