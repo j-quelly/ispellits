@@ -13,6 +13,11 @@ let dictionary = {
   'bed': 'Where you sleep at night',
   'voter': 'A person who has the right to vote',
   'judge': 'Form an opinion or conclusion about',
-  'rider': 'A person who is riding or who can ride something'
+  'rider': 'A person who is riding or who can ride something',
+  'fix': 'Fasten (something) securely in a particular place or position',
+  'liver': 'A large lobed glandular organ in the abdomen of vertebrates',
+  'reality': 'The state or quality of having existence or substance',
+  'prefer': 'Like on thing better than another',
+  'exceed': 'To be greater in number or size',
 };
 export default dictionary;

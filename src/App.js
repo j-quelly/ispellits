@@ -33,11 +33,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gameStart: true, // todo: confirm use of this
       title: 'Game Rules',
       body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
       btnText: 'Start',
-      start: false, // todo: confirm use of this
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
@@ -50,7 +48,15 @@ class App extends Component {
       score: 0,
       roundScore: 0,
       lives: 1,
-      end: false, // todo: confirm use of this
+
+      modal: true,        // display the modal
+      startScreen: true,  // display the start screen modal
+      scoreScreen: false, // hide the score screen
+      inputScreen: false, // hide the input screen
+  
+      startGame: false,   // todo: confirm use of this
+      start: false,       // todo: confirm use of this
+      end: false,         // todo: confirm use of this
     };
   }
 
@@ -63,9 +69,14 @@ class App extends Component {
 
     this.setState({
       correct: [],
-      input: [],
-      start: true,
-      gameStart: false,
+      input: [],      
+      modal: false,         // hide the modal
+      startScreen: false,   // hide the start screen modal
+      scoreScreen: false,   // hide the score screen
+      inputScreen: false,   // hide the input screen
+
+      gameStart: true,      // todo: confirm use of this
+      start: true,          // todo: confirm use of this
     });
   }
 
@@ -74,15 +85,12 @@ class App extends Component {
     let clues = this.state.clues;
     let nextWord = words[Math.floor(Math.random() * words.length)];
     let clue = clues[words.indexOf(nextWord)];
-
-    // remove words
-    words.splice(words.indexOf(nextWord), 1);
-
-    // remove clues
-    clues.splice(clues.indexOf(clue), 1);
-
     let totalWords = this.state.totalWords - 1;
 
+    // remove words and clues
+    words.splice(words.indexOf(nextWord), 1);
+    clues.splice(clues.indexOf(clue), 1);
+    
     this.setState({
       words: words,
       word: nextWord,
@@ -92,15 +100,15 @@ class App extends Component {
   }
 
   /*  _handleInput = (input) => {
-      this._update(input);
+      this._updateGameState(input);
     }*/
 
-  _handleClick = (index) => {
+  _handleKeyboardClick = (index) => {
     let input = this.state.pool[index];
-    this._update(input);
+    this._updateGameState(input);
   }
 
-  _update = (input) => {
+  _updateGameState = (input) => {
     let word = this.state.word;
 
     // if the input is found
@@ -169,28 +177,46 @@ class App extends Component {
 
   _nextWord = () => {
     if (this.state.totalWords === 0) {
+      console.log('beat the game');
+      /**
+       * Player won, end game
+       */
       this.setState({
         title: 'You beat da game!',
         body: `Enter your name or something`,
-        'btnText': 'Submit',
-        end: true,
-        gameStart: true,
+        btnText: 'Submit',
+        modal: true,        // show the modal
+        inputScreen: true,  // show the input screen
+
+        end: true,          // todo: confirm use of this
       });
     } else if (this.state.lives === 0) {
+      console.log('died');
+      /**
+       * Player died, end game
+       */
       this.setState({
-        title: 'Good Job!',
+        title: 'you dead',
         body: `Enter your name or something`,
-        'btnText': 'Submit',
-        end: true,
-        gameStart: true,
+        btnText: 'Submit',
+        modal: true,        // show the modal
+        inputScreen: true,  // show the input screen
+
+        end: true,          // todo: confirm use of this
       });      
     } else {     
+      console.log('round end');
+      /**
+       * End round
+       */
       this.setState({
-        title: 'Good Job!',
+        title: 'Round End!',
         body: `You're a subs-hero!`,
         btnText: 'Next Word',
-        start: false,
-        gameStart: true,
+        modal: true,          // show the modal
+        scoreScreen: true,    // hide the score screen
+
+        start: false,         // todo: confirm use of this
       });
     }
   }
@@ -198,12 +224,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header gameStart={this.state.gameStart}
+        <Header modal={this.state.modal}
                 lives={this.state.lives}
                 score={this.state.score} />
         <Body state={this.state}
               handleStartGame={this._handleStartGame}
-              handleClick={this._handleClick} />
+              handleClick={this._handleKeyboardClick} />
         <Footer yeti={this.state.yeti} />
       </div>
       );

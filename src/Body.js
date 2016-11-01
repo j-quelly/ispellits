@@ -4,7 +4,7 @@ import Modal from './Modal';
 
 class Body extends Component {
   render() {
-    if (this.props.state.gameStart) {
+    if (this.props.state.modal) {
       return (<Modal state={this.props.state}
                      onClick={this.props.handleStartGame} />);
     } else {

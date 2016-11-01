@@ -6,7 +6,7 @@ import logo from './images/I-Spell-Its.png';
 
 class Header extends Component {
   render() {
-    if (this.props.gameStart) {
+    if (this.props.modal) {
       return (<Logo logo={logo} />);
     } else {
       return (
