@@ -12,7 +12,7 @@ body {
 
 /**
  * Snow Animations
- * todo: download images
+ * todo: download images and switch to relative paths
  */
 
 #snow {
@@ -25,9 +25,6 @@ body {
     top: 0;
     width: 100%;
     z-index: 10;
-    -webkit-animation: snow 10s linear infinite;
-    -moz-animation: snow 10s linear infinite;
-    -ms-animation: snow 10s linear infinite;
     animation: snow 10s linear infinite;
 }
 
@@ -43,41 +40,6 @@ body {
     }
 }
 
-@-moz-keyframes snow {
-    0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-    }
-    50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-    }
-    100% {
-        background-position: 400px 1000px, 200px 400px, 100px 300px;
-    }
-}
-
-@-webkit-keyframes snow {
-    0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-    }
-    50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-    }
-    100% {
-        background-position: 500px 1000px, 200px 400px, -100px 300px;
-    }
-}
-
-@-ms-keyframes snow {
-    0% {
-        background-position: 0px 0px, 0px 0px, 0px 0px;
-    }
-    50% {
-        background-position: 500px 500px, 100px 200px, -100px 150px;
-    }
-    100% {
-        background-position: 500px 1000px, 200px 400px, -100px 300px;
-    }
-}
 
 /**
  * Wave
