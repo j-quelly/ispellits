@@ -21,7 +21,7 @@
 - [x] then take the user to highscore page    
 - [x] confirm the use of arrow functions (to bind the React object to the method)
 - [x] confirm use of bind (to bind the React object to the component)
-- [ ] add round score to score screen
+- [x] add round score to score screen
 
 ### Server
 - [ ] express server
