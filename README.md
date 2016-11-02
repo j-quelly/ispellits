@@ -1,4 +1,5 @@
 # I-Spell-It
+A spin on the classic hangman game, built with React
 
 ## To Do
 
@@ -22,18 +23,18 @@
 - [x] confirm the use of arrow functions (to bind the React object to the method)
 - [x] confirm use of bind (to bind the React object to the component)
 - [x] add round score to score screen
-
+ 
 ### Server
 - [ ] express server
-- [ ] flat file storage
+- [ ] db of some kind
 
 ### Aesthetics
 - [ ] improve modal screen design
-    - [ ] add an odometer for score: round score, total score, etc...s
-- [ ] animations
+- [ ] animations:
+  - [ ] score
+  - [ ] yeti
 - [x] yeti
 - [x] trees
-- [ ] style modal component
 - [ ] better buttons
 
 ### Bugs
@@ -41,23 +42,23 @@
 - [x] when game ends it shows next word button instead of end screens
 - [x] the game does not display the input of the last letter and just jumps to next word button
 - [x] odometer is not working... [REMOVED]
-- [ ] bonus life for every 100 pts is no longer working
+- [x] bonus life for every 100 pts is no longer working
 
 ### Refactor
 - [ ] styles
 - [ ] lint js and css
-- [ ] build
 - [ ] redux & database persistence
 - [ ] tests w/ jest
 - [ ] single responsibility
-- [ ] graphql?
-- [ ] api?
-- [ ] relay?
 - [ ] clean up and reorganize code
 - [ ] comment
 - [ ] react native
 - [ ] browser support
 - [ ] devices
-- [ ] build
 - [ ] proptypes
 - [ ] clean up state object
+- [ ] graphql?
+- [ ] api?
+- [ ] relay?
+- [ ] build
+- [ ] deploy

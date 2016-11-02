@@ -5,19 +5,16 @@ import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
-// styles
-import './css/App.css';
-
 // yeti states
 import yetiHello from './images/yeti-hello.png';
 import yetiLose from './images/yeti-lose.png';
 import yetiWin from './images/yeti-win.png';
 
 // test dictionary
-import dictionary from './data/test-dictionary';
+// import dictionary from './data/test-dictionary';
 
 // data
-// import dictionary from './data/dictionary';
+import dictionary from './data/dictionary';
 
 let clues = (() => {
     let vals = [];
@@ -45,12 +42,11 @@ class App extends Component {
       correct: [],
       pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
       yeti: yetiHello,
-      score: 0,
+      score: 0,               // todo: confirm the use of this
       roundScore: 0,          // score for each round
 
-
-      totalScore: 0,
-      lives: 1,
+      totalScore: 0,          // running total
+      lives: 1,               
 
       modal: true,            // display the modal
       startScreen: true,      // display the start screen modal
@@ -70,7 +66,6 @@ class App extends Component {
 
   _proceed = () => {
     this._updateWordBank();
-
     this.setState({
       correct: [],
       input: [],      
@@ -158,33 +153,42 @@ class App extends Component {
   }
 
   _updateLives = (cb) => {
-    let score = this.state.score;
-    console.log(`Score: ${score}`);
-    let totalScore = this.state.totalScore;
     let lives = this.state.lives;    
-    let previousRoundScore = this.state.roundScore;
-    console.log(`Previous Score: ${previousRoundScore}`);
+    let score = this.state.score;
+    let totalScore = this.state.totalScore;
+    let roundScore = this.state.roundScore;    
+    totalScore += roundScore;
 
-    if (score - previousRoundScore >= 100) {
-      lives++;
+
+    if (totalScore >= 100) {
+      lives = this._bonusLife(totalScore, lives);
     }   
-    if (this.state.correct.length === this.state.input.length) {
-      lives++;
-    } else if (this.state.input.length === 26) {
-      lives--;
-    }
 
-    console.log(this.state);
+    // if (this.state.correct.length === this.state.input.length) {
+    //   lives++;
+    // } else if (this.state.input.length === 26) {
+    //   lives--;
+    // }
 
     this.setState({
-      totalScore: totalScore + previousRoundScore,
-      score: 0,
       lives: lives,
-      roundScore: (score >= 100 ? score : this.state.roundScore),
+      totalScore: totalScore,
     }, () => {
       cb();
     });
 
+  }
+
+  _bonusLife = (totalScore, lives) => {
+    let score = this.state.score; // 0
+    if (totalScore - score >= 100) {
+      lives++;
+      score += 100;
+    }
+    this.setState({
+      score: score
+    });
+    return lives;
   }
 
   _nextWord = () => {
