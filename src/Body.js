@@ -6,7 +6,8 @@ class Body extends Component {
   render() {
     if (this.props.state.modal) {
       return (<Modal state={this.props.state}
-                     onClick={this.props.handleStartGame} />);
+                     onClick={this.props.handleStartGame} 
+                     submitForm={this.props.submitForm} />);
     } else {
       return (<Engine state={this.props.state}
                       handleClick={this.props.handleClick} />);

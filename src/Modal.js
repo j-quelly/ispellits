@@ -14,7 +14,10 @@ class Modal extends Component {
                            onClick={this.props.onClick} />);
     } else if (props.inputScreen) {
       return (<InputScreen state={props}
-                           onClick={this.props.onClick} />);      
+                           onClick={this.props.onClick}
+                           submitForm={this.props.submitForm} />);
+    } else if (props.highScoreScreen) {
+      return (<HighScores state={props} />);
     }
   }
 }
@@ -47,6 +50,14 @@ class ScoreScreen extends Component {
           <p className='modal__body'>
             {props.body}
           </p>
+          <p className='modal__body'>
+            Score:&nbsp;
+            {props.roundScore}
+          </p>
+          <p className='modal__body'>
+            Total Score:&nbsp;
+            {props.totalScore}
+          </p>          
           <Btn onClick={this.props.onClick}
                btnText={props.btnText} />
         </div>
@@ -65,9 +76,26 @@ class InputScreen extends Component {
           <p className='modal__body'>
             {props.body}
           </p>
-          <Input />
-          {/*<Btn onClick={this.props.onClick}
-               btnText={props.btnText} />*/}
+          <Form submitForm={this.props.submitForm} />
+        </div>
+      </Screen>
+      );
+  }
+}
+
+class HighScores extends Component {
+  render() {
+    let props = this.props.state;
+    return (
+      <Screen maxWidth={543}>
+        <div className='modal'>
+          <h1 className='modal__title'>{props.title}</h1>
+          <p className='modal__body'>
+            Display high scores here
+          </p>
+          <button>
+            Play again?
+          </button>
         </div>
       </Screen>
       );
@@ -88,17 +116,18 @@ class Btn extends Component {
   }
 }
 
-class Input extends Component {
-  _handleInput(e) {
-    let input = e.target;
-    console.log(e.target);
-    // this.props.onInput(input);
+class Form extends Component {
+  _onFormSubmit(e) {
+    e.preventDefault();
+    this.props.submitForm();
   }
 
   render() {
     return (
-      <form onSubmit={this._handleInput.bind(this)}>
-        <input />
+      <form onSubmit={this._onFormSubmit.bind(this)}>
+        <input placeholder='Name'
+               ref='name' />
+        <input type='submit' />
       </form>
       );
   }

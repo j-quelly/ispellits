@@ -1,7 +1,7 @@
 /* todo: clean all of this up */
 
 .word {
-    margin: 10px auto 0 auto;
+    margin: 5px auto 0 auto;
     padding: 2%;
 }
 
@@ -22,8 +22,8 @@
 }
 
 .alphabet {
-    margin: 10px auto 0 auto;
-    padding: 4%;
+    margin: 0 auto 0 auto;
+    padding: 2% 4% 4% 4%;
     color: #000;
 }
 
@@ -34,11 +34,13 @@
 }
 
 .char {
-    font-size: 26px;
-    padding: 0 8px;
+    font-size: 22px;
+    padding: 0 9px;
     cursor: pointer;
     font-family: 'Gloria Hallelujah', cursive;
     display: inline-block;
+    position: relative;
+    z-index: 30;    
 }
 
 .char.used {
@@ -48,5 +50,5 @@
 
 .clue {
     font-family: 'Gloria Hallelujah', cursive;
-    margin: 60px 15px 30px 15px;
+    margin: 50px 15px 15px 15px;
 }

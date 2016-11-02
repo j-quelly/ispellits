@@ -19,7 +19,7 @@ import dictionary from './data/test-dictionary';
 // data
 // import dictionary from './data/dictionary';
 
-let clues = (function() {
+let clues = (() => {
     let vals = [];
     for (let i in dictionary) {
       if (dictionary.hasOwnProperty(i)) {
@@ -46,17 +46,21 @@ class App extends Component {
       pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
       yeti: yetiHello,
       score: 0,
-      roundScore: 0,
+      roundScore: 0,          // score for each round
+
+
+      totalScore: 0,
       lives: 1,
 
-      modal: true,        // display the modal
-      startScreen: true,  // display the start screen modal
-      scoreScreen: false, // hide the score screen
-      inputScreen: false, // hide the input screen
+      modal: true,            // display the modal
+      startScreen: true,      // display the start screen modal
+      scoreScreen: false,     // hide the score screen
+      inputScreen: false,     // hide the input screen
+      highScoreScreen: false, // hide high score screen 
   
-      startGame: false,   // todo: confirm use of this
-      start: false,       // todo: confirm use of this
-      end: false,         // todo: confirm use of this
+      startGame: false,       // todo: confirm use of this
+      start: false,           // todo: confirm use of this
+      end: false,             // todo: confirm use of this
     };
   }
 
@@ -74,6 +78,7 @@ class App extends Component {
       startScreen: false,   // hide the start screen modal
       scoreScreen: false,   // hide the score screen
       inputScreen: false,   // hide the input screen
+      roundScore: 0,        // reset the round score
 
       gameStart: true,      // todo: confirm use of this
       start: true,          // todo: confirm use of this
@@ -99,10 +104,6 @@ class App extends Component {
     });
   }
 
-  /*  _handleInput = (input) => {
-      this._updateGameState(input);
-    }*/
-
   _handleKeyboardClick = (index) => {
     let input = this.state.pool[index];
     this._updateGameState(input);
@@ -119,11 +120,11 @@ class App extends Component {
       for (let i = 0; i < count; i++) {
         arr.push(input);
       }
-
       this.setState({
         correct: [...this.state.correct, ...arr],
         input: [...this.state.input, input],
-        score: this._incrementScore(10),
+        // score: this._incrementScore(10),
+        roundScore: this._incrementScore(10),
         yeti: yetiWin,
       }, () => {
         if (this.state.correct.length === this.state.word.length) {
@@ -136,7 +137,8 @@ class App extends Component {
       if (!this.state.input.includes(input)) {
         this.setState({
           input: [...this.state.input, input],
-          score: this._decrementScore(2),
+          // score: this._decrementScore(2),
+          roundScore: this._decrementScore(2),
           yeti: yetiLose,
         });
       }
@@ -144,21 +146,25 @@ class App extends Component {
   }
 
   _incrementScore = (n) => {
-    let score = this.state.score;
+    let score = this.state.roundScore;
     score += n;
     return score;
   }
 
   _decrementScore = (n) => {
-    let score = this.state.score;
+    let score = this.state.roundScore;
     score -= n;
     return score;
   }
 
   _updateLives = (cb) => {
     let score = this.state.score;
+    console.log(`Score: ${score}`);
+    let totalScore = this.state.totalScore;
     let lives = this.state.lives;    
     let previousRoundScore = this.state.roundScore;
+    console.log(`Previous Score: ${previousRoundScore}`);
+
     if (score - previousRoundScore >= 100) {
       lives++;
     }   
@@ -167,12 +173,18 @@ class App extends Component {
     } else if (this.state.input.length === 26) {
       lives--;
     }
+
+    console.log(this.state);
+
     this.setState({
+      totalScore: totalScore + previousRoundScore,
+      score: 0,
       lives: lives,
       roundScore: (score >= 100 ? score : this.state.roundScore),
     }, () => {
       cb();
     });
+
   }
 
   _nextWord = () => {
@@ -221,15 +233,24 @@ class App extends Component {
     }
   }
 
+  _submitForm = () => {
+    this.setState({
+      inputScreen: false,     // hide the input screen
+      highScoreScreen: true,  // show the high score screen
+      title: 'High Scores',
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Header modal={this.state.modal}
                 lives={this.state.lives}
-                score={this.state.score} />
+                score={this.state.roundScore} />
         <Body state={this.state}
               handleStartGame={this._handleStartGame}
-              handleClick={this._handleKeyboardClick} />
+              handleClick={this._handleKeyboardClick}
+              submitForm={this._submitForm} />
         <Footer yeti={this.state.yeti} />
       </div>
       );
