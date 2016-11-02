@@ -66,8 +66,8 @@ class InputScreen extends Component {
             {props.body}
           </p>
           <Input />
-          <Btn onClick={this.props.onClick}
-               btnText={props.btnText} />
+          {/*<Btn onClick={this.props.onClick}
+               btnText={props.btnText} />*/}
         </div>
       </Screen>
       );
@@ -90,14 +90,15 @@ class Btn extends Component {
 
 class Input extends Component {
   _handleInput(e) {
-    let input = e.target.value;
-    this.props.onInput(input);
+    let input = e.target;
+    console.log(e.target);
+    // this.props.onInput(input);
   }
 
   render() {
     return (
-      <form>
-        <input onChange={this._handleInput.bind(this)} />
+      <form onSubmit={this._handleInput.bind(this)}>
+        <input />
       </form>
       );
   }

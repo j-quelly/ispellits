@@ -19,5 +19,10 @@ let dictionary = {
   'reality': 'The state or quality of having existence or substance',
   'prefer': 'Like on thing better than another',
   'exceed': 'To be greater in number or size',
+  'kneel': 'Be in a position in which the body is supported by a knee',
+  'estate': 'An area or amount of land or property, in particular',
+  'tight': 'Fixed, fastened, or closed firmly',
+  'line': 'A long, narrow mark or band',
+  'chest': 'A large strong box, used for storage or shipping',
 };
 export default dictionary;
