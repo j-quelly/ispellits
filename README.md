@@ -23,10 +23,14 @@ A spin on the classic hangman game, built with React
 - [x] confirm the use of arrow functions (to bind the React object to the method)
 - [x] confirm use of bind (to bind the React object to the component)
 - [x] add round score to score screen
+- [x] allow user to play again
  
 ### Server
 - [ ] express server
 - [ ] db of some kind
+
+## Testing
+- [ ] to do...
 
 ### Aesthetics
 - [ ] improve modal screen design
@@ -37,15 +41,8 @@ A spin on the classic hangman game, built with React
 - [x] trees
 - [ ] better buttons
 
-### Bugs
-- [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
-- [x] when game ends it shows next word button instead of end screens
-- [x] the game does not display the input of the last letter and just jumps to next word button
-- [x] odometer is not working... [REMOVED]
-- [x] bonus life for every 100 pts is no longer working
-
 ### Refactor
-- [ ] styles
+- [x] styles
 - [ ] lint js and css
 - [ ] redux & database persistence
 - [ ] tests w/ jest
@@ -62,3 +59,10 @@ A spin on the classic hangman game, built with React
 - [ ] relay?
 - [ ] build
 - [ ] deploy
+
+### Bugs
+- [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
+- [x] when game ends it shows next word button instead of end screens
+- [x] the game does not display the input of the last letter and just jumps to next word button
+- [x] odometer is not working... [REMOVED]
+- [x] bonus life for every 100 pts is no longer working

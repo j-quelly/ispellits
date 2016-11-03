@@ -26,13 +26,13 @@ class Logo extends Component {
         {/* mobile device */}
         <Screen maxWidth={543}>
           <img src={this.props.logo}
-               className='logo__img logo--xs' 
+               className='logo logo--xs' 
                alt='I-Spell-Its' />
         </Screen>
         {/* larger devices */}
         <Screen minWidth={544}>
           <img src={this.props.logo}
-               className='logo__img'
+               className='logo'
                alt='I-Spell-Its' />
         </Screen>
       </div>

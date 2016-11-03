@@ -2,11 +2,11 @@
  * Logo Component
  */
 
-.logo__img {
+.logo {
     margin: 20px 0 0 0;
 }
 
-.logo__img.logo--xs {
+.logo--xs {
     width: 280px;
 }
 
@@ -19,7 +19,7 @@
     font-size: 20px;
 }
 
-.score.score--right {
+.score--right {
     text-align: right;
     right: 15px;
     width: 200px;
@@ -41,6 +41,6 @@
     top: 1%;
 }
 
-.lives.lives--left {
+.lives--left {
     text-align: left;
 }

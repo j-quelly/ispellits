@@ -11,19 +11,19 @@ import yetiLose from './images/yeti-lose.png';
 import yetiWin from './images/yeti-win.png';
 
 // test dictionary
-// import dictionary from './data/test-dictionary';
+import dictionary from './data/test-dictionary';
 
 // data
-import dictionary from './data/dictionary';
+// import dictionary from './data/dictionary';
 
 let clues = (() => {
-    let vals = [];
-    for (let i in dictionary) {
-      if (dictionary.hasOwnProperty(i)) {
-        vals.push(dictionary[i]);  
-      }
+  let vals = [];
+  for (let i in dictionary) {
+    if (dictionary.hasOwnProperty(i)) {
+      vals.push(dictionary[i]);
     }
-    return vals;
+  }
+  return vals;
 })(dictionary);
 
 class App extends Component {
@@ -42,21 +42,21 @@ class App extends Component {
       correct: [],
       pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
       yeti: yetiHello,
-      score: 0,               // todo: confirm the use of this
-      roundScore: 0,          // score for each round
+      score: 0, // todo: confirm the use of this
+      roundScore: 0, // score for each round
 
-      totalScore: 0,          // running total
-      lives: 1,               
+      totalScore: 0, // running total
+      lives: 1,
 
-      modal: true,            // display the modal
-      startScreen: true,      // display the start screen modal
-      scoreScreen: false,     // hide the score screen
-      inputScreen: false,     // hide the input screen
+      modal: true, // display the modal
+      startScreen: true, // display the start screen modal
+      scoreScreen: false, // hide the score screen
+      inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
-  
-      startGame: false,       // todo: confirm use of this
-      start: false,           // todo: confirm use of this
-      end: false,             // todo: confirm use of this
+
+      startGame: false, // todo: confirm use of this
+      start: false, // todo: confirm use of this
+      end: false, // todo: confirm use of this
     };
   }
 
@@ -68,15 +68,15 @@ class App extends Component {
     this._updateWordBank();
     this.setState({
       correct: [],
-      input: [],      
-      modal: false,         // hide the modal
-      startScreen: false,   // hide the start screen modal
-      scoreScreen: false,   // hide the score screen
-      inputScreen: false,   // hide the input screen
-      roundScore: 0,        // reset the round score
+      input: [],
+      modal: false, // hide the modal
+      startScreen: false, // hide the start screen modal
+      scoreScreen: false, // hide the score screen
+      inputScreen: false, // hide the input screen
+      roundScore: 0, // reset the round score
 
-      gameStart: true,      // todo: confirm use of this
-      start: true,          // todo: confirm use of this
+      gameStart: true, // todo: confirm use of this
+      start: true, // todo: confirm use of this
     });
   }
 
@@ -90,7 +90,7 @@ class App extends Component {
     // remove words and clues
     words.splice(words.indexOf(nextWord), 1);
     clues.splice(clues.indexOf(clue), 1);
-    
+
     this.setState({
       words: words,
       word: nextWord,
@@ -125,7 +125,7 @@ class App extends Component {
         if (this.state.correct.length === this.state.word.length) {
           setTimeout(() => {
             this._updateLives(this._nextWord);
-          }, 800);
+          }, 500);
         }
       });
     } else {
@@ -153,22 +153,21 @@ class App extends Component {
   }
 
   _updateLives = (cb) => {
-    let lives = this.state.lives;    
+    let lives = this.state.lives;
     let score = this.state.score;
     let totalScore = this.state.totalScore;
-    let roundScore = this.state.roundScore;    
+    let roundScore = this.state.roundScore;
     totalScore += roundScore;
-
 
     if (totalScore >= 100) {
       lives = this._bonusLife(totalScore, lives);
-    }   
+    }
 
-    // if (this.state.correct.length === this.state.input.length) {
-    //   lives++;
-    // } else if (this.state.input.length === 26) {
-    //   lives--;
-    // }
+    if (this.state.correct.length === this.state.input.length) {
+      lives++;
+    } else if (this.state.input.length === 26) {
+      lives--;
+    }
 
     this.setState({
       lives: lives,
@@ -180,7 +179,7 @@ class App extends Component {
   }
 
   _bonusLife = (totalScore, lives) => {
-    let score = this.state.score; // 0
+    let score = this.state.score;
     if (totalScore - score >= 100) {
       lives++;
       score += 100;
@@ -201,10 +200,10 @@ class App extends Component {
         title: 'You beat da game!',
         body: `Enter your name or something`,
         btnText: 'Submit',
-        modal: true,        // show the modal
-        inputScreen: true,  // show the input screen
+        modal: true, // show the modal
+        inputScreen: true, // show the input screen
 
-        end: true,          // todo: confirm use of this
+        end: true, // todo: confirm use of this
       });
     } else if (this.state.lives === 0) {
       console.log('died');
@@ -215,12 +214,12 @@ class App extends Component {
         title: 'you dead',
         body: `Enter your name or something`,
         btnText: 'Submit',
-        modal: true,        // show the modal
-        inputScreen: true,  // show the input screen
+        modal: true, // show the modal
+        inputScreen: true, // show the input screen
 
-        end: true,          // todo: confirm use of this
-      });      
-    } else {     
+        end: true, // todo: confirm use of this
+      });
+    } else {
       console.log('round end');
       /**
        * End round
@@ -229,19 +228,59 @@ class App extends Component {
         title: 'Round End!',
         body: `You're a subs-hero!`,
         btnText: 'Next Word',
-        modal: true,          // show the modal
-        scoreScreen: true,    // hide the score screen
+        modal: true, // show the modal
+        scoreScreen: true, // hide the score screen
 
-        start: false,         // todo: confirm use of this
+        start: false, // todo: confirm use of this
       });
     }
   }
 
   _submitForm = () => {
     this.setState({
-      inputScreen: false,     // hide the input screen
-      highScoreScreen: true,  // show the high score screen
+      inputScreen: false, // hide the input screen
+      highScoreScreen: true, // show the high score screen
       title: 'High Scores',
+    });
+  }
+
+  _resetGame = () => {
+    this.setState({
+      title: 'Game Rules',
+      body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
+      btnText: 'Start',
+      word: '',
+      totalWords: Object.keys(dictionary).length,
+      words: Object.keys(dictionary),
+      clues: (() => {
+        let vals = [];
+        for (let i in dictionary) {
+          if (dictionary.hasOwnProperty(i)) {
+            vals.push(dictionary[i]);
+          }
+        }
+        return vals;
+      })(dictionary),
+      clue: '',
+      input: [],
+      correct: [],
+      pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
+      yeti: yetiHello,
+      score: 0, // todo: confirm the use of this
+      roundScore: 0, // score for each round
+
+      totalScore: 0, // running total
+      lives: 1,
+
+      modal: true, // display the modal
+      startScreen: true, // display the start screen modal
+      scoreScreen: false, // hide the score screen
+      inputScreen: false, // hide the input screen
+      highScoreScreen: false, // hide high score screen 
+
+      startGame: false, // todo: confirm use of this
+      start: false, // todo: confirm use of this
+      end: false, // todo: confirm use of this
     });
   }
 
@@ -254,7 +293,8 @@ class App extends Component {
         <Body state={this.state}
               handleStartGame={this._handleStartGame}
               handleClick={this._handleKeyboardClick}
-              submitForm={this._submitForm} />
+              submitForm={this._submitForm}
+              resetGame={this._resetGame} />
         <Footer yeti={this.state.yeti} />
       </div>
       );

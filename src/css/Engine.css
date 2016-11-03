@@ -1,17 +1,29 @@
-/* todo: clean all of this up */
+/**
+ * Clue Component
+ */
 
-.word {
+.clue {
+    font-family: 'Gloria Hallelujah', cursive;
+    margin: 50px 15px 15px 15px;
+}
+
+
+/**
+ * Word Box Component
+ */
+
+.wb {
     margin: 5px auto 0 auto;
     padding: 2%;
 }
 
-.word:after {
+.wb:after {
     content: "";
     display: table;
     clear: both;
 }
 
-.letter {
+.wb__letter {
     display: inline-block;
     margin: 0 3px 0 0;
     color: #000;
@@ -21,34 +33,34 @@
     width: 40px;
 }
 
-.alphabet {
+
+/**
+ * Keyboard Component
+ */
+
+.keyboard {
     margin: 0 auto 0 auto;
     padding: 2% 4% 4% 4%;
     color: #000;
 }
 
-.alphabet:after {
+.keyboard:after {
     content: "";
     display: table;
     clear: both;
 }
 
-.char {
+.keyboard__key {
     font-size: 22px;
     padding: 0 9px;
     cursor: pointer;
     font-family: 'Gloria Hallelujah', cursive;
     display: inline-block;
     position: relative;
-    z-index: 30;    
+    z-index: 30;
 }
 
-.char.used {
+.keyboard__key--used {
     opacity: 0.2;
     cursor: initial;
-}
-
-.clue {
-    font-family: 'Gloria Hallelujah', cursive;
-    margin: 50px 15px 15px 15px;
 }

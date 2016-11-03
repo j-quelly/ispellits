@@ -2,14 +2,14 @@
  * Yeti Component
  */
 
-.yeti__img {
+.yeti {
     position: fixed;
     z-index: 2;
     bottom: 2%;
     right: 2%;
 }
 
-.yeti__img.yeti--xs {
+.yeti--xs {
     width: 35%;
 }
 
@@ -35,10 +35,10 @@
     float: left;
 }
 
-.trees__tree.trees--1 {
+.trees__tree--1 {
     margin: 0 0 0 6%;
 }
 
-.trees__tree.trees--2 {
+.trees__tree--2 {
     margin: 2% 0 0 4%;
 }

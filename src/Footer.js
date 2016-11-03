@@ -9,7 +9,7 @@ class Footer extends Component {
         <Yeti yeti={this.props.yeti} />
         <Trees />
       </div>
-    );
+      );
   }
 }
 
@@ -18,7 +18,7 @@ class Yeti extends Component {
     return (
       <Screen maxWidth={543}>
         <img src={this.props.yeti}
-             className="yeti__img yeti--xs"
+             className="yeti yeti--xs"
              alt="Yeti" />
       </Screen>
       );
@@ -27,11 +27,11 @@ class Yeti extends Component {
 
 class Trees extends Component {
   render() {
-    return(
+    return (
       <Screen maxWidth={543}>
         <div className='trees'>
-          <div className='trees__tree trees--1'></div>
-          <div className='trees__tree trees--2'></div>
+          <div className='trees__tree trees__tree--1'></div>
+          <div className='trees__tree trees__tree--2'></div>
         </div>
       </Screen>
       );

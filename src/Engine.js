@@ -34,7 +34,7 @@ class Wordbox extends Component {
                                                       char={char}
                                                       found={(this.props.correct.includes(char) ? true : false)} />);
     return (
-      <div className="word">
+      <div className='wb'>
         {letters}
       </div>
       );
@@ -44,7 +44,7 @@ class Wordbox extends Component {
 class Letter extends Component {
   render() {
     return (
-      <p className="letter">
+      <p className="wb__letter">
         {(this.props.found ? this.props.char : '_')}
       </p>
       );
@@ -54,26 +54,26 @@ class Letter extends Component {
 class Keyboard extends Component {
   render() {
     let letters = this.props.pool.map((char, i) => {
-      return (<Char key={i}
+      return (<Key key={i}
                     id={i}
                     char={char}
                     onClick={this.props.onClick}
                     used={(this.props.used.includes(char) ? true : false)} />);
     });
     return (
-      <p className="alphabet">
+      <p className="keyboard">
         {letters}
       </p>
       );
   }
 }
 
-class Char extends Component {
+class Key extends Component {
   _handleClick() {
     this.props.onClick(this.props.id);
   }
   render() {
-    let className = (this.props.used ? 'char used' : 'char');
+    let className = (this.props.used ? 'keyboard__char keyboard__char--used' : 'keyboard__char');
     return (
       <span>{(this.props.char === '-' ? <br/> : <span onClick={this._handleClick.bind(this)}
                                                 className={className}>{this.props.char}</span>)}</span>

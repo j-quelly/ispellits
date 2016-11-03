@@ -17,7 +17,7 @@ class Modal extends Component {
                            onClick={this.props.onClick}
                            submitForm={this.props.submitForm} />);
     } else if (props.highScoreScreen) {
-      return (<HighScores state={props} />);
+      return (<HighScores state={props} resetGame={this.props.resetGame} />);
     }
   }
 }
@@ -84,6 +84,10 @@ class InputScreen extends Component {
 }
 
 class HighScores extends Component {
+  _handleClick() {
+    this.props.resetGame();
+  }
+
   render() {
     let props = this.props.state;
     return (
@@ -93,7 +97,7 @@ class HighScores extends Component {
           <p className='modal__body'>
             Display high scores here
           </p>
-          <button>
+          <button onClick={this._handleClick.bind(this)}>
             Play again?
           </button>
         </div>
