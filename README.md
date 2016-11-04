@@ -26,11 +26,30 @@ A spin on the classic hangman game, built with React
 - [x] allow user to play again
  
 ### Server
-- [ ] express server
-- [ ] db of some kind
+- [x] express server (using fsr template) [11/3/2016]
+	- [ ] update to deploy with heroku
+- [x] db of some kind (using sqlite) [11/3/2016]
+	- [ ] update to deploy with heroku
+		- [ ] then change db to mongodb
+- [ ] redux
+- [ ] graphql?
+- [ ] relay?
 
 ## Testing
 - [ ] to do...
+- [ ] device testing
+	- [ ] mobile
+	- [ ] phablet
+	- [ ] tablet
+	- [ ] browser/desktop
+		- [ ] chrome
+		- [ ] mozilla
+		- [ ] opera
+		- [ ] IE
+			- [ ] 8
+			- [ ] 9
+			- [ ] 10
+			- [ ] edge
 
 ### Aesthetics
 - [ ] improve modal screen design
@@ -44,19 +63,14 @@ A spin on the classic hangman game, built with React
 ### Refactor
 - [x] styles
 - [ ] lint js and css
-- [ ] redux & database persistence
-- [ ] tests w/ jest
 - [ ] single responsibility
 - [ ] clean up and reorganize code
 - [ ] comment
-- [ ] react native
-- [ ] browser support
-- [ ] devices
 - [ ] proptypes
 - [ ] clean up state object
-- [ ] graphql?
-- [ ] api?
-- [ ] relay?
+
+### 2.x.x
+- [ ] react native?
 - [ ] build
 - [ ] deploy
 
@@ -66,3 +80,4 @@ A spin on the classic hangman game, built with React
 - [x] the game does not display the input of the last letter and just jumps to next word button
 - [x] odometer is not working... [REMOVED]
 - [x] bonus life for every 100 pts is no longer working
+- [x] keyboard component is broken [11/3/2016]

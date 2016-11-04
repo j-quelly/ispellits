@@ -73,7 +73,7 @@ class Key extends Component {
     this.props.onClick(this.props.id);
   }
   render() {
-    let className = (this.props.used ? 'keyboard__char keyboard__char--used' : 'keyboard__char');
+    let className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
     return (
       <span>{(this.props.char === '-' ? <br/> : <span onClick={this._handleClick.bind(this)}
                                                 className={className}>{this.props.char}</span>)}</span>
