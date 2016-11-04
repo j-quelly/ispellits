@@ -1,7 +1,9 @@
 # I-Spell-It
 A spin on the classic hangman game, built with React
 
-## To Do
+### Current Version: 0.2.0
+
+## Changelog
 
 ### Game Core
 - [x] display the alphabet
@@ -27,9 +29,9 @@ A spin on the classic hangman game, built with React
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
-	- [ ] update to deploy with heroku
+	- [x] update to deploy with heroku [11/4/2016]
 - [x] db of some kind (using sqlite) [11/3/2016]
-	- [ ] update to deploy with heroku
+	- [x] update to deploy with heroku [11/4/2016]
 		- [ ] then change db to mongodb
 - [ ] redux
 - [ ] graphql?
@@ -81,3 +83,6 @@ A spin on the classic hangman game, built with React
 - [x] odometer is not working... [REMOVED]
 - [x] bonus life for every 100 pts is no longer working
 - [x] keyboard component is broken [11/3/2016]
+
+#### Disclaimer
+Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
