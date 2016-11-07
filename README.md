@@ -1,7 +1,7 @@
 # I-Spell-It
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
-### Current Version: 0.2.1
+### Current Version: 0.3.0
 
 ## Changelog
 
@@ -88,6 +88,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] keyboard component is broken [11/3/2016]
 - [x] issues running api server [11/4/2016]
 - [x] set config vars in heroku [11/7/2016]
+- [x] reads config file [11/7/2016]
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
