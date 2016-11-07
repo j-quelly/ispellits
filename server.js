@@ -1,12 +1,22 @@
+'use strict';
+
 const express = require('express'),
   path = require('path'),
   favicon = require('serve-favicon'),
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  fs = require('fs');
 
 // env
-const config = require('./creds.json');
+// const config = require('./creds.json');
+let config;
+try {
+    fs.accessSync('./creds.json', fs.F_OK);
+    config = require('./creds.json');   
+} catch (e) {
+   config = {};
+}
 
 // Player schema
 const Player = require('./models/player.js');
