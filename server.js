@@ -9,10 +9,8 @@ const express = require('express'),
   fs = require('fs');
 
 // env
-// const config = require('./creds.json');
 let config;
 try {
-    fs.accessSync('./creds.json', fs.F_OK);
     config = require('./creds.json');   
 } catch (e) {
    config = {};
