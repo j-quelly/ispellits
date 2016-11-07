@@ -20,7 +20,7 @@ const app = express();
 require('./lib/connection');
 
 // todo: confirm use of this... I think it's for passport
-app.set('superSecret', config.secret); // secr
+app.set('superSecret', process.env.SECRET || config.secret);
 
 /**
  * Middlewares

@@ -87,6 +87,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] bonus life for every 100 pts is no longer working
 - [x] keyboard component is broken [11/3/2016]
 - [x] issues running api server [11/4/2016]
+- [x] set config vars in heroku [11/7/2016]
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
