@@ -3,8 +3,8 @@
  */
 
 // require mongoose for data modeling 
-const mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // defines our user schema 
 const playerSchema = new Schema({

@@ -1,7 +1,10 @@
 # I-Spell-It
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
-### Current Version: 0.3.0
+### Current Version: 0.4.0
+
+## Getting Started
+$ npm run dev server
 
 ## Changelog
 
@@ -33,9 +36,13 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] db of some kind (using sqlite) [11/3/2016]
 	- [x] update to deploy with heroku [11/4/2016]
 		- [x] then change db to mongodb [11/4/2016]
-- [ ] make sure server is all es6 
-- [ ] remove any unused middleware and dependencies 
-- [ ] lint and clean it up/comment
+- [x] make sure server is mostly es6 [11/8/2016]
+	- can probably still improve on this
+- [x] remove any unused middleware and dependencies [11/8/2016]
+	- cookie parser
+	- express session
+- [ ] lint 
+- [ ] comment
 - [ ] redux
 - [ ] graphql?
 - [ ] relay?

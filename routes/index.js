@@ -3,10 +3,10 @@
  */
 
 // express server app dependencies 
-const express = require('express'),
-  router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   res.json({
     message: 'Welcome to the coolest API on earth!'
   });

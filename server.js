@@ -1,57 +1,49 @@
-'use strict';
+/**
+ * Dependencies 
+ */
 
-const express = require('express'),
-  path = require('path'),
-  favicon = require('serve-favicon'),
-  logger = require('morgan'),
-  cookieParser = require('cookie-parser'),
-  bodyParser = require('body-parser'),
-  fs = require('fs');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 
 // env
 let config;
 try {
-    config = require('./creds.json');   
+    config = require('./creds.json');
 } catch (e) {
-   config = {};
+    config = {};
 }
 
 // Player schema
 const Player = require('./models/player.js');
 
 // require routes
-const api = require('./routes/index'),
-  player = require('./routes/player');
+const api = require('./routes/index');
+const player = require('./routes/player');
 
 const app = express();
 
-require('./lib/connection');
+/**
+ * Database
+ */
 
-// todo: confirm use of this... I think it's for passport
-app.set('superSecret', process.env.SECRET || config.secret);
+require('./lib/connection');
 
 /**
  * Middlewares
  */
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, '', './client/build/favicon.ico')));
 app.use(logger('dev'));
-
-// todo: confirm use of the following middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use(cookieParser());
-app.use(require('express-session')({
-  secret: 'chocolate rain',
-  resave: false,
-  saveUninitialized: false
+    extended: false
 }));
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+    app.use(express.static('client/build'));
 }
 
 /**
@@ -62,33 +54,35 @@ app.use('/', api);
 app.use('/players', player);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use((req, res, next) => {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-// error handlers
+/**
+ * Error Handlers
+ */
 
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res) {
-    res.status(err.status || 500).json({
-      message: err.message,
-      error: err
+    app.use((err, req, res) => {
+        res.status(err.status || 500).json({
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
-  res.status(err.status || 500).json({
-    message: err.message,
-    error: {}
-  });
+app.use((err, req, res) => {
+    res.status(err.status || 500).json({
+        message: err.message,
+        error: {}
+    });
 });
 
 module.exports = app;

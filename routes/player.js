@@ -3,20 +3,20 @@
  */
 
 // express server app dependencies 
-const express = require('express'),
-  router = express.Router(),
-  Player = require('../models/player.js'); 
+const express = require('express');
+const router = express.Router();
+const Player = require('../models/player.js'); 
 
 /**
  * Create Player
  */
-router.post('/', function(req, res) {
+router.post('/', (req, res) => {
 
     // pass the Player name and score
     Player.create({
         name: req.body.name,
         score: req.body.score
-    }, function(err) {
+    }, (err) => {
         if (err) {
             res.send(err);
         }
@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
         // find all items where the user id matches who's logged in
         Player.find({
             name: req.body.name
-        }, function(err, items) {
+        }, (err, items) => {
             // on error
             if (err) {
                 res.send(err);
@@ -41,12 +41,12 @@ router.post('/', function(req, res) {
 /**
  * Read Player
  */
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
 
     // use mongoose to find all items that match the user
     Player.find({
         name: req.body.name
-    }, function(err, items) {
+    }, (err, items) => {
         // if there is an error, send it!
         if (err) {
             res.send(err);
