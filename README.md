@@ -41,7 +41,8 @@ $ npm run dev server
 - [x] remove any unused middleware and dependencies [11/8/2016]
 	- cookie parser
 	- express session
-- [ ] lint 
+- [x] lint 
+	- [ ] confirm the best lint configuration and tools
 - [ ] comment
 - [ ] redux
 - [ ] graphql?
