@@ -21,7 +21,7 @@ const app = express();
  * Middlewares
  */
 
-app.use(favicon(path.join(__dirname, '', './client/build/favicon.ico')));
+app.use(favicon(path.join(__dirname, '', '../client/build/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static('../client/build'));
 }
 
 /**

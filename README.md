@@ -1,7 +1,9 @@
 # I-Spell-It
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
-### Current Version: 0.5.1
+### Current Version
+- Server: 0.6.0
+- Client: 0.1.0
 
 ## Getting Started
 $ npm run dev server
@@ -48,8 +50,8 @@ $ npm run dev server
 		- [x] npm run lint 
 - [x] read style guide - https://github.com/felixge/node-style-guide
 - [x] confirm error handlers are working [11/11/2016]
-- [ ] move server assets to server folder src/server & src/client
-- [ ] comment - https://github.com/felixge/node-style-guide
+- [x] move server assets to server folder src/server & src/client [11/11/2016]
+- [ ] comment - https://github.com/felixge/node-style-guide / https://github.com/airbnb/javascript#functions
 - [ ] document - http://usejsdoc.org/about-getting-started.html
 - [ ] redux
 - [ ] graphql?
@@ -80,7 +82,7 @@ $ npm run dev server
 - [x] trees
 - [ ] better buttons
 
-### Refactor Client
+### Client
 - [x] styles
 - [ ] lint js and css
 - [ ] single responsibility
@@ -88,11 +90,6 @@ $ npm run dev server
 - [ ] comment
 - [ ] proptypes
 - [ ] clean up state object
-
-### 2.x.x
-- [ ] react native?
-- [ ] build
-- [ ] deploy
 
 ### Bugs
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
@@ -105,7 +102,11 @@ $ npm run dev server
 - [x] set config vars in heroku [11/7/2016]
 - [x] reads config file [11/7/2016]
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
-	- [ ] this can be improved upon
+
+### 2.x.x
+- [ ] react native?
+- [ ] build
+- [ ] deploy	
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
