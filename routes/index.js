@@ -1,9 +1,10 @@
-/** 
+/**
  * API ROOT
  */
 
-// express server app dependencies 
-const express = require('express');
+// express server app dependencies
+import express from 'express';
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -13,4 +14,4 @@ router.get('/', (req, res) => {
 });
 
 // expose the route to our app with module.exports
-module.exports = router;
+export default router;

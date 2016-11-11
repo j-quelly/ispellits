@@ -3,15 +3,14 @@
  */
 
 import express from 'express';
-// const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
+import path from 'path';
+import favicon from 'serve-favicon';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
 
 // require routes
-const api = require('./routes/index');
-const player = require('./routes/player');
+import api from './routes/index';
+import player from './routes/player';
 
 const app = express();
 
@@ -29,7 +28,7 @@ app.use(favicon(path.join(__dirname, '', './client/build/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-                extended: false 
+  extended: false
 }));
 
 if (process.env.NODE_ENV === 'production') {
@@ -65,7 +64,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-
 // production error handler
 // no stacktraces leaked to user
 app.use((err, req, res) => {
@@ -75,4 +73,4 @@ app.use((err, req, res) => {
   });
 });
 
-module.exports = app;
+export default app;

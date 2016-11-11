@@ -37,13 +37,19 @@ $ npm run dev server
 	- [x] update to deploy with heroku [11/4/2016]
 		- [x] then change db to mongodb [11/4/2016]
 - [x] make sure server is mostly es6 [11/8/2016]
-	- can probably still improve on this
+	- [ ] can probably still improve on this
 - [x] remove any unused middleware and dependencies [11/8/2016]
 	- cookie parser
 	- express session
-- [x] lint 
-	- [ ] confirm the best lint configuration and tools
-- [ ] comment
+- [x] lint
+	- [x] confirm the best lint configuration 
+	- [x] confirm best lint tools
+		- [x] sublime linter is configured with esintrc
+		- [x] npm run lint 
+- [x] read style guide https://github.com/felixge/node-style-guide
+- [ ] move server assets to server folder src/server & src/client
+- [ ] comment 
+- [ ] document - http://usejsdoc.org/about-getting-started.html
 - [ ] redux
 - [ ] graphql?
 - [ ] relay?
@@ -97,6 +103,7 @@ $ npm run dev server
 - [x] issues running api server [11/4/2016]
 - [x] set config vars in heroku [11/7/2016]
 - [x] reads config file [11/7/2016]
+- [ ] npm run lint seems to only be linting server.js
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
