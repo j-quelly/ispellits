@@ -1,7 +1,7 @@
 # I-Spell-It
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
-### Current Version: 0.4.0
+### Current Version: 0.5.1
 
 ## Getting Started
 $ npm run dev server
@@ -37,7 +37,7 @@ $ npm run dev server
 	- [x] update to deploy with heroku [11/4/2016]
 		- [x] then change db to mongodb [11/4/2016]
 - [x] make sure server is mostly es6 [11/8/2016]
-	- [ ] can probably still improve on this
+	- [x] can probably still improve on this [11/11/2016]
 - [x] remove any unused middleware and dependencies [11/8/2016]
 	- cookie parser
 	- express session
@@ -46,9 +46,10 @@ $ npm run dev server
 	- [x] confirm best lint tools
 		- [x] sublime linter is configured with esintrc
 		- [x] npm run lint 
-- [x] read style guide https://github.com/felixge/node-style-guide
+- [x] read style guide - https://github.com/felixge/node-style-guide
+- [x] confirm error handlers are working [11/11/2016]
 - [ ] move server assets to server folder src/server & src/client
-- [ ] comment 
+- [ ] comment - https://github.com/felixge/node-style-guide
 - [ ] document - http://usejsdoc.org/about-getting-started.html
 - [ ] redux
 - [ ] graphql?
@@ -79,7 +80,7 @@ $ npm run dev server
 - [x] trees
 - [ ] better buttons
 
-### Refactor
+### Refactor Client
 - [x] styles
 - [ ] lint js and css
 - [ ] single responsibility
@@ -103,7 +104,8 @@ $ npm run dev server
 - [x] issues running api server [11/4/2016]
 - [x] set config vars in heroku [11/7/2016]
 - [x] reads config file [11/7/2016]
-- [ ] npm run lint seems to only be linting server.js
+- [x] npm run lint seems to only be linting server.js [11/11/2016]
+	- [ ] this can be improved upon
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.

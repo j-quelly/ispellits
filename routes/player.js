@@ -21,6 +21,7 @@ router.post('/', (req, res) => {
       res.send(err);
     }
 
+    // todo: if this is to continue to be used then use promises
     // // find all items where the user id matches who's logged in
     // Player.find({
     //     name: req.body.name

@@ -16,4 +16,4 @@ const playerSchema = new Schema({
 // first param is the singular name for the collection,
 // mongoose automatically looks for the plural version
 // so our db will have a 'players' collection
-module.exports = mongoose.model('Player', playerSchema);
+export default mongoose.model('Player', playerSchema);

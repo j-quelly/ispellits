@@ -12,13 +12,10 @@ import bodyParser from 'body-parser';
 import api from './routes/index';
 import player from './routes/player';
 
+// database
+import './lib/connection';
+
 const app = express();
-
-/**
- * Database
- */
-
-require('./lib/connection');
 
 /**
  * Middlewares
