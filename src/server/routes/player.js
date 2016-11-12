@@ -1,27 +1,22 @@
-/**
- * Player
- */
-
-// express server app dependencies
+// dependencies
 import express from 'express';
 import Player from '../models/player';
 
-const router = express.Router();
+const ROUTER = express.Router();
 
-/**
- * Create Player
- */
-router.post('/', (req, res) => {
+// create player
+ROUTER.post('/', (req, res) => {
   // pass the Player name and score
   Player.create({
     name: req.body.name,
     score: req.body.score
-  }, (err) => {
+  }, (err, player) => {
     if (err) {
       res.send(err);
     }
 
     // todo: if this is to continue to be used then use promises
+    // as this is bad practice
     // // find all items where the user id matches who's logged in
     // Player.find({
     //     name: req.body.name
@@ -31,30 +26,31 @@ router.post('/', (req, res) => {
     //         res.send(err);
     //     }
 
-  //     // return the object
-  //     // .json sets the headers, yay frameworks!
-  //     res.json(items);
-  // });
+    //     // return the object
+    //     // .json sets the headers, yay frameworks!
+    //     res.json(items);
+    // });
+
+    // respond with player details
+    res.json(player);
   });
 });
 
-/**
- * Read Player
- */
-router.get('/', (req, res) => {
+// read a player
+// TODO: perhaps this should accept a param /:name or /:id
+ROUTER.get('/', (req, res) => {
   // use mongoose to find all items that match the user
   Player.find({
     name: req.body.name
-  }, (err, items) => {
-    // if there is an error, send it!
+  }, (err, player) => {
     if (err) {
       res.send(err);
     }
 
-    // return javascript obejct notation
-    res.json(items);
+    // return player data
+    res.json(player);
   });
 });
 
 // expose the route to our app with module.exports
-export default router;
+export default ROUTER;

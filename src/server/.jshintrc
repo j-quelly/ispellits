@@ -12,5 +12,6 @@
   "eqnull": true,
   "funcscope": true,
   "node": true,
-  "strict": false
+  "strict": false,
+  "laxbreak": true
 }

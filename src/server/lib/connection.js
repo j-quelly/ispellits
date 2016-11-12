@@ -1,9 +1,5 @@
 /* eslint global-require: 0 */
 
-/**
- * mongodb connection script
- */
-
 // require mongoose and set the path for connecting
 import mongoose from 'mongoose';
 
@@ -14,13 +10,14 @@ try {
   config = {};
 }
 
+// database URL
 let dbUrl = `mongodb://${config.dev.user}:${config.dev.pass}${config.dev.host}`;
 dbUrl = process.env.MONGODB_URI || dbUrl;
 
 // connect to mongo
 mongoose.connect(dbUrl);
 
-// close the Mongoose connection on Control+C
+// close the Mongoose connection on ctrl + c
 process.on('SIGINT', () => {
   mongoose.connection.close(() => {
     console.log('Mongoose default connection disconnected');

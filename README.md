@@ -51,8 +51,9 @@ $ npm run dev server
 - [x] read style guide - https://github.com/felixge/node-style-guide
 - [x] confirm error handlers are working [11/11/2016]
 - [x] move server assets to server folder src/server & src/client [11/11/2016]
-- [ ] comment - https://github.com/felixge/node-style-guide / https://github.com/airbnb/javascript#functions
-- [ ] document - http://usejsdoc.org/about-getting-started.html
+- [ ] read style guide - https://github.com/airbnb/javascript#functions--reassign-params
+- [x] comment [11/12/2016]
+- [ ] document - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
 - [ ] redux
 - [ ] graphql?
 - [ ] relay?
@@ -84,6 +85,7 @@ $ npm run dev server
 
 ### Client
 - [x] styles
+- [ ] style guide - https://github.com/airbnb/javascript
 - [ ] lint js and css
 - [ ] single responsibility
 - [ ] clean up and reorganize code
