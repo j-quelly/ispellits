@@ -287,14 +287,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header modal={this.state.modal}
-                lives={this.state.lives}
-                score={this.state.roundScore} />
-        <Body state={this.state}
-              handleStartGame={this._handleStartGame}
-              handleClick={this._handleKeyboardClick}
-              submitForm={this._submitForm}
-              resetGame={this._resetGame} />
+        <Header
+          modal={this.state.modal}
+          lives={this.state.lives}
+          score={this.state.roundScore} />
+        <Body
+          state={this.state}
+          handleStartGame={this._handleStartGame}
+          handleClick={this._handleKeyboardClick}
+          submitForm={this._submitForm}
+          resetGame={this._resetGame} />
         <Footer yeti={this.state.yeti} />
       </div>
       );

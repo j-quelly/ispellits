@@ -10,7 +10,7 @@ debug('ispellits-app:server');
 // create HTTP server
 const SERVER = http.createServer(APP);
 
- // Normalize a port into a number, string, or false.
+// Normalize a port into a number, string, or false.
 const normalizePort = function normalizePort(val) {
   const PORT_FIX = parseInt(val, 10);
 

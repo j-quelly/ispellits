@@ -25,15 +25,17 @@ class Logo extends Component {
       <div>
         {/* mobile device */}
         <Screen maxWidth={543}>
-          <img src={this.props.logo}
-               className='logo logo--xs' 
-               alt='I-Spell-Its' />
+          <img
+            src={this.props.logo}
+            className="logo logo--xs"
+            alt="I-Spell-Its" />
         </Screen>
         {/* larger devices */}
         <Screen minWidth={544}>
-          <img src={this.props.logo}
-               className='logo'
-               alt='I-Spell-Its' />
+          <img
+            src={this.props.logo}
+            className="logo"
+            alt="I-Spell-Its" />
         </Screen>
       </div>
       );
@@ -54,7 +56,7 @@ class Lives extends Component {
   render() {
     return (
       <p className="lives lives--left">
-        Lives:&nbsp;
+        Lives:
         {this.props.lives}
       </p>
       );

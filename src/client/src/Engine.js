@@ -9,11 +9,11 @@ class Engine extends Component {
     return (
       <Screen maxWidth={543}>
         <Clue clue={props.clue} />
-        <Wordbox word={props.word}
-                 correct={props.correct} />
-        <Keyboard pool={props.pool}
-                  used={props.input}
-                  onClick={this.props.handleClick} />
+        <Wordbox word={props.word} correct={props.correct} />
+        <Keyboard
+          pool={props.pool}
+          used={props.input}
+          onClick={this.props.handleClick} />
       </Screen>
       );
   }
@@ -30,11 +30,12 @@ class Clue extends Component {
 class Wordbox extends Component {
   render() {
     let lettersArr = this.props.word.split('');
-    let letters = lettersArr.map((char, i) => <Letter key={i}
-                                                      char={char}
-                                                      found={(this.props.correct.includes(char) ? true : false)} />);
+    let letters = lettersArr.map((char, i) => <Letter
+                                                key={i}
+                                                char={char}
+                                                found={(this.props.correct.includes(char) ? true : false)} />);
     return (
-      <div className='wb'>
+      <div className="wb">
         {letters}
       </div>
       );
@@ -54,11 +55,12 @@ class Letter extends Component {
 class Keyboard extends Component {
   render() {
     let letters = this.props.pool.map((char, i) => {
-      return (<Key key={i}
-                    id={i}
-                    char={char}
-                    onClick={this.props.onClick}
-                    used={(this.props.used.includes(char) ? true : false)} />);
+      return (<Key
+                key={i}
+                id={i}
+                char={char}
+                onClick={this.props.onClick}
+                used={(this.props.used.includes(char) ? true : false)} />);
     });
     return (
       <p className="keyboard">
@@ -75,8 +77,7 @@ class Key extends Component {
   render() {
     let className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
     return (
-      <span>{(this.props.char === '-' ? <br/> : <span onClick={this._handleClick.bind(this)}
-                                                className={className}>{this.props.char}</span>)}</span>
+      <span>{(this.props.char === '-' ? <br/> : <span onClick={this._handleClick.bind(this)} className={className}>{this.props.char}</span>)}</span>
       );
   }
 }

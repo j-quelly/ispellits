@@ -48,18 +48,20 @@ $ npm run dev server
 	- [x] confirm best lint tools
 		- [x] sublime linter is configured with esintrc
 		- [x] npm run lint 
-- [x] read style guide - https://github.com/felixge/node-style-guide
+- [x] read express style guide - https://github.com/felixge/node-style-guide
 - [x] confirm error handlers are working [11/11/2016]
 - [x] move server assets to server folder src/server & src/client [11/11/2016]
-- [ ] read style guide - https://github.com/airbnb/javascript#functions--reassign-params
+- [x] finish js style guide - https://github.com/airbnb/javascript [11/15/2016]
 - [x] comment [11/12/2016]
 - [ ] document - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
 - [ ] redux
-- [ ] graphql?
-- [ ] relay?
+- [ ] graphql - read more on this
+- [ ] relay - read more on this
+- [ ] endpoint for creating and reading player & score
 
 ## Testing
-- [ ] to do...
+- [ ] client testing - read chapters on this
+- [ ] server testing
 - [ ] device testing
 	- [ ] mobile
 	- [ ] phablet
@@ -85,8 +87,8 @@ $ npm run dev server
 
 ### Client
 - [x] styles
-- [ ] style guide - https://github.com/airbnb/javascript
-- [ ] lint js and css
+- [ ] lint js - https://github.com/airbnb/javascript/tree/master/react
+- [ ] lint css
 - [ ] single responsibility
 - [ ] clean up and reorganize code
 - [ ] comment
@@ -106,7 +108,7 @@ $ npm run dev server
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
 
 ### 2.x.x
-- [ ] react native?
+- [ ] react native
 - [ ] build
 - [ ] deploy	
 
