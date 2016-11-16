@@ -6,7 +6,7 @@ const Body = function(props) {
   if (props.state.modal) {
     return (<Modal
               state={props.state}
-              onClick={props.handleStartGame}
+              handleClick={props.handleStartGame}
               submitForm={props.submitForm}
               resetGame={props.resetGame} />);
   } else {

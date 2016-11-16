@@ -83,15 +83,16 @@ $ npm run dev server
 - [ ] animations:
   - [ ] score
   - [ ] yeti
-- [ ] better buttons
+- [ ] better buttonscon
 
 ### Client
 - [x] styles
-- [ ] lint js - https://github.com/airbnb/javascript/tree/master/react
+- [ ] lint js - https://github.com/airbnb/javascript/tree/master/react#refs
 - [ ] lint css
 - [ ] single responsibility
 - [ ] clean up and reorganize code
-- [ ] comment
+- [ ] comment / document JS
+- [ ] comment / document CSS
 - [ ] proptypes
 - [ ] clean up state object
 - [ ] ARIA
@@ -109,9 +110,7 @@ $ npm run dev server
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
 
 ### 2.x.x
-- [ ] react native
-- [ ] build
-- [ ] deploy	
+- [ ] react native	
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
