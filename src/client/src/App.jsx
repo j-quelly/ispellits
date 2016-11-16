@@ -154,7 +154,7 @@ class App extends Component {
 
   _updateLives = (cb) => {
     let lives = this.state.lives;
-    let score = this.state.score;
+    // let score = this.state.score;
     let totalScore = this.state.totalScore;
     let roundScore = this.state.roundScore;
     totalScore += roundScore;

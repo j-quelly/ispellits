@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.6.0
-- Client: 0.1.0
+- Client: 0.2.0
 
 ## Getting Started
 $ npm run dev server
@@ -61,8 +61,8 @@ $ npm run dev server
 
 ## Testing
 - [ ] client testing - read chapters on this
-- [ ] server testing
-- [ ] device testing
+- [ ] server testing - read up on this
+- [ ] platform testing
 	- [ ] mobile
 	- [ ] phablet
 	- [ ] tablet
@@ -77,12 +77,12 @@ $ npm run dev server
 			- [ ] edge
 
 ### Aesthetics
+- [x] yeti
+- [x] trees
 - [ ] improve modal screen design
 - [ ] animations:
   - [ ] score
   - [ ] yeti
-- [x] yeti
-- [x] trees
 - [ ] better buttons
 
 ### Client
@@ -94,6 +94,7 @@ $ npm run dev server
 - [ ] comment
 - [ ] proptypes
 - [ ] clean up state object
+- [ ] ARIA
 
 ### Bugs
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
