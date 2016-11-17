@@ -11,10 +11,10 @@ import yetiLose from './images/yeti-lose.png';
 import yetiWin from './images/yeti-win.png';
 
 // test dictionary
-import dictionary from './data/test-dictionary';
+// import dictionary from './data/test-dictionary';
 
 // data
-// import dictionary from './data/dictionary';
+import dictionary from './data/dictionary';
 
 let clues = (() => {
   let vals = [];
@@ -30,9 +30,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // todo: confirm use of these now...
       title: 'Game Rules',
       body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
       btnText: 'Start',
+
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
@@ -197,9 +199,9 @@ class App extends Component {
        * Player won, end game
        */
       this.setState({
+        // todo: confirm the use of these...
         title: 'You beat da game!',
-        body: `Enter your name or something`,
-        btnText: 'Submit',
+
         modal: true, // show the modal
         inputScreen: true, // show the input screen
 
@@ -211,9 +213,9 @@ class App extends Component {
        * Player died, end game
        */
       this.setState({
+        // todo: confirm the use of these...
         title: 'you dead',
-        body: `Enter your name or something`,
-        btnText: 'Submit',
+
         modal: true, // show the modal
         inputScreen: true, // show the input screen
 
@@ -225,11 +227,8 @@ class App extends Component {
        * End round
        */
       this.setState({
-        title: 'Round End!',
-        body: `You're a subs-hero!`,
-        btnText: 'Next Word',
         modal: true, // show the modal
-        scoreScreen: true, // hide the score screen
+        scoreScreen: true, // show the score screen
 
         start: false, // todo: confirm use of this
       });
@@ -246,9 +245,11 @@ class App extends Component {
 
   _resetGame = () => {
     this.setState({
+      // todo: confirm the use of these...
       title: 'Game Rules',
       body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
       btnText: 'Start',
+
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),

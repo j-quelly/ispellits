@@ -88,6 +88,7 @@ $ npm run dev server
 ### Client
 - [x] styles
 - [ ] lint js - https://github.com/airbnb/javascript/tree/master/react#refs
+- [] add propTypes and defaultProps where applicable
 - [ ] lint css
 - [ ] single responsibility
 - [ ] clean up and reorganize code

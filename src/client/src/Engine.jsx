@@ -26,7 +26,7 @@ const Clue = function(props) {
 const Wordbox = function(props) {
   let lettersArr = props.word.split('');
   let letters = lettersArr.map((char, i) => <Letter
-                                              key={char}
+                                              key={char + i}
                                               char={char}
                                               found={(props.correct.includes(char) ? true : false)} />);
   return (
@@ -47,7 +47,7 @@ const Letter = function(props) {
 const Keyboard = function(props) {
     let letters = props.pool.map((char, i) => {
       return (<Key
-                key={char}
+                key={char + i}
                 id={i}
                 char={char}
                 handleClick={props.handleClick}
