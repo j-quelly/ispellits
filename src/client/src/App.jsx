@@ -30,11 +30,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // todo: confirm use of these now...
-      title: 'Game Rules',
-      body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
-      btnText: 'Start',
-
+      title: '',
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
@@ -44,21 +40,15 @@ class App extends Component {
       correct: [],
       pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
       yeti: yetiHello,
-      score: 0, // todo: confirm the use of this
       roundScore: 0, // score for each round
-
       totalScore: 0, // running total
+      bonusScore: 0, // score memory for bonus lives      
       lives: 1,
-
-      modal: true, // display the modal
+      modal: true, // show the modal
       startScreen: true, // display the start screen modal
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
-
-      startGame: false, // todo: confirm use of this
-      start: false, // todo: confirm use of this
-      end: false, // todo: confirm use of this
     };
   }
 
@@ -71,14 +61,11 @@ class App extends Component {
     this.setState({
       correct: [],
       input: [],
-      modal: false, // hide the modal
+      modal: false, // show the modal
       startScreen: false, // hide the start screen modal
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       roundScore: 0, // reset the round score
-
-      gameStart: true, // todo: confirm use of this
-      start: true, // todo: confirm use of this
     });
   }
 
@@ -120,7 +107,6 @@ class App extends Component {
       this.setState({
         correct: [...this.state.correct, ...arr],
         input: [...this.state.input, input],
-        // score: this._incrementScore(10),
         roundScore: this._incrementScore(10),
         yeti: yetiWin,
       }, () => {
@@ -133,8 +119,7 @@ class App extends Component {
     } else {
       if (!this.state.input.includes(input)) {
         this.setState({
-          input: [...this.state.input, input],
-          // score: this._decrementScore(2),
+          input: [...this.state.input, input],          
           roundScore: this._decrementScore(2),
           yeti: yetiLose,
         });
@@ -156,7 +141,6 @@ class App extends Component {
 
   _updateLives = (cb) => {
     let lives = this.state.lives;
-    // let score = this.state.score;
     let totalScore = this.state.totalScore;
     let roundScore = this.state.roundScore;
     totalScore += roundScore;
@@ -181,13 +165,13 @@ class App extends Component {
   }
 
   _bonusLife = (totalScore, lives) => {
-    let score = this.state.score;
+    let score = this.state.bonusScore;
     if (totalScore - score >= 100) {
       lives++;
       score += 100;
     }
     this.setState({
-      score: score
+      bonusScore: score
     });
     return lives;
   }
@@ -199,13 +183,9 @@ class App extends Component {
        * Player won, end game
        */
       this.setState({
-        // todo: confirm the use of these...
         title: 'You beat da game!',
-
         modal: true, // show the modal
         inputScreen: true, // show the input screen
-
-        end: true, // todo: confirm use of this
       });
     } else if (this.state.lives === 0) {
       console.log('died');
@@ -213,13 +193,9 @@ class App extends Component {
        * Player died, end game
        */
       this.setState({
-        // todo: confirm the use of these...
-        title: 'you dead',
-
+        title: 'Better luck next time',
         modal: true, // show the modal
         inputScreen: true, // show the input screen
-
-        end: true, // todo: confirm use of this
       });
     } else {
       console.log('round end');
@@ -229,8 +205,6 @@ class App extends Component {
       this.setState({
         modal: true, // show the modal
         scoreScreen: true, // show the score screen
-
-        start: false, // todo: confirm use of this
       });
     }
   }
@@ -239,17 +213,12 @@ class App extends Component {
     this.setState({
       inputScreen: false, // hide the input screen
       highScoreScreen: true, // show the high score screen
-      title: 'High Scores',
     });
   }
 
   _resetGame = () => {
     this.setState({
-      // todo: confirm the use of these...
-      title: 'Game Rules',
-      body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
-      btnText: 'Start',
-
+      title: '',
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
@@ -267,21 +236,15 @@ class App extends Component {
       correct: [],
       pool: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '-', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
       yeti: yetiHello,
-      score: 0, // todo: confirm the use of this
       roundScore: 0, // score for each round
-
       totalScore: 0, // running total
+      bonusScore: 0, // score memory for bonus lives      
       lives: 1,
-
-      modal: true, // display the modal
+      modal: true, // show the modal
       startScreen: true, // display the start screen modal
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
-
-      startGame: false, // todo: confirm use of this
-      start: false, // todo: confirm use of this
-      end: false, // todo: confirm use of this
     });
   }
 

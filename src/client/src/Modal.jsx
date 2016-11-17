@@ -13,9 +13,9 @@ const Modal = function(props) {
               totalScore={props.state.totalScore}
               handleClick={props.handleClick} />);
   } else if (state.inputScreen) {
-    return (<InputScreen state={state} submitForm={props.submitForm} />);
+    return (<InputScreen title={state.title} submitForm={props.submitForm} />);
   } else if (state.highScoreScreen) {
-    return (<HighScores state={state} resetGame={props.resetGame} />);
+    return (<HighScores resetGame={props.resetGame} />);
   }
 };
 Modal.propTypes = {
@@ -26,7 +26,6 @@ Modal.propTypes = {
 };
 
 const StartScreen = function(props) {
-  // let state = props.state;
   return (
     <Screen maxWidth={543}>
       <div className="modal">
@@ -53,7 +52,6 @@ StartScreen.defaultProps = {
 
 
 const ScoreScreen = function(props) {
-  // let state = props.state;
   return (
     <Screen maxWidth={543}>
       <div className="modal">
@@ -87,11 +85,10 @@ ScoreScreen.defaultProps = {
 };
 
 const InputScreen = function(props) {
-  const state = props.state;
   return (
     <Screen maxWidth={543}>
       <div className="modal">
-        <h1 className="modal__title">{state.title}</h1>
+        <h1 className="modal__title">{props.title}</h1>
         <p className="modal__body">
           {props.body}
         </p>
@@ -106,7 +103,7 @@ InputScreen.propTypes = {
   submitForm: React.PropTypes.func.isRequired,
 };
 InputScreen.defaultProps = {
-  body: `Enter your name or something...`,
+  body: 'Enter your name or something...',
 };
 
 class HighScores extends Component {
@@ -115,13 +112,12 @@ class HighScores extends Component {
   }
 
   render() {
-    let props = this.props.state;
     return (
       <Screen maxWidth={543}>
         <div className="modal">
-          <h1 className="modal__title">{props.title}</h1>
+          <h1 className="modal__title">{this.props.title}</h1>
           <p className="modal__body">
-            Display high scores here
+            {this.props.body}
           </p>
           <button onClick={this._handleClick.bind(this)}>
             Play again?
@@ -131,6 +127,14 @@ class HighScores extends Component {
       );
   }
 }
+HighScores.propTypes = {
+  title: React.PropTypes.string,
+  body: React.PropTypes.string,
+};
+HighScores.defaultProps = {
+  title: 'Hall of Fame',
+  body: 'todo: display high scores here...',
+};
 
 class Btn extends Component {
   _handleClick() {
@@ -144,6 +148,9 @@ class Btn extends Component {
       );
   }
 }
+HighScores.propTypes = {
+  btnText: React.PropTypes.string.isRequired,
+};
 
 class Form extends Component {
   _onFormSubmit(e) {
@@ -160,5 +167,8 @@ class Form extends Component {
       );
   }
 }
+Form.propTypes = {
+  submitForm: React.PropTypes.func.isRequired,
+};
 
 export default Modal;
