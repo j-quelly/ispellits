@@ -100,7 +100,7 @@ $ npm run dev server
 - [ ] try to continue cleaning state...
 
 
-### Bugs
+### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
 - [x] when game ends it shows next word button instead of end screens
 - [x] the game does not display the input of the last letter and just jumps to next word button
@@ -111,6 +111,7 @@ $ npm run dev server
 - [x] set config vars in heroku [11/7/2016]
 - [x] reads config file [11/7/2016]
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
+- [ ] Heroku deployment seems to be broken...
 
 ### 2.x.x
 - [ ] react native	
