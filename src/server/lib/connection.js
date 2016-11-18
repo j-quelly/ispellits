@@ -4,14 +4,15 @@
 import mongoose from 'mongoose';
 
 let config;
+let dbUrl;
 try {
   config = require('../creds');
+  dbUrl = `mongodb://${config.dev.user}:${config.dev.pass}${config.dev.host}`;
 } catch (e) {
-  config = {};
+  config = {};  
 }
 
-// database URL
-let dbUrl = `mongodb://${config.dev.user}:${config.dev.pass}${config.dev.host}`;
+// db url
 dbUrl = process.env.MONGODB_URI || dbUrl;
 
 // connect to mongo

@@ -2,7 +2,7 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.6.0
+- Server: 0.6.3
 - Client: 0.3.0
 
 ## Getting Started
