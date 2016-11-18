@@ -98,7 +98,7 @@ $ npm run dev server
 - [ ] ARIA
 - [ ] try not to mutate
 - [ ] try to continue cleaning state...
-- [ ] add a task runner for version bumping...
+- [ ] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump
 
 
 ### Issues
