@@ -2,7 +2,7 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.6.3
+- Server: 0.6.4
 - Client: 0.3.0
 
 ## Getting Started
@@ -98,6 +98,7 @@ $ npm run dev server
 - [ ] ARIA
 - [ ] try not to mutate
 - [ ] try to continue cleaning state...
+- [ ] add a task runner for version bumping...
 
 
 ### Issues
@@ -111,7 +112,7 @@ $ npm run dev server
 - [x] set config vars in heroku [11/7/2016]
 - [x] reads config file [11/7/2016]
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
-- [ ] Heroku deployment seems to be broken...
+- [x] Heroku deployment seems to be broken... [11/18/2016]
 
 ### 2.x.x
 - [ ] react native	

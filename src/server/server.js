@@ -23,7 +23,7 @@ APP.use(bodyParser.urlencoded({
 }));
 
 if (process.env.NODE_ENV === 'production') {
-  APP.use(express.static('../client/build'));
+  APP.use(express.static('./src/client/build'));
 }
 
 // use routes
