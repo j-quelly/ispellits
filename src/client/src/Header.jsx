@@ -16,6 +16,11 @@ const Header = function(props) {
       );
   }
 };
+Header.propTypes = {
+  modal: React.PropTypes.bool.isRequired,
+  lives: React.PropTypes.number.isRequired,
+  score: React.PropTypes.number.isRequired,
+};
 
 const Logo = function(props) {
   return (
@@ -37,6 +42,9 @@ const Logo = function(props) {
     </div>
     );
 };
+Logo.propTypes = {
+  logo: React.PropTypes.string.isRequired,
+};
 
 const Score = function(props) {
   return (
@@ -44,6 +52,9 @@ const Score = function(props) {
       {props.score} pts
     </p>
     );
+};
+Score.propTypes = {
+  score: React.PropTypes.number.isRequired,
 };
 
 const Lives = function(props) {
@@ -53,6 +64,9 @@ const Lives = function(props) {
       {props.lives}
     </p>
     );
+};
+Lives.propTypes = {
+  lives: React.PropTypes.number.isRequired,
 };
 
 export default Header;

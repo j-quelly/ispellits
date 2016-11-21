@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.6.4
-- Client: 0.3.0
+- Client: 0.4.0
 
 ## Getting Started
 $ npm run dev server
@@ -87,8 +87,9 @@ $ npm run dev server
 
 ### Client
 - [x] styles
-- [ ] lint js - https://github.com/airbnb/javascript/tree/master/react#refs
-- [ ] finish adding propTypes and defaultProps where applicable
+- [x] read - https://github.com/airbnb/javascript/tree/master/react#refs [11/21/2016]
+- [x] finish adding propTypes and defaultProps where applicable [11/21/2016]
+- [ ] lint js
 - [ ] lint css
 - [ ] single responsibility
 - [ ] clean up and reorganize code

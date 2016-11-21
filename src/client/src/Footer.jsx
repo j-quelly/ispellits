@@ -10,6 +10,9 @@ const Footer = function(props) {
     </div>
     );
 };
+Footer.propTypes = {
+  yeti: React.PropTypes.string.isRequired,
+};
 
 const Yeti = function(props) {
   return (
@@ -20,6 +23,9 @@ const Yeti = function(props) {
         alt="Yeti" />
     </Screen>
     );
+};
+Yeti.propTypes = {
+  yeti: React.PropTypes.string.isRequired,
 };
 
 const Trees = function(props) {

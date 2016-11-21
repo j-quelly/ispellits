@@ -19,7 +19,8 @@ const Modal = function(props) {
   }
 };
 Modal.propTypes = {
-  state: React.PropTypes.object,
+  // todo: confirm whether passing the entire state down is good/bad practice..
+  state: React.PropTypes.object.isRequired,
   handleClick: React.PropTypes.func.isRequired,
   submitForm: React.PropTypes.func.isRequired,
   resetGame: React.PropTypes.func.isRequired,
@@ -39,9 +40,9 @@ const StartScreen = function(props) {
     );
 };
 StartScreen.propTypes = {
-  title: React.PropTypes.string,
-  body: React.PropTypes.string,
-  btnText: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  body: React.PropTypes.string.isRequired,
+  btnText: React.PropTypes.string.isRequired,
   handleClick: React.PropTypes.func.isRequired,
 };
 StartScreen.defaultProps = {
@@ -73,9 +74,9 @@ const ScoreScreen = function(props) {
     );
 };
 ScoreScreen.propTypes = {
-  title: React.PropTypes.string,
-  body: React.PropTypes.string,
-  btnText: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  body: React.PropTypes.string.isRequired,
+  btnText: React.PropTypes.string.isRequired,
   handleClick: React.PropTypes.func.isRequired,
 };
 ScoreScreen.defaultProps = {
@@ -99,11 +100,12 @@ const InputScreen = function(props) {
 };
 InputScreen.propTypes = {
   title: React.PropTypes.string.isRequired,
-  body: React.PropTypes.string,
+  body: React.PropTypes.string.isRequired,
   submitForm: React.PropTypes.func.isRequired,
 };
 InputScreen.defaultProps = {
-  body: 'Enter your name or something...',
+  // title is not default so we know to pass a title
+  body: 'Not from state: Enter your name or something...',
 };
 
 class HighScores extends Component {
@@ -128,8 +130,9 @@ class HighScores extends Component {
   }
 }
 HighScores.propTypes = {
-  title: React.PropTypes.string,
-  body: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  body: React.PropTypes.string.isRequired,
+  resetGame: React.PropTypes.func.isRequired,
 };
 HighScores.defaultProps = {
   title: 'Hall of Fame',
@@ -148,8 +151,12 @@ class Btn extends Component {
       );
   }
 }
-HighScores.propTypes = {
+Btn.propTypes = {
   btnText: React.PropTypes.string.isRequired,
+  handleClick: React.PropTypes.func.isRequired,
+};
+Btn.defaultProps = {
+  btnText: 'Click Me',
 };
 
 class Form extends Component {
@@ -161,7 +168,7 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this._onFormSubmit.bind(this)}>
-        <input placeholder="Name" ref="name" />
+        <input placeholder="Name" ref={ref => { this.name = ref }} />
         <input type="submit" />
       </form>
       );

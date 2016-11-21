@@ -16,11 +16,18 @@ const Engine = function(props) {
     </Screen>
     );
 };
+Engine.propTypes = {
+  state: React.PropTypes.object.isRequired,
+  handleClick: React.PropTypes.func.isRequired,
+};
 
 const Clue = function(props) {
   return (<p className="clue">
             {props.clue}
           </p>);
+};
+Clue.propTypes = {
+  clue: React.PropTypes.string.isRequired,
 };
 
 const Wordbox = function(props) {
@@ -35,6 +42,10 @@ const Wordbox = function(props) {
     </div>
     );
 };
+Wordbox.propTypes = {
+  word: React.PropTypes.string.isRequired,
+  correct: React.PropTypes.array.isRequired,
+};
 
 const Letter = function(props) {
     return (
@@ -42,6 +53,10 @@ const Letter = function(props) {
         {(props.found ? props.char : '_')}
       </p>
       );
+};
+Letter.propTypes = {
+  char: React.PropTypes.string.isRequired,
+  found: React.PropTypes.bool.isRequired,
 };
 
 const Keyboard = function(props) {
@@ -59,6 +74,11 @@ const Keyboard = function(props) {
       </p>
       );
 };
+Keyboard.propTypes = {
+  pool: React.PropTypes.array.isRequired,
+  used: React.PropTypes.array.isRequired,
+  handleClick: React.PropTypes.func.isRequired,
+};
 
 class Key extends Component {
   _handleClick() {
@@ -71,5 +91,11 @@ class Key extends Component {
       );
   }
 }
+Key.propTypes = {
+  id: React.PropTypes.number.isRequired,
+  char: React.PropTypes.string.isRequired,
+  used: React.PropTypes.bool.isRequired,
+  handleClick: React.PropTypes.func.isRequired,
+};
 
 export default Engine;

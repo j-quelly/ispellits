@@ -12,6 +12,13 @@ const Body = function(props) {
   } else {
     return (<Engine state={props.state} handleClick={props.handleClick} />);
   }
+}; 
+Body.propTypes = {
+  state: React.PropTypes.object.isRequired,
+  handleClick: React.PropTypes.func.isRequired,
+  handleStartGame: React.PropTypes.func.isRequired,
+  submitForm: React.PropTypes.func.isRequired,
+  resetGame: React.PropTypes.func.isRequired,
 };
 
 export default Body;
