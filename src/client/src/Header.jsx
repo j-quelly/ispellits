@@ -30,14 +30,16 @@ const Logo = function(props) {
         <img
           src={props.logo}
           className="logo logo--xs"
-          alt="I-Spell-Its logo" />
+          alt="I-Spell-Its logo"
+        />
       </Screen>
       {/* larger devices */}
       <Screen minWidth={544}>
         <img
           src={props.logo}
           className="logo"
-          alt="I-Spell-Its logo" />
+          alt="I-Spell-Its logo"
+        />
       </Screen>
     </div>
     );
@@ -55,6 +57,9 @@ const Score = function(props) {
 };
 Score.propTypes = {
   score: React.PropTypes.number.isRequired,
+};
+Score.defaultProps = {
+  score: 0,
 };
 
 const Lives = function(props) {

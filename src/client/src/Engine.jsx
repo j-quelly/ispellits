@@ -12,7 +12,8 @@ const Engine = function(props) {
       <Keyboard
         pool={state.pool}
         used={state.input}
-        handleClick={props.handleClick} />
+        handleClick={props.handleClick}
+      />
     </Screen>
     );
 };
@@ -35,7 +36,8 @@ const Wordbox = function(props) {
   let letters = lettersArr.map((char, i) => <Letter
                                               key={char + i}
                                               char={char}
-                                              found={(props.correct.includes(char) ? true : false)} />);
+                                              found={(props.correct.includes(char) ? true : false)}
+                                            />);
   return (
     <div className="wb">
       {letters}
@@ -48,11 +50,11 @@ Wordbox.propTypes = {
 };
 
 const Letter = function(props) {
-    return (
-      <p className="wb__letter">
-        {(props.found ? props.char : '_')}
-      </p>
-      );
+  return (
+    <p className="wb__letter">
+      {(props.found ? props.char : '_')}
+    </p>
+    );
 };
 Letter.propTypes = {
   char: React.PropTypes.string.isRequired,
@@ -60,19 +62,20 @@ Letter.propTypes = {
 };
 
 const Keyboard = function(props) {
-    let letters = props.pool.map((char, i) => {
-      return (<Key
-                key={char + i}
-                id={i}
-                char={char}
-                handleClick={props.handleClick}
-                used={(props.used.includes(char) ? true : false)} />);
-    });
-    return (
-      <p className="keyboard">
-        {letters}
-      </p>
-      );
+  let letters = props.pool.map((char, i) => {
+    return (<Key
+              key={char + i}
+              id={i}
+              char={char}
+              handleClick={props.handleClick}
+              used={(props.used.includes(char) ? true : false)}
+            />);
+  });
+  return (
+    <p className="keyboard">
+      {letters}
+    </p>
+    );
 };
 Keyboard.propTypes = {
   pool: React.PropTypes.array.isRequired,
@@ -81,13 +84,13 @@ Keyboard.propTypes = {
 };
 
 class Key extends Component {
-  _handleClick() {
+  handleClick() {
     this.props.handleClick(this.props.id);
   }
   render() {
     let className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
     return (
-      <span>{(this.props.char === '-' ? <br/> : <span onClick={this._handleClick.bind(this)} className={className}>{this.props.char}</span>)}</span>
+      <span>{(this.props.char === '-' ? <br/> : <span onClick={() => this.handleClick()} className={className}>{this.props.char}</span>)}</span>
       );
   }
 }

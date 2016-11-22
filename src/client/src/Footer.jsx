@@ -20,7 +20,8 @@ const Yeti = function(props) {
       <img
         src={props.yeti}
         className="yeti yeti--xs"
-        alt="Yeti" />
+        alt="Yeti"
+      />
     </Screen>
     );
 };

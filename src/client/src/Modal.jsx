@@ -11,7 +11,8 @@ const Modal = function(props) {
     return (<ScoreScreen
               roundScore={props.state.roundScore}
               totalScore={props.state.totalScore}
-              handleClick={props.handleClick} />);
+              handleClick={props.handleClick}
+            />);
   } else if (state.inputScreen) {
     return (<InputScreen title={state.title} submitForm={props.submitForm} />);
   } else if (state.highScoreScreen) {
@@ -19,7 +20,6 @@ const Modal = function(props) {
   }
 };
 Modal.propTypes = {
-  // todo: confirm whether passing the entire state down is good/bad practice..
   state: React.PropTypes.object.isRequired,
   handleClick: React.PropTypes.func.isRequired,
   submitForm: React.PropTypes.func.isRequired,
@@ -104,12 +104,12 @@ InputScreen.propTypes = {
   submitForm: React.PropTypes.func.isRequired,
 };
 InputScreen.defaultProps = {
-  // title is not default so we know to pass a title
+  title: 'You did not pass a title',
   body: 'Not from state: Enter your name or something...',
 };
 
 class HighScores extends Component {
-  _handleClick() {
+  handleClick() {
     this.props.resetGame();
   }
 
@@ -121,7 +121,7 @@ class HighScores extends Component {
           <p className="modal__body">
             {this.props.body}
           </p>
-          <button onClick={this._handleClick.bind(this)}>
+          <button onClick={() => this.handleClick()}>
             Play again?
           </button>
         </div>
@@ -140,12 +140,13 @@ HighScores.defaultProps = {
 };
 
 class Btn extends Component {
-  _handleClick() {
+  handleClick() {
     this.props.handleClick();
   }
+
   render() {
     return (
-      <button className="btn" onClick={this._handleClick.bind(this)}>
+      <button className="btn" onClick={() => this.handleClick()}>
         {this.props.btnText}
       </button>
       );
@@ -160,15 +161,17 @@ Btn.defaultProps = {
 };
 
 class Form extends Component {
-  _onFormSubmit(e) {
+  onFormSubmit(e) {
     e.preventDefault();
     this.props.submitForm();
   }
 
   render() {
     return (
-      <form onSubmit={this._onFormSubmit.bind(this)}>
-        <input placeholder="Name" ref={ref => { this.name = ref }} />
+      <form onSubmit={() => this.onFormSubmit()}>
+        <input placeholder="Name" ref={ref => {
+                                         this.name = ref
+                                       }} />
         <input type="submit" />
       </form>
       );

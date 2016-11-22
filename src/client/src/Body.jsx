@@ -8,11 +8,12 @@ const Body = function(props) {
               state={props.state}
               handleClick={props.handleStartGame}
               submitForm={props.submitForm}
-              resetGame={props.resetGame} />);
+              resetGame={props.resetGame}
+            />);
   } else {
-    return (<Engine state={props.state} handleClick={props.handleClick} />);
+    return <Engine state={props.state} handleClick={props.handleClick} />;
   }
-}; 
+};
 Body.propTypes = {
   state: React.PropTypes.object.isRequired,
   handleClick: React.PropTypes.func.isRequired,

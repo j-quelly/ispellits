@@ -1,3 +1,5 @@
+// todo: confirm whether passing the entire state down is good/bad practice..
+
 import React, { Component } from 'react';
 
 // components
@@ -29,6 +31,20 @@ let clues = (() => {
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.handleStartGame = this.handleStartGame.bind(this);
+    this.proceed = this.proceed.bind(this);
+    this.updateWordBank = this.updateWordBank.bind(this);
+    this.handleKeyboardClick = this.handleKeyboardClick.bind(this);
+    this.updateGameState = this.updateGameState.bind(this);
+    this.incrementScore = this.incrementScore.bind(this);
+    this.decrementScore = this.decrementScore.bind(this);
+    this.updateLives = this.updateLives.bind(this);
+    this.bonusLife = this.bonusLife.bind(this);
+    this.nextWord = this.nextWord.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+    this.resetGame = this.resetGame.bind(this);
+
     this.state = {
       title: '',
       word: '',
@@ -52,12 +68,24 @@ class App extends Component {
     };
   }
 
-  _handleStartGame = () => {
-    this._proceed();
+  handleStartGame() {
+    this.proceed();
   }
 
-  _proceed = () => {
-    this._updateWordBank();
+  handleKeyboardClick(index) {
+    let input = this.state.pool[index];
+    this.updateGameState(input);
+  }
+
+  submitForm() {
+    this.setState({
+      inputScreen: false, // hide the input screen
+      highScoreScreen: true, // show the high score screen
+    });
+  }
+
+  proceed() {
+    this.updateWordBank();
     this.setState({
       correct: [],
       input: [],
@@ -69,7 +97,7 @@ class App extends Component {
     });
   }
 
-  _updateWordBank = () => {
+  updateWordBank() {
     let words = this.state.words;
     let clues = this.state.clues;
     let nextWord = words[Math.floor(Math.random() * words.length)];
@@ -88,18 +116,13 @@ class App extends Component {
     });
   }
 
-  _handleKeyboardClick = (index) => {
-    let input = this.state.pool[index];
-    this._updateGameState(input);
-  }
-
-  _updateGameState = (input) => {
+  updateGameState(input) {
     let word = this.state.word;
 
     // if the input is found
     if (word.includes(input) && !this.state.correct.includes(input)) {
       // count the # of occurences
-      let count = (word.match(new RegExp(input, "g")) || []).length;
+      let count = (word.match(new RegExp(input, 'g')) || []).length;
       let arr = [];
       for (let i = 0; i < count; i++) {
         arr.push(input);
@@ -107,46 +130,46 @@ class App extends Component {
       this.setState({
         correct: [...this.state.correct, ...arr],
         input: [...this.state.input, input],
-        roundScore: this._incrementScore(10),
+        roundScore: this.incrementScore(10),
         yeti: yetiWin,
       }, () => {
         if (this.state.correct.length === this.state.word.length) {
           setTimeout(() => {
-            this._updateLives(this._nextWord);
+            this.updateLives(this.nextWord);
           }, 500);
         }
       });
     } else {
       if (!this.state.input.includes(input)) {
         this.setState({
-          input: [...this.state.input, input],          
-          roundScore: this._decrementScore(2),
+          input: [...this.state.input, input],
+          roundScore: this.decrementScore(2),
           yeti: yetiLose,
         });
       }
     }
   }
 
-  _incrementScore = (n) => {
+  incrementScore(n) {
     let score = this.state.roundScore;
     score += n;
     return score;
   }
 
-  _decrementScore = (n) => {
+  decrementScore(n) {
     let score = this.state.roundScore;
     score -= n;
     return score;
   }
 
-  _updateLives = (cb) => {
+  updateLives(cb) {
     let lives = this.state.lives;
     let totalScore = this.state.totalScore;
     let roundScore = this.state.roundScore;
     totalScore += roundScore;
 
     if (totalScore >= 100) {
-      lives = this._bonusLife(totalScore, lives);
+      lives = this.bonusLife(totalScore, lives);
     }
 
     if (this.state.correct.length === this.state.input.length) {
@@ -164,7 +187,7 @@ class App extends Component {
 
   }
 
-  _bonusLife = (totalScore, lives) => {
+  bonusLife(totalScore, lives) {
     let score = this.state.bonusScore;
     if (totalScore - score >= 100) {
       lives++;
@@ -176,7 +199,7 @@ class App extends Component {
     return lives;
   }
 
-  _nextWord = () => {
+  nextWord() {
     if (this.state.totalWords === 0) {
       console.log('beat the game');
       /**
@@ -209,14 +232,9 @@ class App extends Component {
     }
   }
 
-  _submitForm = () => {
-    this.setState({
-      inputScreen: false, // hide the input screen
-      highScoreScreen: true, // show the high score screen
-    });
-  }
 
-  _resetGame = () => {
+
+  resetGame() {
     this.setState({
       title: '',
       word: '',
@@ -254,13 +272,15 @@ class App extends Component {
         <Header
           modal={this.state.modal}
           lives={this.state.lives}
-          score={this.state.roundScore} />
+          score={this.state.roundScore}
+        />
         <Body
           state={this.state}
-          handleStartGame={this._handleStartGame}
-          handleClick={this._handleKeyboardClick}
-          submitForm={this._submitForm}
-          resetGame={this._resetGame} />
+          handleStartGame={this.handleStartGame}
+          handleClick={this.handleKeyboardClick}
+          submitForm={this.submitForm}
+          resetGame={this.resetGame}
+        />
         <Footer yeti={this.state.yeti} />
       </div>
       );
