@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Screen from 'react-responsive';
+import { Score } from './Header';
 
 import './css/Modal.css';
 
@@ -60,14 +61,16 @@ const ScoreScreen = function(props) {
         <p className="modal__body">
           {props.body}
         </p>
-        <p className="modal__body">
-          Score:
-          {props.roundScore}
-        </p>
-        <p className="modal__body">
-          Total Score:
-          {props.totalScore}
-        </p>
+        <Score
+          test="modal__body"
+          score={props.roundScore}
+          text="Score: "
+        />
+        <Score
+          test="modal__body"
+          score={props.totalScore}
+          text="Total Score: "
+        />
         <Btn handleClick={props.handleClick} btnText={props.btnText} />
       </div>
     </Screen>
@@ -121,6 +124,7 @@ class HighScores extends Component {
           <p className="modal__body">
             {this.props.body}
           </p>
+          {/*<Btn handleClick={props.resetGame} btnText={props.btnText} />*/}
           <button onClick={() => this.handleClick()}>
             Play again?
           </button>
@@ -133,10 +137,12 @@ HighScores.propTypes = {
   title: React.PropTypes.string.isRequired,
   body: React.PropTypes.string.isRequired,
   resetGame: React.PropTypes.func.isRequired,
+  btnText: React.PropTypes.string.isRequired,
 };
 HighScores.defaultProps = {
   title: 'Hall of Fame',
   body: 'todo: display high scores here...',
+  btnText: 'Play Again?',
 };
 
 class Btn extends Component {

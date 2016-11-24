@@ -1,48 +1,45 @@
-/**
+ /**
  * Modal Component
  */
-
-.modal {
-    background: #fff;
-    padding: 4%;
-    position: absolute;
-    width: 82%;
-    left: 5%;
-    margin: 10px 0 0 0;
-    border-radius: 6px;
-    z-index: 2;
-}
-
-.modal__title {
-    font-family: 'Gloria Hallelujah', cursive;
-    color: #000;
-    font-size: 16px;
-    margin: 0 0 10px 0;
-    padding: 0;
-}
-
-.modal__body {
-    font-family: 'Gloria Hallelujah', cursive;
-    color: #000;
-    font-size: 14px;
-    margin: 0 0 10px 0;
-    padding: 0;
-}
-
-
-/**
+ 
+ .modal {
+     background: #fff;
+     border-radius: 6px;
+     left: 5%;
+     margin: 10px 0 0 0;
+     padding: 4%;
+     position: absolute;
+     width: 82%;
+     z-index: 2;
+ }
+ 
+ .modal__title {
+     color: #000;
+     font-family: 'Gloria Hallelujah', cursive;
+     font-size: 16px;
+     margin: 0 0 10px 0;
+     padding: 0;
+ }
+ 
+ .modal__body {
+     color: #000;
+     font-family: 'Gloria Hallelujah', cursive;
+     font-size: 14px;
+     margin: 0 0 10px 0;
+     padding: 0;
+ }
+ /**
  * Button Component
  */
-
-.btn {
-    margin: 10px 0 0 0;
-}
-
-
-/**
+ 
+ .btn {
+     margin: 10px 0 0 0;
+ }
+ 
+ /**
  * Odometer Component
  * todo: figure out what to do with this..
  */
-.highscore {
+ /* .highscore {
     
-}
+} */

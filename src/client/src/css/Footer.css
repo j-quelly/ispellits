@@ -3,10 +3,10 @@
  */
 
 .yeti {
-    position: fixed;
-    z-index: 2;
     bottom: 2%;
+    position: fixed;
     right: 2%;
+    z-index: 2;
 }
 
 .yeti--xs {
@@ -19,20 +19,20 @@
  */
 
 .trees {
-    width: 100%;
-    height: 110px;
-    position: fixed;
     bottom: 0;
+    height: 110px;
     left: 0;
+    position: fixed;
+    width: 100%;
     z-index: 1;
 }
 
 .trees__tree {
-    background: url('../images/tree.png') no-repeat;
     background-size: 30px;
-    width: 30px;
-    height: 50px;
+    background: url('../images/tree.png') no-repeat;
     float: left;
+    height: 50px;
+    width: 30px;
 }
 
 .trees__tree--1 {

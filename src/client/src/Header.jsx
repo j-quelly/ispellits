@@ -50,16 +50,20 @@ Logo.propTypes = {
 
 const Score = function(props) {
   return (
-    <p className="score score--right">
-      {props.score} pts
+    <p className={props.test}>
+      {props.text}{props.score} pts
     </p>
     );
 };
 Score.propTypes = {
   score: React.PropTypes.number.isRequired,
+  test: React.PropTypes.string,
+  text: React.PropTypes.string,
 };
 Score.defaultProps = {
   score: 0,
+  test: 'score score--right',
+  text: '',
 };
 
 const Lives = function(props) {
@@ -74,4 +78,4 @@ Lives.propTypes = {
   lives: React.PropTypes.number.isRequired,
 };
 
-export default Header;
+export { Header, Score };

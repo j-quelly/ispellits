@@ -18,18 +18,18 @@
 }
 
 .wb:after {
+    clear: both;
     content: "";
     display: table;
-    clear: both;
 }
 
 .wb__letter {
-    display: inline-block;
-    margin: 0 3px 0 0;
+    background: #ddf3fe;
     color: #000;
-    background: #DDF3FE;
+    display: inline-block;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 20px;
+    margin: 0 3px 0 0;
     width: 40px;
 }
 
@@ -39,28 +39,28 @@
  */
 
 .keyboard {
+    color: #000;
     margin: 0 auto 0 auto;
     padding: 2% 4% 4% 4%;
-    color: #000;
 }
 
 .keyboard:after {
+    clear: both;
     content: "";
     display: table;
-    clear: both;
 }
 
 .keyboard__key {
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Gloria Hallelujah', cursive;
     font-size: 22px;
     padding: 0 9px;
-    cursor: pointer;
-    font-family: 'Gloria Hallelujah', cursive;
-    display: inline-block;
     position: relative;
     z-index: 30;
 }
 
 .keyboard__key--used {
-    opacity: 0.2;
     cursor: initial;
+    opacity: 0.2;
 }

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 
 // components
-import Header from './Header';
+import { Header } from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
@@ -168,9 +168,7 @@ class App extends Component {
     let roundScore = this.state.roundScore;
     totalScore += roundScore;
 
-    if (totalScore >= 100) {
-      lives = this.bonusLife(totalScore, lives);
-    }
+    lives = this.bonusLife(totalScore, lives);
 
     if (this.state.correct.length === this.state.input.length) {
       lives++;
@@ -188,14 +186,16 @@ class App extends Component {
   }
 
   bonusLife(totalScore, lives) {
-    let score = this.state.bonusScore;
-    if (totalScore - score >= 100) {
-      lives++;
-      score += 100;
+    if (totalScore >= 100) {
+      let score = this.state.bonusScore;
+      if (totalScore - score >= 100) {
+        lives++;
+        score += 100;
+      }
+      this.setState({
+        bonusScore: score
+      });
     }
-    this.setState({
-      bonusScore: score
-    });
     return lives;
   }
 
@@ -231,8 +231,6 @@ class App extends Component {
       });
     }
   }
-
-
 
   resetGame() {
     this.setState({
