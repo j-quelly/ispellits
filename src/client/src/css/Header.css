@@ -2,9 +2,15 @@
  * Logo Component
  */
 
+
+/* Logo block */
+
 .logo {
     margin: 20px 0 0 0;
 }
+
+
+/* Logo block modifier */
 
 .logo--xs {
     width: 280px;
@@ -15,10 +21,16 @@
  * Score Component
  */
 
+
+/* Score block */
+
 .score {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 20px;
 }
+
+
+/* Score block modifier */
 
 .score--right {
     margin: 0;
@@ -34,6 +46,9 @@
  * Lives Component
  */
 
+
+/* Lives block */
+
 .lives {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 20px;
@@ -42,6 +57,9 @@
     position: absolute;
     top: 1%;
 }
+
+
+/* Lives block modifier */
 
 .lives--left {
     text-align: left;

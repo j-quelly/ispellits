@@ -2,6 +2,9 @@
  * Clue Component
  */
 
+
+/* Clue block */
+
 .clue {
     font-family: 'Gloria Hallelujah', cursive;
     margin: 50px 15px 15px 15px;
@@ -12,16 +15,25 @@
  * Word Box Component
  */
 
+
+/* Word block */
+
 .wb {
     margin: 5px auto 0 auto;
     padding: 2%;
 }
+
+
+/* Word block pseudo-element */
 
 .wb:after {
     clear: both;
     content: "";
     display: table;
 }
+
+
+/* Word block element */
 
 .wb__letter {
     background: #ddf3fe;
@@ -38,17 +50,25 @@
  * Keyboard Component
  */
 
+
+/* Keyboard block */
+
 .keyboard {
     color: #000;
     margin: 0 auto 0 auto;
     padding: 2% 4% 4% 4%;
 }
 
+/* Keyboard block pseudo-element */
+
 .keyboard:after {
     clear: both;
     content: "";
     display: table;
 }
+
+
+/* Keyboard block element */
 
 .keyboard__key {
     cursor: pointer;
@@ -59,6 +79,9 @@
     position: relative;
     z-index: 30;
 }
+
+
+/* Keyboard element modifier */
 
 .keyboard__key--used {
     cursor: initial;

@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.6.4
-- Client: 0.6.0
+- Client: 0.7.0
 
 ## Getting Started
 $ npm run dev server
@@ -83,7 +83,7 @@ $ npm run dev server
 - [ ] animations:
   - [ ] score
   - [ ] yeti
-- [ ] better buttonscon
+- [ ] better buttons
 
 ### Client
 - [x] styles
@@ -94,12 +94,12 @@ $ npm run dev server
 - [x] single responsibility [11/23/2016]
 - [x] clean up and reorganize code [11/23/2016]
 - [x] clean up state object [11/17/2016]
-- [ ] comment / document JS
-- [ ] comment / document CSS
-- [ ] ARIA
-- [ ] try not to mutate state
-- [ ] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump
+- [x] comment / document CSS [11/28/2016]
+- [x] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump [11/28/2016]
 - [ ] look into improving modal.jsx for more reuse
+- [ ] try not to mutate state when adding redux
+- [ ] comment / document JS once redux has been addded
+- [ ] ARIA
 
 
 ### Issues
@@ -114,7 +114,8 @@ $ npm run dev server
 - [x] reads config file [11/7/2016]
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
 - [x] Heroku deployment seems to be broken... [11/18/2016]
-- [ ] high score screen is not showing
+- [x] high score screen is not showing [11/28/2016]
+- [ ] trees are not displaying
 
 ### 2.x.x
 - [ ] react native	

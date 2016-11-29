@@ -96,7 +96,7 @@ const InputScreen = function(props) {
         <p className="modal__body">
           {props.body}
         </p>
-        <Form submitForm={props.submitForm} />
+        <InputForm submitForm={props.submitForm} />
       </div>
     </Screen>
     );
@@ -108,7 +108,7 @@ InputScreen.propTypes = {
 };
 InputScreen.defaultProps = {
   title: 'You did not pass a title',
-  body: 'Not from state: Enter your name or something...',
+  body: 'Enter your name...',
 };
 
 class HighScores extends Component {
@@ -124,10 +124,10 @@ class HighScores extends Component {
           <p className="modal__body">
             {this.props.body}
           </p>
-          {/*<Btn handleClick={props.resetGame} btnText={props.btnText} />*/}
-          <button onClick={() => this.handleClick()}>
+          <Btn handleClick={this.props.resetGame} btnText={this.props.btnText} />
+          {/*<button onClick={() => this.handleClick()}>
             Play again?
-          </button>
+          </button>*/}
         </div>
       </Screen>
       );
@@ -166,15 +166,20 @@ Btn.defaultProps = {
   btnText: 'Click Me',
 };
 
-class Form extends Component {
+class InputForm extends Component {
+  constructor(props) {
+    super(props);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
+
   onFormSubmit(e) {
-    e.preventDefault();
+    e.preventDefault();    
     this.props.submitForm();
   }
 
   render() {
     return (
-      <form onSubmit={() => this.onFormSubmit()}>
+      <form onSubmit={(e) => this.onFormSubmit(e) }>
         <input placeholder="Name" ref={ref => {
                                          this.name = ref
                                        }} />
@@ -183,7 +188,7 @@ class Form extends Component {
       );
   }
 }
-Form.propTypes = {
+InputForm.propTypes = {
   submitForm: React.PropTypes.func.isRequired,
 };
 

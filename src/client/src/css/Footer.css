@@ -2,6 +2,9 @@
  * Yeti Component
  */
 
+
+/* Yeti block */
+
 .yeti {
     bottom: 2%;
     position: fixed;
@@ -9,14 +12,20 @@
     z-index: 2;
 }
 
+
+/* Yeti block modifier */
+
 .yeti--xs {
     width: 35%;
 }
 
 
 /**
- * Tree Component
+ * Trees Component
  */
+
+
+/* Trees block */
 
 .trees {
     bottom: 0;
@@ -27,6 +36,9 @@
     z-index: 1;
 }
 
+
+/* Trees block element */
+
 .trees__tree {
     background-size: 30px;
     background: url('../images/tree.png') no-repeat;
@@ -35,9 +47,15 @@
     width: 30px;
 }
 
+
+/* Trees block element modifier */
+
 .trees__tree--1 {
     margin: 0 0 0 6%;
 }
+
+
+/* Trees block element modifier */
 
 .trees__tree--2 {
     margin: 2% 0 0 4%;

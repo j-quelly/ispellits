@@ -18,17 +18,16 @@ import dictionary from './data/test-dictionary';
 // data
 // import dictionary from './data/dictionary';
 
-let clues = (() => {
-  let vals = [];
-  for (let i in dictionary) {
-    if (dictionary.hasOwnProperty(i)) {
-      vals.push(dictionary[i]);
-    }
-  }
-  return vals;
-})(dictionary);
-
+/** 
+ * @description Represents a game of hangman
+ * @extends Component
+ */
 class App extends Component {
+  /**
+   * @description Set the state of the application
+   * @constructor
+   * @param {object} props - application properties
+   */
   constructor(props) {
     super(props);
 
@@ -50,7 +49,15 @@ class App extends Component {
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
-      clues: clues,
+      clues: (() => {
+        let vals = [];
+        for (let i in dictionary) {
+          if (dictionary.hasOwnProperty(i)) {
+            vals.push(dictionary[i]);
+          }
+        }
+        return vals;
+      })(dictionary),
       clue: '',
       input: [],
       correct: [],
@@ -68,10 +75,22 @@ class App extends Component {
     };
   }
 
+  /**
+  * @function handleStartGame 
+  * @description Starts the game by invoking the @proceed method
+  * @returns {void}
+  */
   handleStartGame() {
     this.proceed();
   }
 
+  /**
+  * @function handleKeyboardClick 
+  * @description Handles keyboard input from user then invokes
+  * the @updateGameState method
+  * @param {number} index - index value of letter on keyboard
+  * @returns {void}
+  */
   handleKeyboardClick(index) {
     let input = this.state.pool[index];
     this.updateGameState(input);
