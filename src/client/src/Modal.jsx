@@ -7,27 +7,35 @@ import './css/Modal.css';
 const Modal = function(props) {
   let state = props.state;
   if (state.startScreen) {
-    return (<StartScreen handleClick={props.handleClick} />);
+    return (<Guts>
+              <Btn handleClick={props.handleClick} btnText="Start" />
+            </Guts>);
   } else if (state.scoreScreen) {
-    return (<ScoreScreen
-              roundScore={props.state.roundScore}
-              totalScore={props.state.totalScore}
-              handleClick={props.handleClick}
-            />);
+    return (<Guts title="Round End" body="You're a subs-hero">
+              <Score
+                test="modal__body"
+                score={props.state.roundScore}
+                text="Score: "
+              />
+              <Score
+                test="modal__body"
+                score={props.state.totalScore}
+                text="Total Score: "
+              />
+              <Btn handleClick={props.handleClick} btnText="Next Word" />
+            </Guts>);
   } else if (state.inputScreen) {
-    return (<InputScreen title={state.title} submitForm={props.submitForm} />);
+    return (<Guts title={state.title} body="Enter your name...">
+              <InputForm submitForm={props.submitForm} />
+            </Guts>);
   } else if (state.highScoreScreen) {
-    return (<HighScores resetGame={props.resetGame} />);
+    return (<Guts title="Hall of Fame" body="todo: display high scores here...">
+              <Btn handleClick={props.resetGame} btnText="Play again?" />
+            </Guts>);
   }
 };
-Modal.propTypes = {
-  state: React.PropTypes.object.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
-  submitForm: React.PropTypes.func.isRequired,
-  resetGame: React.PropTypes.func.isRequired,
-};
 
-const StartScreen = function(props) {
+const Guts = function(props) {
   return (
     <Screen maxWidth={543}>
       <div className="modal">
@@ -35,114 +43,20 @@ const StartScreen = function(props) {
         <p className="modal__body">
           {props.body}
         </p>
-        <Btn handleClick={props.handleClick} btnText={props.btnText} />
+        {props.children}
       </div>
     </Screen>
     );
 };
-StartScreen.propTypes = {
+Guts.propTypes = {
   title: React.PropTypes.string.isRequired,
   body: React.PropTypes.string.isRequired,
   btnText: React.PropTypes.string.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
 };
-StartScreen.defaultProps = {
+Guts.defaultProps = {
   title: 'Game Rules',
   body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
   btnText: 'Start',
-};
-
-
-const ScoreScreen = function(props) {
-  return (
-    <Screen maxWidth={543}>
-      <div className="modal">
-        <h1 className="modal__title">{props.title}</h1>
-        <p className="modal__body">
-          {props.body}
-        </p>
-        <Score
-          test="modal__body"
-          score={props.roundScore}
-          text="Score: "
-        />
-        <Score
-          test="modal__body"
-          score={props.totalScore}
-          text="Total Score: "
-        />
-        <Btn handleClick={props.handleClick} btnText={props.btnText} />
-      </div>
-    </Screen>
-    );
-};
-ScoreScreen.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  body: React.PropTypes.string.isRequired,
-  btnText: React.PropTypes.string.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
-};
-ScoreScreen.defaultProps = {
-  title: 'Round End',
-  body: `You're a subs-hero!`,
-  btnText: 'Next Word',
-};
-
-const InputScreen = function(props) {
-  return (
-    <Screen maxWidth={543}>
-      <div className="modal">
-        <h1 className="modal__title">{props.title}</h1>
-        <p className="modal__body">
-          {props.body}
-        </p>
-        <InputForm submitForm={props.submitForm} />
-      </div>
-    </Screen>
-    );
-};
-InputScreen.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  body: React.PropTypes.string.isRequired,
-  submitForm: React.PropTypes.func.isRequired,
-};
-InputScreen.defaultProps = {
-  title: 'You did not pass a title',
-  body: 'Enter your name...',
-};
-
-class HighScores extends Component {
-  handleClick() {
-    this.props.resetGame();
-  }
-
-  render() {
-    return (
-      <Screen maxWidth={543}>
-        <div className="modal">
-          <h1 className="modal__title">{this.props.title}</h1>
-          <p className="modal__body">
-            {this.props.body}
-          </p>
-          <Btn handleClick={this.props.resetGame} btnText={this.props.btnText} />
-          {/*<button onClick={() => this.handleClick()}>
-            Play again?
-          </button>*/}
-        </div>
-      </Screen>
-      );
-  }
-}
-HighScores.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  body: React.PropTypes.string.isRequired,
-  resetGame: React.PropTypes.func.isRequired,
-  btnText: React.PropTypes.string.isRequired,
-};
-HighScores.defaultProps = {
-  title: 'Hall of Fame',
-  body: 'todo: display high scores here...',
-  btnText: 'Play Again?',
 };
 
 class Btn extends Component {
@@ -173,17 +87,17 @@ class InputForm extends Component {
   }
 
   onFormSubmit(e) {
-    e.preventDefault();    
+    e.preventDefault();
     this.props.submitForm();
   }
 
   render() {
     return (
-      <form onSubmit={(e) => this.onFormSubmit(e) }>
+      <form onSubmit={(e) => this.onFormSubmit(e)}>
         <input placeholder="Name" ref={ref => {
                                          this.name = ref
                                        }} />
-        <input type="submit" />
+        <input type="submit" className="btn" />
       </form>
       );
   }

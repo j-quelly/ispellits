@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
 	grunt.initConfig
 		path: require "path"
-		client: "0.7.0"
+		client: "0.8.0"
 		server: "0.6.4"
 
 		# list our available tasks
@@ -57,4 +57,4 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks "grunt-string-replace"
 
 	# register our grunt tasks
-	grunt.registerTask("default", ["availabletasks"])
+	grunt.registerTask("versionbump", ["string-replace:client", "string-replace:server"])

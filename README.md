@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.6.4
-- Client: 0.7.0
+- Client: 0.8.0
 
 ## Getting Started
 $ npm run dev server
@@ -83,7 +83,8 @@ $ npm run dev server
 - [ ] animations:
   - [ ] score
   - [ ] yeti
-- [ ] better buttons
+- [x] better buttons [11/29/2016]
+	- [ ] change the colour to blue
 
 ### Client
 - [x] styles
@@ -96,11 +97,13 @@ $ npm run dev server
 - [x] clean up state object [11/17/2016]
 - [x] comment / document CSS [11/28/2016]
 - [x] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump [11/28/2016]
-- [ ] look into improving modal.jsx for more reuse
+- [x] look into improving modal.jsx for more reuse [11/29/2016]
+- [ ] accessibility?
+
+### Redux
+- [ ] read chapters on server usage & redux
 - [ ] try not to mutate state when adding redux
 - [ ] comment / document JS once redux has been addded
-- [ ] ARIA
-
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
@@ -115,7 +118,8 @@ $ npm run dev server
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
 - [x] Heroku deployment seems to be broken... [11/18/2016]
 - [x] high score screen is not showing [11/28/2016]
-- [ ] trees are not displaying
+- [ ] trees are not displaying in dev
+- [ ] submit button hover pushes input down
 
 ### 2.x.x
 - [ ] react native	
