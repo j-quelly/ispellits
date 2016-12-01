@@ -74,14 +74,22 @@
      margin: 12px 0 0 0;
  }
  
- input {
+ input[type="text"] {
      border: solid 1px #e4e4e4;
      border-radius: 6px;
      color: #999999;
      font-size: 12px;
      height: 29px;
-     margin: 0 5px 15px 0;
-     padding: 8px 8px 5px 8px;
+     margin: 0 0 15px 0;
+     padding: 10px 15px 5px 15px;
+ }
+
+ .error {
+     color: red;
+     font-family: 'Gloria Hallelujah', cursive;
+     font-size: 12px;
+     margin: 0;
+     padding: 0;     
  }
  /**
  * Odometer Component

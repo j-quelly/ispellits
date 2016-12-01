@@ -72,6 +72,7 @@ class App extends Component {
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
+      validationError: false, 
     };
   }
 
@@ -96,11 +97,17 @@ class App extends Component {
     this.updateGameState(input);
   }
 
-  submitForm() {
-    this.setState({
-      inputScreen: false, // hide the input screen
-      highScoreScreen: true, // show the high score screen
-    });
+  submitForm(name) {
+    if (name === '') {
+      this.setState({
+        validationError: true,
+      })
+    } else {
+      this.setState({
+        inputScreen: false, // hide the input screen
+        highScoreScreen: true, // show the high score screen
+      });
+    }
   }
 
   proceed() {
@@ -280,6 +287,7 @@ class App extends Component {
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
+      validationError: false,
     });
   }
 
@@ -297,6 +305,7 @@ class App extends Component {
           handleClick={this.handleKeyboardClick}
           submitForm={this.submitForm}
           resetGame={this.resetGame}
+          validationError={this.state.validationError}
         />
         <Footer yeti={this.state.yeti} />
       </div>

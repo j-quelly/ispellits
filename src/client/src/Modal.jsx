@@ -26,7 +26,7 @@ const Modal = function(props) {
             </Guts>);
   } else if (state.inputScreen) {
     return (<Guts title={state.title} body="Enter your name...">
-              <InputForm submitForm={props.submitForm} />
+              <InputForm submitForm={props.submitForm} validationError={state.validationError} />
             </Guts>);
   } else if (state.highScoreScreen) {
     return (<Guts title="Hall of Fame" body="todo: display high scores here...">
@@ -88,15 +88,22 @@ class InputForm extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    this.props.submitForm();
+    const name = this.name.value;
+    this.props.submitForm(name);
   }
 
   render() {
+    let errorMsg = (this.props.validationError ? <p className="error">Please enter your name.</p> : '');
     return (
       <form onSubmit={(e) => this.onFormSubmit(e)}>
-        <input placeholder="Name" ref={ref => {
-                                         this.name = ref
-                                       }} />
+        <input
+          type="text"
+          placeholder="Name"
+          ref={ref => {
+                 this.name = ref
+               }}
+        />
+        {errorMsg}
         <input type="submit" className="btn" />
       </form>
       );

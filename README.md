@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.6.4
-- Client: 0.8.0
+- Client: 0.9.1
 
 ## Getting Started
 $ npm run dev server
@@ -54,13 +54,12 @@ $ npm run dev server
 - [x] finish js style guide - https://github.com/airbnb/javascript [11/15/2016]
 - [x] comment [11/12/2016]
 - [ ] document - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
-- [ ] redux
 - [ ] graphql - read more on this
 - [ ] relay - read more on this
 - [ ] endpoint for creating and reading player & score
 
-## Testing
-- [ ] client testing - read chapters on this
+### Testing
+- [x] client testing - read chapters on this [11/30/2016]
 - [ ] server testing - read up on this
 - [ ] platform testing
 	- [ ] mobile
@@ -84,7 +83,6 @@ $ npm run dev server
   - [ ] score
   - [ ] yeti
 - [x] better buttons [11/29/2016]
-	- [ ] change the colour to blue
 
 ### Client
 - [x] styles
@@ -98,11 +96,12 @@ $ npm run dev server
 - [x] comment / document CSS [11/28/2016]
 - [x] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump [11/28/2016]
 - [x] look into improving modal.jsx for more reuse [11/29/2016]
+- [x] input field validation [11/30/2016]
 - [ ] accessibility?
 
 ### Redux
-- [ ] read chapters on server usage & redux
-- [ ] try not to mutate state when adding redux
+- [ ] read chapters on server usage 
+- [ ] read chapters on redux
 - [ ] comment / document JS once redux has been addded
 
 ### Issues
@@ -118,8 +117,8 @@ $ npm run dev server
 - [x] npm run lint seems to only be linting server.js [11/11/2016]
 - [x] Heroku deployment seems to be broken... [11/18/2016]
 - [x] high score screen is not showing [11/28/2016]
+- [x] submit button hover pushes input down [11/30/2016]
 - [ ] trees are not displaying in dev
-- [ ] submit button hover pushes input down
 
 ### 2.x.x
 - [ ] react native	

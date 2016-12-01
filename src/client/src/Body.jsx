@@ -9,6 +9,7 @@ const Body = function(props) {
               handleClick={props.handleStartGame}
               submitForm={props.submitForm}
               resetGame={props.resetGame}
+              validationError={props.validationError}
             />);
   } else {
     return <Engine state={props.state} handleClick={props.handleClick} />;
