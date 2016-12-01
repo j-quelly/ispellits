@@ -15,7 +15,7 @@ import './lib/connection';
 const APP = express();
 
 // middleware
-APP.use(favicon(path.join(__dirname, '', './src/client/build/favicon.ico')));
+// APP.use(favicon(path.join(__dirname, '', './src/client/build/favicon.ico')));
 APP.use(logger('dev'));
 APP.use(bodyParser.json());
 APP.use(bodyParser.urlencoded({

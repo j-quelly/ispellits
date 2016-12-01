@@ -2,7 +2,7 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.6.4
+- Server: 0.6.5
 - Client: 0.9.1
 
 ## Getting Started
@@ -118,6 +118,7 @@ $ npm run dev server
 - [x] Heroku deployment seems to be broken... [11/18/2016]
 - [x] high score screen is not showing [11/28/2016]
 - [x] submit button hover pushes input down [11/30/2016]
+- [x] issue with server finding favicon REMOVED [11/30/2016]
 - [ ] trees are not displaying in dev
 
 ### 2.x.x
