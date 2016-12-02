@@ -32,9 +32,9 @@ Yeti.propTypes = {
 const Trees = function(props) {
   return (
     <Screen maxWidth={543}>
-      <div className="trees">
-        <div className="trees__tree trees__tree--1"></div>
-        <div className="trees__tree trees__tree--2"></div>
+      <div className="forest">
+        <div className="forest__tree forest__tree--1"></div>
+        <div className="forest__tree forest__tree--2"></div>
       </div>
     </Screen>
     );

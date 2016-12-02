@@ -18,6 +18,9 @@ import dictionary from './data/test-dictionary';
 // data
 // import dictionary from './data/dictionary';
 
+// helpers
+import client from './Client.js';
+
 /** 
  * @description Represents a game of hangman
  * @extends Component
@@ -103,6 +106,13 @@ class App extends Component {
         validationError: true,
       })
     } else {
+      const player = {
+        name,
+        score: this.state.totalScore,
+      };
+
+      client.createPlayer(player);
+
       this.setState({
         inputScreen: false, // hide the input screen
         highScoreScreen: true, // show the high score screen
@@ -252,6 +262,7 @@ class App extends Component {
        * End round
        */
       this.setState({
+        yeti: yetiHello,
         modal: true, // show the modal
         scoreScreen: true, // show the score screen
       });

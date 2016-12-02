@@ -7,11 +7,11 @@ import './css/Modal.css';
 const Modal = function(props) {
   let state = props.state;
   if (state.startScreen) {
-    return (<Guts>
+    return (<ModalBody>
               <Btn handleClick={props.handleClick} btnText="Start" />
-            </Guts>);
+            </ModalBody>);
   } else if (state.scoreScreen) {
-    return (<Guts title="Round End" body="You're a subs-hero">
+    return (<ModalBody title="Round End" body="You're a subs-hero">
               <Score
                 test="modal__body"
                 score={props.state.roundScore}
@@ -23,19 +23,19 @@ const Modal = function(props) {
                 text="Total Score: "
               />
               <Btn handleClick={props.handleClick} btnText="Next Word" />
-            </Guts>);
+            </ModalBody>);
   } else if (state.inputScreen) {
-    return (<Guts title={state.title} body="Enter your name...">
+    return (<ModalBody title={state.title} body="Enter your name...">
               <InputForm submitForm={props.submitForm} validationError={state.validationError} />
-            </Guts>);
+            </ModalBody>);
   } else if (state.highScoreScreen) {
-    return (<Guts title="Hall of Fame" body="todo: display high scores here...">
+    return (<ModalBody title="Hall of Fame" body="todo: display high scores here...">
               <Btn handleClick={props.resetGame} btnText="Play again?" />
-            </Guts>);
+            </ModalBody>);
   }
 };
 
-const Guts = function(props) {
+const ModalBody = function(props) {
   return (
     <Screen maxWidth={543}>
       <div className="modal">
@@ -48,14 +48,14 @@ const Guts = function(props) {
     </Screen>
     );
 };
-Guts.propTypes = {
+ModalBody.propTypes = {
   title: React.PropTypes.string.isRequired,
   body: React.PropTypes.string.isRequired,
   btnText: React.PropTypes.string.isRequired,
 };
-Guts.defaultProps = {
+ModalBody.defaultProps = {
   title: 'Game Rules',
-  body: 'Try and guess the word based with the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
+  body: 'Try and guess the word based on the given clue. Guess incorrectly and lose a life. Run out of lives and the game ends. New lives are rewarded for every 100 points you accumulate.',
   btnText: 'Start',
 };
 
