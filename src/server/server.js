@@ -27,8 +27,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // use routes
-APP.use('/', api);
-APP.use('/players', player);
+APP.use('/api', api);
+APP.use('/api/players', player);
 
 // catch 404 and forward to error handler
 APP.use((req, res, next) => {

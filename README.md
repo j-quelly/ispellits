@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.6.5
-- Client: 0.9.3
+- Client: 0.9.4
 
 ## Getting Started
 $ npm run dev server
@@ -121,6 +121,7 @@ $ npm run dev server
 - [x] issue with server finding favicon REMOVED [11/30/2016]
 - [x] trees are not displaying in dev [12/1/2016]
 - [x] snow not displaying [12/1/2016]
+- [x] fixes URI to API in client.js [12/1/2016]
 
 ### 2.x.x
 - [ ] react native	
