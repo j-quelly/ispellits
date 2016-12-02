@@ -75,7 +75,7 @@ class App extends Component {
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
-      validationError: false, 
+      validationError: false,
     };
   }
 
@@ -111,11 +111,11 @@ class App extends Component {
         score: this.state.totalScore,
       };
 
-      client.createPlayer(player);
-
-      this.setState({
-        inputScreen: false, // hide the input screen
-        highScoreScreen: true, // show the high score screen
+      client.createPlayer(player, (idk) => {
+        this.setState({
+          inputScreen: false, // hide the input screen
+          highScoreScreen: true, // show the high score screen
+        });
       });
     }
   }

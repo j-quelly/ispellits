@@ -6,6 +6,8 @@ const ROUTER = express.Router();
 
 // create player
 ROUTER.post('/', (req, res) => {
+  // console.log('cat');
+  // console.log(req);
   // pass the Player name and score
   Player.create({
     name: req.body.name,
