@@ -76,6 +76,7 @@ class App extends Component {
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
       validationError: false,
+      highScores: [],
     };
   }
 
@@ -106,17 +107,27 @@ class App extends Component {
         validationError: true,
       })
     } else {
-      const player = {
+      const playerData = {
         name,
         score: this.state.totalScore,
       };
 
-      client.createPlayer(player, (idk) => {
-        this.setState({
-          inputScreen: false, // hide the input screen
-          highScoreScreen: true, // show the high score screen
-        });
-      });
+      client.createPlayer(playerData,
+        (err) => {
+          // todo: improve error message
+          console.log(err);
+        },
+        client.getPlayers((data) => {
+          this.setState({
+            inputScreen: false, // hide the input screen
+            highScoreScreen: true, // show the high score screen
+            highScores: data,
+          });
+        }, (err) => {
+          // todo: improve this error message
+          console.log(err);
+        })
+      );
     }
   }
 

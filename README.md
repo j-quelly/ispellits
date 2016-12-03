@@ -2,7 +2,7 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.6.5
+- Server: 0.7.0
 - Client: 0.9.5
 
 ## Getting Started
@@ -53,13 +53,12 @@ $ npm run dev server
 - [x] move server assets to server folder src/server & src/client [11/11/2016]
 - [x] finish js style guide - https://github.com/airbnb/javascript [11/15/2016]
 - [x] comment [11/12/2016]
-- [ ] document - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
-- [ ] graphql - read more on this
-- [ ] relay - read more on this
-- [ ] endpoint for creating and reading player & score
+- [x] endpoint for creating a player [12/1/2016]
+- [x] endpoint for getting top players [12/2/2016]
 
 ### Testing
-- [x] client testing - read chapters on this [11/30/2016]
+- [x] read chapters on this [11/30/2016]
+- [ ] add client testing
 - [ ] server testing - read up on this
 - [ ] platform testing
 	- [ ] mobile
@@ -97,12 +96,6 @@ $ npm run dev server
 - [x] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump [11/28/2016]
 - [x] look into improving modal.jsx for more reuse [11/29/2016]
 - [x] input field validation [11/30/2016]
-- [ ] accessibility?
-
-### Redux
-- [ ] read chapters on server usage 
-- [ ] read chapters on redux
-- [ ] comment / document JS once redux has been addded
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
@@ -126,6 +119,12 @@ $ npm run dev server
 
 ### 2.x.x
 - [ ] react native	
+- [ ] graphql - read more on this
+- [ ] relay - read more on this
+- [ ] accessibility?
+- [ ] read chapters on redux for better state management
+- [ ] document JS once redux has been addded
+- [ ] document - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
