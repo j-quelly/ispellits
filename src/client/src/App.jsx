@@ -13,10 +13,10 @@ import yetiLose from './images/yeti-lose.png';
 import yetiWin from './images/yeti-win.png';
 
 // test dictionary
-import dictionary from './data/test-dictionary';
+// import dictionary from './data/test-dictionary';
 
 // data
-// import dictionary from './data/dictionary';
+import dictionary from './data/dictionary';
 
 // helpers
 import client from './Client.js';

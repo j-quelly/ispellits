@@ -3,10 +3,11 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.7.0
-- Client: 0.9.5
+- Client: 0.10.0
 
 ## Getting Started
-$ npm run dev server
+1. $ cd src/server && npm run server
+2. $ cd .. npm run dev server
 
 ## Changelog
 
@@ -77,7 +78,6 @@ $ npm run dev server
 ### Aesthetics
 - [x] yeti
 - [x] trees
-- [ ] improve modal screen design
 - [ ] animations:
   - [ ] score
   - [ ] yeti
@@ -96,6 +96,7 @@ $ npm run dev server
 - [x] add a task runner for version bumping... https://github.com/vojtajina/grunt-bump [11/28/2016]
 - [x] look into improving modal.jsx for more reuse [11/29/2016]
 - [x] input field validation [11/30/2016]
+- [x] display high scores [12/5/2016]
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game

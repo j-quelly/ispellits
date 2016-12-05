@@ -29,14 +29,19 @@ const Modal = function(props) {
               <InputForm submitForm={props.submitForm} validationError={state.validationError} />
             </ModalBody>);
   } else if (state.highScoreScreen) {
-    return (<ModalBody title="Hall of Fame" body="todo:..." highScores={state.highScores}>
+    return (<ModalBody title="Hall of Fame" body="" highScores={state.highScores}>
               <Btn handleClick={props.resetGame} btnText="Play again?" />
             </ModalBody>);
   }
 };
 
 const ModalBody = function(props) {
-  const highScores = (props.highScores ? <p>todo: map over scores</p> : '');
+  const scores = (props.highScores ? props.highScores.map((player) => {
+    return (
+        <li className="scores__player" key={player._id}>{player.name}<span className="scores__score">{player.score} pts</span></li>
+      );
+  }) : '');
+  const highScores = (props.highScores ? <ol className="scores">{scores}</ol> : '');
   return (
     <Screen maxWidth={543}>
       <div className="modal">
