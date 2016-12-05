@@ -64,3 +64,99 @@
 .lives--left {
     text-align: left;
 }
+
+@media (min-width: 768px) {
+    /* Score block */
+    .score {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 20px;
+    }
+    /* Score block modifier */
+    .score--right {
+        margin: 0;
+        position: absolute;
+        right: 100px;
+        text-align: right;
+        top: 1%;
+        width: 200px;
+    }
+    /* Lives block */
+    .lives {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 20px;
+        left: 100px;
+        margin: 0;
+        position: absolute;
+        top: 1%;
+    }
+    /* Lives block modifier */
+    .lives--left {
+        text-align: left;
+    }      
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    /* Score block */
+    .score {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 20px;
+    }
+    /* Score block modifier */
+    .score--right {
+        margin: 0;
+        position: absolute;
+        right: 300px;
+        text-align: right;
+        top: 1%;
+        width: 200px;
+    }
+    /* Lives block */
+    .lives {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 20px;
+        left: 300px;
+        margin: 0;
+        position: absolute;
+        top: 1%;
+    }
+    /* Lives block modifier */
+    .lives--left {
+        text-align: left;
+    }    
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    /* Score block */
+    .score {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 20px;
+    }
+    /* Score block modifier */
+    .score--right {
+        margin: 0;
+        position: absolute;
+        right: 350px;
+        text-align: right;
+        top: 1%;
+        width: 200px;
+    }
+    /* Lives block */
+    .lives {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 20px;
+        left: 350px;
+        margin: 0;
+        position: absolute;
+        top: 1%;
+    }
+    /* Lives block modifier */
+    .lives--left {
+        text-align: left;
+    }
+}

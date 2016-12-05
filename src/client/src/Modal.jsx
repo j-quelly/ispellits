@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Screen from 'react-responsive';
 import { Score } from './Header';
 
 import './css/Modal.css';
@@ -11,26 +10,30 @@ const Modal = function(props) {
               <Btn handleClick={props.handleClick} btnText="Start" />
             </ModalBody>);
   } else if (state.scoreScreen) {
-    return (<ModalBody title="Round End" body="You're a subs-hero">
+    return (<ModalBody title="Good Job!" body="You're doing great, keep going.">
               <Score
-                test="modal__body"
+                styles="modal__body"
                 score={props.state.roundScore}
-                text="Score: "
+                text="Round Score: "
               />
               <Score
-                test="modal__body"
+                styles="modal__body"
                 score={props.state.totalScore}
                 text="Total Score: "
               />
               <Btn handleClick={props.handleClick} btnText="Next Word" />
             </ModalBody>);
   } else if (state.inputScreen) {
-    return (<ModalBody title={state.title} body="Enter your name...">
+    return (<ModalBody title={state.title} body="Input your name to enter the hall of fame.">
               <InputForm submitForm={props.submitForm} validationError={state.validationError} />
             </ModalBody>);
   } else if (state.highScoreScreen) {
-    return (<ModalBody title="Hall of Fame" body="" highScores={state.highScores}>
-              <Btn handleClick={props.resetGame} btnText="Play again?" />
+    return (<ModalBody
+              title="Hall of Fame"
+              body=""
+              highScores={state.highScores}
+            >
+              <Btn handleClick={props.resetGame} btnText="Play again" />
             </ModalBody>);
   }
 };
@@ -38,21 +41,23 @@ const Modal = function(props) {
 const ModalBody = function(props) {
   const scores = (props.highScores ? props.highScores.map((player) => {
     return (
-        <li className="scores__player" key={player._id}>{player.name}<span className="scores__score">{player.score} pts</span></li>
+      <li className="scores__player" key={player._id}>
+        {player.name}<span className="scores__score">{player.score} pts</span>
+      </li>
       );
   }) : '');
-  const highScores = (props.highScores ? <ol className="scores">{scores}</ol> : '');
+  const highScores = (props.highScores ? <ol className="scores">
+                                           {scores}
+                                         </ol> : '');
   return (
-    <Screen maxWidth={543}>
-      <div className="modal">
-        <h1 className="modal__title">{props.title}</h1>
-        <p className="modal__body">
-          {props.body}
-        </p>
-        {highScores}
-        {props.children}
-      </div>
-    </Screen>
+    <div className="modal">
+      <h1 className="modal__title">{props.title}</h1>
+      <p className="modal__body">
+        {props.body}
+      </p>
+      {highScores}
+      {props.children}
+    </div>
     );
 };
 ModalBody.propTypes = {
@@ -100,7 +105,7 @@ class InputForm extends Component {
   }
 
   render() {
-    let errorMsg = (this.props.validationError ? <p className="error">Please enter your name.</p> : '');
+    let errorMsg = (this.props.validationError ? 'Please enter your name.' : '');
     return (
       <form onSubmit={(e) => this.onFormSubmit(e)}>
         <input
@@ -110,8 +115,14 @@ class InputForm extends Component {
                  this.name = ref
                }}
         />
-        {errorMsg}
-        <input type="submit" className="btn" />
+        <p className="error">
+          {errorMsg}
+        </p>
+        <input
+          type="submit"
+          className="btn"
+          value="Submit"
+        />
       </form>
       );
   }

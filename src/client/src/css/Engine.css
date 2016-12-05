@@ -59,6 +59,7 @@
     padding: 2% 4% 4% 4%;
 }
 
+
 /* Keyboard block pseudo-element */
 
 .keyboard:after {
@@ -86,4 +87,43 @@
 .keyboard__key--used {
     cursor: initial;
     opacity: 0.2;
+}
+
+@media (min-width: 768px) {
+    .clue {
+        font-family: 'Gloria Hallelujah', cursive;
+        margin: 190px 15px 15px 15px;
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .clue {
+        font-family: 'Gloria Hallelujah', cursive;
+        margin: 190px 15px 15px 15px;
+    }
+    /* Keyboard block */
+    .keyboard {
+        color: #000;
+        margin: 0 auto 0 auto;
+        padding: 0% 4% 4% 4%;
+    }    
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .clue {
+        font-family: 'Gloria Hallelujah', cursive;
+        margin: 190px 15px 15px 15px;
+    }
+    /* Keyboard block */
+    .keyboard {
+        color: #000;
+        margin: 0 auto 0 auto;
+        padding: 0% 4% 4% 4%;
+    }
 }

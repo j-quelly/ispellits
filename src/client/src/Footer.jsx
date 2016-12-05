@@ -1,6 +1,5 @@
 import React from 'react';
 import './css/Footer.css';
-import Screen from 'react-responsive';
 
 const Footer = function(props) {
   return (
@@ -16,13 +15,11 @@ Footer.propTypes = {
 
 const Yeti = function(props) {
   return (
-    <Screen maxWidth={543}>
-      <img
-        src={props.yeti}
-        className="yeti yeti--xs"
-        alt="Yeti"
-      />
-    </Screen>
+    <img
+      src={props.yeti}
+      className="yeti"
+      alt="Yeti"
+    />
     );
 };
 Yeti.propTypes = {
@@ -31,12 +28,10 @@ Yeti.propTypes = {
 
 const Trees = function(props) {
   return (
-    <Screen maxWidth={543}>
-      <div className="forest">
-        <div className="forest__tree forest__tree--1"></div>
-        <div className="forest__tree forest__tree--2"></div>
-      </div>
-    </Screen>
+    <div className="forest">
+      <div className="forest__tree forest__tree--1"></div>
+      <div className="forest__tree forest__tree--2"></div>
+    </div>
     );
 };
 

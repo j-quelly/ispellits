@@ -94,33 +94,66 @@
  /**
   * Scores
   */
- 
  /* Scores block */
+ 
  .scores {
-     outline: solid 1px red;
      -webkit-padding-start: 20px;
      font-family: sans-serif;
      line-height: 1.5;
      font-size: 14px;
  }
-
-/* Scores block element */
+ /* Scores block element */
+ 
  .scores__player {
      text-align: left;
      padding: 0 0 0 5px;
  }
-
-/* Scores block element */
+ /* Scores block element */
+ 
  .scores__score {
      float: right;
      padding: 0 0 0 5px;
  }
-
-
- /**
- * Odometer Component
- * todo: figure out what to do with this..
- */
- /* .highscore {
-    
-} */
+ 
+ @media (min-width: 768px) {
+     .modal {
+         background: #fff;
+         border-radius: 6px;
+         left: 15%;
+         margin: 75px 0 0 0;
+         padding: 4%;
+         position: absolute;
+         width: 62%;
+         z-index: 2;
+     }
+ }
+ /* Medium devices (desktops, 992px and up) */
+ 
+ @media (min-width: 992px) {
+     /* Modal block  */
+     .modal {
+         background: #fff;
+         border-radius: 6px;
+         left: 35%;
+         margin: 75px 0 0 0;
+         padding: 2%;
+         position: absolute;
+         width: 26%;
+         z-index: 2;
+     }
+ }
+ /* Large devices (large desktops, 1200px and up) */
+ 
+ @media (min-width: 1200px) {
+     /* Modal block  */
+     .modal {
+         background: #fff;
+         border-radius: 6px;
+         left: 35%;
+         margin: 75px 0 0 0;
+         padding: 2%;
+         position: absolute;
+         width: 26%;
+         z-index: 2;
+     }
+ }

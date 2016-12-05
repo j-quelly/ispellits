@@ -1,5 +1,4 @@
 import React from 'react';
-import Screen from 'react-responsive';
 
 import './css/Header.css';
 import logo from './images/I-Spell-Its.png';
@@ -25,22 +24,11 @@ Header.propTypes = {
 const Logo = function(props) {
   return (
     <div>
-      {/* mobile device */}
-      <Screen maxWidth={543}>
-        <img
-          src={props.logo}
-          className="logo logo--xs"
-          alt="I-Spell-Its logo"
-        />
-      </Screen>
-      {/* larger devices */}
-      <Screen minWidth={544}>
-        <img
-          src={props.logo}
-          className="logo"
-          alt="I-Spell-Its logo"
-        />
-      </Screen>
+      <img
+        src={props.logo}
+        className="logo logo--xs"
+        alt="I-Spell-Its logo"
+      />
     </div>
     );
 };
@@ -49,9 +37,11 @@ Logo.propTypes = {
 };
 
 const Score = function(props) {
+  const text = (props.text ? <strong>{props.text}</strong> : '');
   return (
-    <p className={props.test}>
-      {props.text}{props.score} pts
+    <p className={props.styles}>
+      {text}
+      {props.score} pts
     </p>
     );
 };
@@ -62,7 +52,7 @@ Score.propTypes = {
 };
 Score.defaultProps = {
   score: 0,
-  test: 'score score--right',
+  styles: 'score score--right',
   text: '',
 };
 

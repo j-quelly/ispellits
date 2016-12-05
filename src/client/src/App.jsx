@@ -121,6 +121,7 @@ class App extends Component {
           this.setState({
             inputScreen: false, // hide the input screen
             highScoreScreen: true, // show the high score screen
+            yeti: yetiWin,
             highScores: data,
           });
         }, (err) => {
@@ -248,27 +249,24 @@ class App extends Component {
 
   nextWord() {
     if (this.state.totalWords === 0) {
-      console.log('beat the game');
       /**
        * Player won, end game
        */
       this.setState({
-        title: 'You beat da game!',
+        title: 'You beat the game!',
         modal: true, // show the modal
         inputScreen: true, // show the input screen
       });
     } else if (this.state.lives === 0) {
-      console.log('died');
       /**
        * Player died, end game
        */
       this.setState({
-        title: 'Better luck next time',
+        title: 'Game Over!',
         modal: true, // show the modal
         inputScreen: true, // show the input screen
       });
     } else {
-      console.log('round end');
       /**
        * End round
        */

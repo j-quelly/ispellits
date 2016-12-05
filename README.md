@@ -7,7 +7,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ## Getting Started
 1. $ cd src/server && npm run server
-2. $ cd .. npm run dev server
+2. $ cd src/client npm start
 
 ## Changelog
 
@@ -32,6 +32,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] confirm use of bind (to bind the React object to the component)
 - [x] add round score to score screen
 - [x] allow user to play again
+- [ ] add more words
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
@@ -62,15 +63,15 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] add client testing
 - [ ] server testing - read up on this
 - [ ] platform testing
-	- [ ] mobile
-	- [ ] phablet
-	- [ ] tablet
+	- [x] mobile [12/5/2016]
+	- [x] phablet [12/5/2016]
+	- [x] tablet [12/5/2016]
 	- [ ] browser/desktop
-		- [ ] chrome
-		- [ ] mozilla
-		- [ ] opera
+		- [x] chrome [12/5/2016]
+		- [x] mozilla [12/5/2016]
+		- [x] opera [12/5/2016]
 		- [ ] IE
-			- [ ] 8
+			- [ ] 8	
 			- [ ] 9
 			- [ ] 10
 			- [ ] edge
@@ -78,9 +79,6 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 ### Aesthetics
 - [x] yeti
 - [x] trees
-- [ ] animations:
-  - [ ] score
-  - [ ] yeti
 - [x] better buttons [11/29/2016]
 
 ### Client
@@ -117,6 +115,8 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] snow not displaying [12/1/2016]
 - [x] fixes URI to API in client.js [12/1/2016]
 - [x] fixes use of client.createPlayer [12/1/2016]
+- [ ] production server is not saving player
+- [ ] IE does not support includes
 
 ### 2.x.x
 - [ ] react native	
@@ -124,8 +124,8 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] relay - read more on this
 - [ ] accessibility?
 - [ ] read chapters on redux for better state management
-- [ ] document JS once redux has been addded
-- [ ] document - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
+- [ ] document client JS once redux has been addded
+- [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.

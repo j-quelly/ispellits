@@ -17,7 +17,7 @@ let dictionary = {
   'fix': 'Fasten (something) securely in a particular place or position',
   'liver': 'A large lobed glandular organ in the abdomen of vertebrates',
   'reality': 'The state or quality of having existence or substance',
-  'prefer': 'Like on thing better than another',
+  'prefer': 'Like one thing better than another',
   'exceed': 'To be greater in number or size',
   'kneel': 'Be in a position in which the body is supported by a knee',
   'estate': 'An area or amount of land or property, in particular',

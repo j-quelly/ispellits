@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Screen from 'react-responsive';
 
 import './css/Engine.css';
 
 const Engine = function(props) {
   const state = props.state;
   return (
-    <Screen maxWidth={543}>
+    <div>
       <Clue clue={state.clue} />
       <Wordbox word={state.word} correct={state.correct} />
       <Keyboard
@@ -14,7 +13,7 @@ const Engine = function(props) {
         used={state.input}
         handleClick={props.handleClick}
       />
-    </Screen>
+    </div>
     );
 };
 Engine.propTypes = {
