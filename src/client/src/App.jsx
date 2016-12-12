@@ -168,7 +168,7 @@ class App extends Component {
     let word = this.state.word;
 
     // if the input is found
-    if (word.includes(input) && !this.state.correct.includes(input)) {
+    if (word.indexOf(input) >= 0 && this.state.correct.indexOf(input) === -1) {
       // count the # of occurences
       let count = (word.match(new RegExp(input, 'g')) || []).length;
       let arr = [];
@@ -188,7 +188,7 @@ class App extends Component {
         }
       });
     } else {
-      if (!this.state.input.includes(input)) {
+      if (this.state.input.indexOf(input) === -1) {
         this.setState({
           input: [...this.state.input, input],
           roundScore: this.decrementScore(2),

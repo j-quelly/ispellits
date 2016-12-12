@@ -2,12 +2,12 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.7.0
+- Server: 0.9.0
 - Client: 0.10.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
-2. $ cd src/client npm start
+2. $ cd src/client && npm start
 
 ## Changelog
 
@@ -32,7 +32,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] confirm use of bind (to bind the React object to the component)
 - [x] add round score to score screen
 - [x] allow user to play again
-- [ ] add more words
+- [x] add more words [12/7/2016]
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
@@ -57,24 +57,26 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] comment [11/12/2016]
 - [x] endpoint for creating a player [12/1/2016]
 - [x] endpoint for getting top players [12/2/2016]
+- [x] removed index route [12/7/2016]
+- [x] removed favicon middleware [12/7/2016]
 
 ### Testing
 - [x] read chapters on this [11/30/2016]
 - [ ] add client testing
 - [ ] server testing - read up on this
-- [ ] platform testing
+- [x] platform testing [12/7/2016]
 	- [x] mobile [12/5/2016]
 	- [x] phablet [12/5/2016]
 	- [x] tablet [12/5/2016]
-	- [ ] browser/desktop
+	- [x] browser/desktop [12/7/2016]
 		- [x] chrome [12/5/2016]
 		- [x] mozilla [12/5/2016]
 		- [x] opera [12/5/2016]
-		- [ ] IE
-			- [ ] 8	
-			- [ ] 9
-			- [ ] 10
-			- [ ] edge
+		- [x] IE [12/7/2016]
+			- [x] 8	FAILED 
+			- [x] 9 
+			- [x] 10 
+			- [x] edge 
 
 ### Aesthetics
 - [x] yeti
@@ -95,6 +97,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] look into improving modal.jsx for more reuse [11/29/2016]
 - [x] input field validation [11/30/2016]
 - [x] display high scores [12/5/2016]
+- [x] make modal text larger on desktop [12/7/2016]
+- [x] make clue font larger on desktop [12/8/2016]
+- [x] make keyboard larger on desktop [12/8/2016]
+- [x] convert font-size to em [12/8/2016]
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
@@ -115,8 +121,11 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] snow not displaying [12/1/2016]
 - [x] fixes URI to API in client.js [12/1/2016]
 - [x] fixes use of client.createPlayer [12/1/2016]
-- [ ] production server is not saving player
-- [ ] IE does not support includes
+- [x] IE does not support includes [12/7/2016]
+- [ ] server seems to try and GET before finishing POST --need promise?
+- [ ] production server is not displaying saved players, may need promise
+	- [ ] there could be an issue with deprecated use of mpromise?
+- [ ] need space after lives
 
 ### 2.x.x
 - [ ] react native	
@@ -126,6 +135,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] read chapters on redux for better state management
 - [ ] document client JS once redux has been addded
 - [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
+- [ ] start easy and progressively get harder or offer different levels of difficulty
+- [ ] add in a helper to add a random letter for user at the cost of n points
+- [ ] add message when a bonus life is achieved (perfect round)
+
 
 #### Disclaimer
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.

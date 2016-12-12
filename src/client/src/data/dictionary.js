@@ -24,5 +24,15 @@ let dictionary = {
   'tight': 'Fixed, fastened, or closed firmly',
   'line': 'A long, narrow mark or band',
   'chest': 'A large strong box, used for storage or shipping',
+  'volume': 'A book forming part of a work or series',
+  'sight': 'Manage to see or observe; catch an initial glimpse of',
+  'diamond': 'A precious stone consisting of a clear or colourless crystalline form',
+  'relate': 'Make or show a connection between',
+  'spite': 'A desire to hurt, annoy, or offend someone',
+  'census': 'An official count or survey, especially of a population',
+  'firm': 'Having a solid, almost unyielding surface or structure',
+  'carbon': 'Carbon dioxide or other gaseous carbon compounds',
+  'weight': 'Hold (something) down by placing a heavy object on top of it',
+  'mystery': 'Something that is difficult or impossible to understand or explain',
 };
 export default dictionary;

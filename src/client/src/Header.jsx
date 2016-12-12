@@ -59,7 +59,7 @@ Score.defaultProps = {
 const Lives = function(props) {
   return (
     <p className="lives lives--left">
-      Lives:
+      Lives:&nbsp;
       {props.lives}
     </p>
     );
@@ -68,4 +68,4 @@ Lives.propTypes = {
   lives: React.PropTypes.number.isRequired,
 };
 
-export { Header, Score };
+export { Header, Score, Logo, Lives };

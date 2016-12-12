@@ -1,12 +1,10 @@
 // dependencies
 import express from 'express';
 import path from 'path';
-import favicon from 'serve-favicon';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 
 // require routes
-import api from './routes/index';
 import player from './routes/player';
 
 // database
@@ -15,7 +13,6 @@ import './lib/connection';
 const APP = express();
 
 // middleware
-// APP.use(favicon(path.join(__dirname, '', './src/client/build/favicon.ico')));
 APP.use(logger('dev'));
 APP.use(bodyParser.json());
 APP.use(bodyParser.urlencoded({
@@ -27,7 +24,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // use routes
-APP.use('/api', api);
 APP.use('/api/players', player);
 
 // catch 404 and forward to error handler

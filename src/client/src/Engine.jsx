@@ -35,7 +35,7 @@ const Wordbox = function(props) {
   let letters = lettersArr.map((char, i) => <Letter
                                               key={char + i}
                                               char={char}
-                                              found={(props.correct.includes(char) ? true : false)}
+                                              found={(props.correct.indexOf(char) >= 0 ? true : false)}
                                             />);
   return (
     <div className="wb">
@@ -67,7 +67,7 @@ const Keyboard = function(props) {
               id={i}
               char={char}
               handleClick={props.handleClick}
-              used={(props.used.includes(char) ? true : false)}
+              used={(props.used.indexOf(char) >= 0 ? true : false)}
             />);
   });
   return (
@@ -100,4 +100,4 @@ Key.propTypes = {
   handleClick: React.PropTypes.func.isRequired,
 };
 
-export default Engine;
+export { Engine, Clue, Wordbox, Letter, Keyboard, Key };

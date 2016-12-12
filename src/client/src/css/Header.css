@@ -26,7 +26,7 @@
 
 .score {
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
+    font-size: 2em;
 }
 
 
@@ -51,7 +51,7 @@
 
 .lives {
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
+    font-size: 2em;
     left: 15px;
     margin: 0;
     position: absolute;
@@ -69,7 +69,7 @@
     /* Score block */
     .score {
         font-family: 'Gloria Hallelujah', cursive;
-        font-size: 20px;
+        font-size: 2em;
     }
     /* Score block modifier */
     .score--right {
@@ -83,7 +83,7 @@
     /* Lives block */
     .lives {
         font-family: 'Gloria Hallelujah', cursive;
-        font-size: 20px;
+        font-size: 2em;
         left: 100px;
         margin: 0;
         position: absolute;
@@ -102,7 +102,7 @@
     /* Score block */
     .score {
         font-family: 'Gloria Hallelujah', cursive;
-        font-size: 20px;
+        font-size: 2em;
     }
     /* Score block modifier */
     .score--right {
@@ -116,7 +116,7 @@
     /* Lives block */
     .lives {
         font-family: 'Gloria Hallelujah', cursive;
-        font-size: 20px;
+        font-size: 2em;
         left: 300px;
         margin: 0;
         position: absolute;
@@ -135,7 +135,7 @@
     /* Score block */
     .score {
         font-family: 'Gloria Hallelujah', cursive;
-        font-size: 20px;
+        font-size: 2em;
     }
     /* Score block modifier */
     .score--right {
@@ -149,7 +149,7 @@
     /* Lives block */
     .lives {
         font-family: 'Gloria Hallelujah', cursive;
-        font-size: 20px;
+        font-size: 2em;
         left: 350px;
         margin: 0;
         position: absolute;

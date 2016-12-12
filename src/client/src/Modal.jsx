@@ -10,7 +10,7 @@ const Modal = function(props) {
               <Btn handleClick={props.handleClick} btnText="Start" />
             </ModalBody>);
   } else if (state.scoreScreen) {
-    return (<ModalBody title="Good Job!" body="You're doing great, keep going.">
+    return (<ModalBody title="Good Job!" body="You're doing great, keep it up.">
               <Score
                 styles="modal__body"
                 score={props.state.roundScore}
