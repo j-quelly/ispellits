@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 
 // components
-import { Header } from './Header';
+import { Logo, Lives, Score } from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
@@ -11,6 +11,9 @@ import Footer from './Footer';
 import yetiHello from './images/yeti-hello.png';
 import yetiLose from './images/yeti-lose.png';
 import yetiWin from './images/yeti-win.png';
+
+// logo
+import logo from './images/I-Spell-Its.png';
 
 // test dictionary
 // import dictionary from './data/test-dictionary';
@@ -314,11 +317,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          modal={this.state.modal}
-          lives={this.state.lives}
-          score={this.state.roundScore}
-        />
+        <Logo modal={this.state.modal} logo={logo} />
+        <Lives modal={this.state.modal} lives={this.state.lives} />
+        <Score modal={this.state.modal} score={this.state.roundScore} />
         <Body
           state={this.state}
           handleStartGame={this.handleStartGame}

@@ -63,6 +63,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 ### Testing
 - [x] read chapters on this [11/30/2016]
 - [ ] add client testing
+	- [x] unit test lives component [12/12/2016]
+	- [x] unit test score component [12/12/2016]
+	- [x] unit test logo component [12/13/2016]
+	- [x] unit test Body component
 - [ ] server testing - read up on this
 - [x] platform testing [12/7/2016]
 	- [x] mobile [12/5/2016]
@@ -101,6 +105,8 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] make clue font larger on desktop [12/8/2016]
 - [x] make keyboard larger on desktop [12/8/2016]
 - [x] convert font-size to em [12/8/2016]
+- [x] removed header component to improve testability [12/13/2016]
+- [ ] remove propTypes on build 
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
@@ -122,6 +128,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] fixes URI to API in client.js [12/1/2016]
 - [x] fixes use of client.createPlayer [12/1/2016]
 - [x] IE does not support includes [12/7/2016]
+- [x] modal not disappearing after clicking start button [12/12/2016]
 - [ ] server seems to try and GET before finishing POST --need promise?
 - [ ] production server is not displaying saved players, may need promise
 	- [ ] there could be an issue with deprecated use of mpromise?

@@ -1,5 +1,5 @@
 import React from 'react';
-import Engine from './Engine';
+import { Engine } from './Engine';
 import Modal from './Modal';
 
 const Body = function(props) {
