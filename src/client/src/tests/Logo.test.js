@@ -10,34 +10,32 @@ describe('<Logo />', () => {
 
   beforeEach(() => {
     props = {
-      modal: true,
       logo: '/path/to/image.jpg',
     };
     wrapper = shallow(<Logo {...props} />);
   });
 
-  it('should render the component when modal:true', () => {
+  it('should have an `img` element', () => {
     expect(
-      wrapper.containsMatchingElement(
-        <div>
-          <img alt="I-Spell-Its logo" />
-        </div>
-      )
+      wrapper.find('img').length
+    ).toBe(1);
+  });  
+
+  it('`img` element should have `className`', () => {
+    expect(
+      wrapper.find('img').hasClass('logo logo--xs')
     ).toBe(true);
   });
 
-  it('should hide the component when modal:false', () => {
-    props.modal = !props.modal;
-    wrapper = shallow(<Logo {...props} />);
+  it('`img` should have props for `alt`', () => {
     expect(
-      wrapper.find('img').props().className
-    ).toBe('hide');
-  });
+      wrapper.find('img').props().alt
+    ).toBeDefined();
+  });  
 
-  it('should render the image passed as props', () => {
-    const img = wrapper.find('img');
+  it('`img` should have props for `src`', () => {
     expect(
-      img.props().src
+      wrapper.find('img').props().src
     ).toBe(props.logo);
   });
 

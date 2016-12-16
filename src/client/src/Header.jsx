@@ -1,14 +1,32 @@
 import React from 'react';
 
 import './css/Header.css';
+import logo from './images/I-Spell-Its.png';
+
+const Header = function(props) {
+  if (props.modal) {
+    return (<Logo logo={logo} />);
+  } else {
+    return (
+      <div>
+        <Lives lives={props.lives} />
+        <Score score={props.score} />
+      </div>
+      );
+  }
+};
+Header.propTypes = {
+  modal: React.PropTypes.bool.isRequired,
+  lives: React.PropTypes.number.isRequired,
+  score: React.PropTypes.number.isRequired,
+};
 
 const Logo = function(props) {
-  const styles = (props.modal ? 'logo logo--xs' : 'hide'); 
   return (
     <div>
       <img
         src={props.logo}
-        className={styles}
+        className="logo logo--xs"
         alt="I-Spell-Its logo"
       />
     </div>
@@ -16,23 +34,21 @@ const Logo = function(props) {
 };
 Logo.propTypes = {
   logo: React.PropTypes.string.isRequired,
-  modal: React.PropTypes.bool.isRequired,
 };
 
 const Score = function(props) {
-  const styles = (props.modal ? 'hide' : props.styles)
   const text = (props.text ? <strong>{props.text}</strong> : '');
   return (
-    <p className={styles}>
+    <p className={props.styles}>
       {text}
-      {props.score} pts
+      {props.score} pts
     </p>
     );
 };
 Score.propTypes = {
-  score: React.PropTypes.number.isRequired,  
-  modal: React.PropTypes.bool.isRequired,
+  score: React.PropTypes.number.isRequired,
   text: React.PropTypes.string,
+  styles: React.PropTypes.string,
 };
 Score.defaultProps = {
   score: 0,
@@ -41,17 +57,15 @@ Score.defaultProps = {
 };
 
 const Lives = function(props) {
-  const styles = (props.modal ? 'hide' : 'lives lives--left')
   return (
-    <p className={styles}>
-      Lives:
+    <p className="lives lives--left">
+      Lives:&nbsp;
       {props.lives}
     </p>
     );
 };
 Lives.propTypes = {
   lives: React.PropTypes.number.isRequired,
-  modal: React.PropTypes.bool.isRequired,
 };
 
-export { Score, Logo, Lives };
+export { Header, Score, Logo, Lives };

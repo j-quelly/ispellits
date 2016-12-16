@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.10.0
+- Client: 0.17.2
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -62,12 +62,17 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Testing
 - [x] read chapters on this [11/30/2016]
-- [ ] add client testing
+- [ ] finish client testing
+	- https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha
+	- http://airbnb.io/enzyme/docs/api/mount.html
+	- http://facebook.github.io/jest/docs/api.html#expectvalue
 	- [x] unit test lives component [12/12/2016]
 	- [x] unit test score component [12/12/2016]
 	- [x] unit test logo component [12/13/2016]
-	- [x] unit test Body component
-- [ ] server testing - read up on this
+	- [x] unit test Body component [12/14/2016]
+	- [ ] unit test Modal component
+- [ ] server testing 
+	- [ ] read up on this
 - [x] platform testing [12/7/2016]
 	- [x] mobile [12/5/2016]
 	- [x] phablet [12/5/2016]
@@ -106,6 +111,8 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] make keyboard larger on desktop [12/8/2016]
 - [x] convert font-size to em [12/8/2016]
 - [x] removed header component to improve testability [12/13/2016]
+- [x] rolled back Header.jsx [12/15/2016]
+- [ ] inline styles?
 - [ ] remove propTypes on build 
 
 ### Issues
@@ -129,10 +136,11 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] fixes use of client.createPlayer [12/1/2016]
 - [x] IE does not support includes [12/7/2016]
 - [x] modal not disappearing after clicking start button [12/12/2016]
+- [x] fixed version bump task [12/15/2016]
+- [x] need space after lives [12/15/2016]
 - [ ] server seems to try and GET before finishing POST --need promise?
 - [ ] production server is not displaying saved players, may need promise
 	- [ ] there could be an issue with deprecated use of mpromise?
-- [ ] need space after lives
 
 ### 2.x.x
 - [ ] react native	

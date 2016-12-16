@@ -6,39 +6,31 @@ import { shallow } from 'enzyme';
 import { Lives } from '../Header';
 
 describe('<Lives />', () => {
-  let props, wrapper;
+  let props, wrapper
 
   beforeEach(() => {
     props = {
-      modal: false,
       lives: 1,
     };
     wrapper = shallow(<Lives {...props} />);
   });
 
-  it('should render the component when modal:false', () => {
-    const p = wrapper.find('p');
+  it('should have a `<p>` element', () => {
     expect(
-      p.props().className
-    ).toBe('lives lives--left');
+      wrapper.find('p').length
+    ).toBe(1);
   });
 
-  it('should hide the component when modal:true', () => {
-    props.modal = !props.modal;
-    wrapper = shallow(<Lives {...props} />);
-    const p = wrapper.find('p');
+  it('`<p>` element should have a className', () => {
     expect(
-      p.props().className
-    ).toBe('hide');
-  });
-
-  it('should render the componet and display `Lives: 1` when modal:false', () => {
-    expect(
-      wrapper.contains(<p className="lives lives--left">
-                         Lives:
-                         {props.lives}
-                       </p>)
+      wrapper.find('p').hasClass('lives lives--left')
     ).toBe(true);
   });
 
+  it('`<p>` element should say `Lives: 1` when passed lives: 1', () => {
+    expect(
+      wrapper.text()
+    ).toEqual('Lives: ' + props.lives);
+  });
+  
 });

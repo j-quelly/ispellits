@@ -10,66 +10,66 @@ describe('<Score />', () => {
 
   beforeEach(() => {
     props = {
-      modal: false,
-      styles: 'modal__body',
-      score: 0,
       text: '',
     };
     wrapper = shallow(<Score {...props} />);
   });
 
-  it('should render the component when modal:false', () => {
-    props.styles = 'score score--right';
+  it('should contain a `<p>` element', () => {
+    expect(
+      wrapper.find('p').length
+    ).toBe(1);
+  });
+
+  it('`<p>` element className should default to `score score--right` when no styles passed', () => {
+    expect(
+      wrapper.find('p').hasClass('score score--right')
+    ).toBe(true)
+  });
+
+  it('`<p>` element className should be `modal__body` when styles: "modal__body"', () => {
+    props.styles = 'modal__body';
     wrapper = shallow(<Score {...props} />);
     expect(
-      wrapper.find('p').props().className
-    ).toBe('score score--right');
+      wrapper.find('p').hasClass(props.styles)
+    ).toBe(true)
   });
 
-  it('should hide the component when modal:true', () => {
-    props.modal = !props.modal;
+  it('`<p>` element score should default to 0 when no score passed', () => {
+    expect(
+      wrapper.text()
+    ).toEqual('0 pts');
+  });
+
+  it('`<p>` element score should be `40` when score: 40', () => {
+    props.score = 40;
     wrapper = shallow(<Score {...props} />);
     expect(
-      wrapper.find('p').props().className
-    ).toBe('hide');
+      wrapper.text()
+    ).toEqual(`${props.score} pts`);
   });
 
-
-  it('should allow a score to be passed and render `<p>0 pts</p>', () => {
+  it('`<p>` element should have NO text when no text passed', () => {
     expect(
-      wrapper.containsMatchingElement(
-        <p>
-          {props.text}
-          {props.score} pts
-        </p>
-      )
-    ).toBe(true);
+      wrapper.text()
+    ).toEqual('0 pts');
   });
 
-  it('should allow text to be passed and render `<p>Round Score: 30 pts</p>', () => {
-    props.text = 'Round Score:';
+  it('`<p>` element should have text when text passed', () => {
+    props.text = 'Round Score: ';
     wrapper = shallow(<Score {...props} />);
     expect(
-      wrapper.containsMatchingElement(
-        <p>
-          <strong>{props.text}</strong>
-          {props.score} pts
-        </p>
-      )
-    ).toBe(true);
+      wrapper.text()
+    ).toEqual(`${props.text}0 pts`);
   });
 
-  it('should allow a custom className and render `<p class="modal__body">Total Score: 130 pts</p>', () => {
-    props.text = 'Total Score:';
+  it('`<p>` element should have text and score when text and score passed', () => {
+    props.text = 'Round Score: ';
+    props.score = 40;
     wrapper = shallow(<Score {...props} />);
     expect(
-      wrapper.contains(
-        <p className={props.styles}>
-          <strong>{props.text}</strong>
-          {props.score} pts
-        </p>
-      )
-    ).toBe(true);
-  });
+      wrapper.text()
+    ).toEqual(`${props.text}${props.score} pts`);
+  });  
 
 });

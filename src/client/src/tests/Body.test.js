@@ -3,42 +3,40 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // components
-import { Lives } from '../Header';
+import Body from '../Body';
 
-describe('<Lives />', () => {
+describe('<Body />', () => {
   let props, wrapper;
 
   beforeEach(() => {
     props = {
-      modal: false,
-      lives: 1,
+      state: {
+        modal: true,
+      },
+      handleClick: () => {
+      },
+      handleStartGame: () => {
+      },
+      submitForm: () => {
+      },
+      resetGame: () => {
+      },
     };
-    wrapper = shallow(<Lives {...props} />);
+    wrapper = shallow(<Body {...props} />);
   });
 
-  it('should render the component when modal:false', () => {
-    const p = wrapper.find('p');
+  it('should render the <Modal /> component when modal:true', () => {
     expect(
-      p.props().className
-    ).toBe('lives lives--left');
+      wrapper.find('Modal').length
+    ).toBe(1);
   });
 
-  it('should hide the component when modal:true', () => {
-    props.modal = !props.modal;
-    wrapper = shallow(<Lives {...props} />);
-    const p = wrapper.find('p');
+  it('should render the <Engine /> component when modal:false', () => {
+    props.state.modal = !props.state.modal;
+    wrapper = shallow(<Body {...props} />);
     expect(
-      p.props().className
-    ).toBe('hide');
-  });
-
-  it('should render the componet and display `Lives: 1` when modal:false', () => {
-    expect(
-      wrapper.contains(<p className="lives lives--left">
-                         Lives:
-                         {props.lives}
-                       </p>)
-    ).toBe(true);
+      wrapper.find('Engine').length
+    ).toBe(1);
   });
 
 });

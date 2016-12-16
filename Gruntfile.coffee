@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
 	grunt.initConfig
 		path: require "path"
-		client: "0.15.0"
+		client: "0.17.2"
 		server: "0.9.0"
 
 		# list our available tasks
@@ -24,15 +24,15 @@ module.exports = (grunt) ->
 			client:
 				files:
 					'src<%= path.sep %>client<%= path.sep %>package.json' : 'src<%= path.sep %>client<%= path.sep %>package.json',
-					'readme.md' : 'readme.md',
+					'README.md' : 'README.md',
 				options:
 					replacements: [
 						{
-							pattern: /("version": "[0-9].[0-9].[0-9]")/ig,
+							pattern: /("version": "(\d){1,}\.(\d){1,}\.(\d){1,}")/ig,
 							replacement: '"version": "<%= client %>"'
 						},
 						{
-							pattern: /(- Client: [0-9].[0-9].[0-9])/ig,
+							pattern: /(- Client: (\d){1,}\.(\d){1,}\.(\d){1,})/ig,
 							replacement: '- Client: <%= client %>'
 						},						
 					]		
@@ -40,15 +40,15 @@ module.exports = (grunt) ->
 				files:
 					'src<%= path.sep %>server<%= path.sep %>package.json' : 'src<%= path.sep %>server<%= path.sep %>package.json',
 					'package.json' : 'package.json',
-					'readme.md' : 'readme.md',
+					'README.md' : 'README.md',
 				options:
 					replacements: [
 						{
-							pattern: /("version": "[0-9].[0-9].[0-9]")/ig,
+							pattern: /("version": "(\d){1,}\.(\d){1,}\.(\d){1,}")/ig,
 							replacement: '"version": "<%= server %>"'
 						},
 						{
-							pattern: /(- Server: [0-9].[0-9].[0-9])/ig,
+							pattern: /(- Server: (\d){1,}\.(\d){1,}\.(\d){1,})/ig,
 							replacement: '- Server: <%= server %>'
 						},					
 					]	
