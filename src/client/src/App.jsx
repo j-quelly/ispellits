@@ -34,6 +34,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.createClues = this.createClues.bind(this);
     this.handleStartGame = this.handleStartGame.bind(this);
     this.proceed = this.proceed.bind(this);
     this.updateWordBank = this.updateWordBank.bind(this);
@@ -52,15 +53,7 @@ class App extends Component {
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
-      clues: (() => {
-        let vals = [];
-        for (let i in dictionary) {
-          if (dictionary.hasOwnProperty(i)) {
-            vals.push(dictionary[i]);
-          }
-        }
-        return vals;
-      })(dictionary),
+      clues: this.createClues(dictionary),
       clue: '',
       input: [],
       correct: [],
@@ -78,6 +71,16 @@ class App extends Component {
       validationError: false,
       highScores: [],
     };
+  }
+
+  createClues(dictionary) {
+    let clues = [];
+    for (let i in dictionary) {
+      if (dictionary.hasOwnProperty(i)) {
+        clues.push(dictionary[i]);
+      }
+    }
+    return clues;
   }
 
   /**
@@ -284,15 +287,7 @@ class App extends Component {
       word: '',
       totalWords: Object.keys(dictionary).length,
       words: Object.keys(dictionary),
-      clues: (() => {
-        let vals = [];
-        for (let i in dictionary) {
-          if (dictionary.hasOwnProperty(i)) {
-            vals.push(dictionary[i]);
-          }
-        }
-        return vals;
-      })(dictionary),
+      clues: this.createClues(dictionary),
       clue: '',
       input: [],
       correct: [],

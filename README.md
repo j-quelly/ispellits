@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.17.2
+- Client: 0.19.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -71,6 +71,9 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [x] unit test logo component [12/13/2016]
 	- [x] unit test Body component [12/14/2016]
 	- [ ] unit test Modal component
+		- [ ] inputForm
+			- [ ] test refs
+			- [ ] test events
 - [ ] server testing 
 	- [ ] read up on this
 - [x] platform testing [12/7/2016]
@@ -113,7 +116,11 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] removed header component to improve testability [12/13/2016]
 - [x] rolled back Header.jsx [12/15/2016]
 - [ ] inline styles?
+	- https://facebook.github.io/react-native/docs/style.html
+	- https://facebook.github.io/react-native/docs/text.html
+	- https://facebook.github.io/react-native/docs/height-and-width.html
 - [ ] remove propTypes on build 
+- [ ] change modal component to higher order component --practice the decorator pattern
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game

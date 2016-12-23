@@ -105,7 +105,7 @@ class InputForm extends Component {
   }
 
   render() {
-    let errorMsg = (this.props.validationError ? 'Please enter your name.' : '');
+    let errorMsg = (this.props.validationError ? 'Please enter your name.' : null);
     return (
       <form onSubmit={(e) => this.onFormSubmit(e)}>
         <input
@@ -131,4 +131,4 @@ InputForm.propTypes = {
   submitForm: React.PropTypes.func.isRequired,
 };
 
-export default Modal;
+export { InputForm, Btn, ModalBody, Modal };

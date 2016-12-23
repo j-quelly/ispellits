@@ -11,7 +11,11 @@ describe('<Modal />', () => {
   beforeEach(() => {
     props = {
       state: {
-
+        modal: true, 
+        startScreen: true, 
+        scoreScreen: false,
+        inputScreen: false, 
+        highScoreScreen: false, 
       },
       handleClick: () => {},
       submitForm: () => {},
@@ -21,6 +25,11 @@ describe('<Modal />', () => {
     wrapper = shallow(<Modal {...props} />);
   });
 
-  // TODO: everything
+  it('should render the <Modal /> component when modal:true and startScreen: true', () => {
+    throw wrapper.debug();
+    expect(
+      wrapper.find('Modal').length
+    ).toBe(1);
+  });
 
 });

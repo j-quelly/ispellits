@@ -1,6 +1,6 @@
 import React from 'react';
 import { Engine } from './Engine';
-import Modal from './Modal';
+import { Modal } from './Modal';
 
 const Body = function(props) {
   if (props.state.modal) {
