@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.19.0
+- Client: 0.20.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -73,7 +73,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [ ] unit test Modal component
 		- [ ] inputForm
 			- [ ] test refs
+			- [ ] test props
+			- [ ] test state
 			- [ ] test events
+		
 - [ ] server testing 
 	- [ ] read up on this
 - [x] platform testing [12/7/2016]
@@ -121,6 +124,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- https://facebook.github.io/react-native/docs/height-and-width.html
 - [ ] remove propTypes on build 
 - [ ] change modal component to higher order component --practice the decorator pattern
+- [ ] modify inputForm component to be a controlled component -- https://facebook.github.io/react/docs/forms.html this may make it easier to test
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game

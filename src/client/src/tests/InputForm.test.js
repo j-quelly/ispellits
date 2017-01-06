@@ -1,6 +1,7 @@
 // dependencies
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { spy } from 'sinon';
 
 // components
 import { InputForm } from '../Modal';
@@ -55,6 +56,8 @@ describe('<InputForm />', () => {
           wrapper.find('form').childAt(0).props().placeholder
         ).toBe('Name');
       });
+
+      // TODO: test ref
 
     });
 
@@ -117,50 +120,31 @@ describe('<InputForm />', () => {
   });
 
   describe('the user populates the input field', () => {
-    // const name = 'Jorlon';
+    const name = 'Jorlon';
+    let input;
 
-    // TODO: test value --don't seem to be able to do this..
-    // it('`<input />` value should equal "Jorlon"', () => {
-    //   input = wrapper.find('input').first();
-
-    //   input.simulate('change', {
-    //     target: {
-    //       value: 'test'
-    //     }
-    //   })
-    //   console.log(input.props());
-    //   expect(
-    //     input.props().value
-    //   ).toBe(name);
-    // });
-
-    // TODO: test ref --don't seem to be able to do this without mounting
-    // it('`<input>` element should have a ref attribute', () => {
-    //   expect(
-    //     wrapper.find('form').childAt(0).props().ref
-    //   ).toBe('Name');
-    // });  
-
-    // TODO: test no name
-    it('should update the state property `validationError`', () => {
-      const form = wrapper.find('form').first();
-      form.simulate('submit', {
-        preventDefault: () => {
-        },
-        target: [
-          {
-            value: '',
-          }
-        ],
-      });
-      expect(
-        wrapper.text()
-      ).toBe('Please enter your name.');
+    beforeEach(() => {
+      wrapper = mount(<InputForm {...props} />);
+      input = wrapper.find('input').first();
     });
 
-    // TODO: test with name input
-    // TODO: test props?
-    // TODO: test state?
+    it('`<input />` should have a value', () => {
+      input.value = name;
+      expect(
+        input.value
+      ).toBe(name);
+    });
+
+    it('`<input />` should have no value', () => {
+      input.value = null;
+      expect(
+        input.value
+      ).toBe(null);
+    });
+
+    // TODO: test submitting the form...
+    // TODO: test props after form submit
+    // TODO: test state after form submit
 
   });
 
