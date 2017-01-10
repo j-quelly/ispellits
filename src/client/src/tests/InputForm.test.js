@@ -142,7 +142,7 @@ describe('<InputForm />', () => {
       ).toBe(null);
     });
 
-    // TODO: test submitting the form...
+    // TODO: test submitting the form with and without data
     // TODO: test props after form submit
     // TODO: test state after form submit
 

@@ -51,9 +51,9 @@ class App extends Component {
     this.state = {
       title: '',
       word: '',
-      totalWords: Object.keys(dictionary).length,
-      words: Object.keys(dictionary),
-      clues: this.createClues(dictionary),
+      totalWords: 0,
+      words: [],
+      clues: [],
       clue: '',
       input: [],
       correct: [],
@@ -72,6 +72,25 @@ class App extends Component {
       highScores: [],
     };
   }
+
+  componentDidMount() {
+    // get data from "server" (flat file for now)
+    this.loadWordsFromDictionary();
+    this.loadCluesFromDictionary();
+  }
+
+  loadWordsFromDictionary() {
+    this.setState({
+      totalWords: Object.keys(dictionary).length,
+      words: Object.keys(dictionary),
+    });
+  }
+
+  loadCluesFromDictionary() {
+    this.setState({
+      clues: this.createClues(dictionary),
+    });
+  }  
 
   createClues(dictionary) {
     let clues = [];

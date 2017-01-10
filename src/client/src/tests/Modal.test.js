@@ -23,13 +23,14 @@ describe('<Modal />', () => {
       validationError: () => {},
     };
     wrapper = shallow(<Modal {...props} />);
+    throw wrapper.debug();
   });
 
-  it('should render the <Modal /> component when modal:true and startScreen: true', () => {
-    throw wrapper.debug();
-    expect(
-      wrapper.find('Modal').length
-    ).toBe(1);
-  });
+  // it('should render the <Modal /> component when modal:true and startScreen: true', () => {
+    
+  //   expect(
+  //     wrapper.find('ModalBody').length
+  //   ).toBe(1);
+  // });
 
 });

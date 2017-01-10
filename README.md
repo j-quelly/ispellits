@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.20.0
+- Client: 0.21.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -33,6 +33,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] add round score to score screen
 - [x] allow user to play again
 - [x] add more words [12/7/2016]
+- [x] update how state is handled to speed up initial render [1/9/2017]
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
@@ -71,11 +72,17 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [x] unit test logo component [12/13/2016]
 	- [x] unit test Body component [12/14/2016]
 	- [ ] unit test Modal component
-		- [ ] inputForm
+		- * Perhaps events, props and state can be tested in app.test.js
+		- [ ] InputForm
 			- [ ] test refs
 			- [ ] test props
 			- [ ] test state
 			- [ ] test events
+		- [ ] Btn
+			- [ ] test props
+			- [ ] test state
+			- [ ] test events
+		- [ ] ModalBody
 		
 - [ ] server testing 
 	- [ ] read up on this
