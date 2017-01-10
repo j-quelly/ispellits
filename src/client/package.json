@@ -1,6 +1,6 @@
 {
   "name": "ispellits-client",
-  "version": "0.21.0",
+  "version": "0.22.1",
   "private": true,
   "devDependencies": {
     "enzyme": "^2.6.0",

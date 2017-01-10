@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.21.0
+- Client: 0.22.1
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -12,28 +12,9 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 ## Changelog
 
 ### Game Core
-- [x] display the alphabet
-- [x] end the game when 0 lives 
-- [x] end the game when no words
-- [x] change to another word
-- [x] display error message
-- [x] score
-- [x] lives
-- [x] improve scoring
-- [x] score screen after each word?
-- [x] add word clues?
-- [x] improve word clues?
-- [x] improve rules screen at start of the game
-- [x] change array of words to a proper dictionary? [{'derp': 'derp'},{'derp': 'derp'}] 
-- [x] add additional lives for n # of points?
-- [x] user input when game ends
-- [x] then take the user to highscore page    
-- [x] confirm the use of arrow functions (to bind the React object to the method)
-- [x] confirm use of bind (to bind the React object to the component)
-- [x] add round score to score screen
-- [x] allow user to play again
 - [x] add more words [12/7/2016]
 - [x] update how state is handled to speed up initial render [1/9/2017]
+- [ ] no longer mutating objects/arrays [1/9/2017]
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
@@ -82,8 +63,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 			- [ ] test props
 			- [ ] test state
 			- [ ] test events
-		- [ ] ModalBody
-		
+		- [ ] ModalBody		
 - [ ] server testing 
 	- [ ] read up on this
 - [x] platform testing [12/7/2016]
@@ -101,12 +81,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 			- [x] edge 
 
 ### Aesthetics
-- [x] yeti
-- [x] trees
 - [x] better buttons [11/29/2016]
+- [ ] animations
 
 ### Client
-- [x] styles
 - [x] read - https://github.com/airbnb/javascript/tree/master/react#parentheses [11/22/2016]
 - [x] finish adding propTypes and defaultProps where applicable [11/21/2016]
 - [x] lint js [11/22/2016]
@@ -156,6 +134,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] modal not disappearing after clicking start button [12/12/2016]
 - [x] fixed version bump task [12/15/2016]
 - [x] need space after lives [12/15/2016]
+- [x] fixed an issue with displaying the wrong clue [1/9/2017]
 - [ ] server seems to try and GET before finishing POST --need promise?
 - [ ] production server is not displaying saved players, may need promise
 	- [ ] there could be an issue with deprecated use of mpromise?

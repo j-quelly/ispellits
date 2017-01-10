@@ -80,15 +80,17 @@ class App extends Component {
   }
 
   loadWordsFromDictionary() {
+    const words = this.state.words;
     this.setState({
       totalWords: Object.keys(dictionary).length,
-      words: Object.keys(dictionary),
+      words: [...words, ...Object.keys(dictionary)],
     });
   }
 
   loadCluesFromDictionary() {
+    const clues = this.state.clues;
     this.setState({
-      clues: this.createClues(dictionary),
+      clues: [...clues, ...this.createClues(dictionary)],
     });
   }  
 
@@ -96,6 +98,7 @@ class App extends Component {
     let clues = [];
     for (let i in dictionary) {
       if (dictionary.hasOwnProperty(i)) {
+        // TODO: confirm that this is still okay?
         clues.push(dictionary[i]);
       }
     }
@@ -136,7 +139,7 @@ class App extends Component {
 
       client.createPlayer(playerData,
         (err) => {
-          // todo: improve error message
+          // TODO: improve error message
           console.log(err);
         },
         client.getPlayers((data) => {
@@ -144,10 +147,10 @@ class App extends Component {
             inputScreen: false, // hide the input screen
             highScoreScreen: true, // show the high score screen
             yeti: yetiWin,
-            highScores: data,
+            highScores: [...this.state.highScores, ...data],
           });
         }, (err) => {
-          // todo: improve this error message
+          // TODO: improve this error message
           console.log(err);
         })
       );
@@ -157,8 +160,8 @@ class App extends Component {
   proceed() {
     this.updateWordBank();
     this.setState({
-      correct: [],
-      input: [],
+      correct: [], // from what I gather this is not mutating
+      input: [], // from what I gather this is not mutating
       modal: false, // show the modal
       startScreen: false, // hide the start screen modal
       scoreScreen: false, // hide the score screen
@@ -170,18 +173,34 @@ class App extends Component {
   updateWordBank() {
     let words = this.state.words;
     let clues = this.state.clues;
+
+    // get the next word at random
     let nextWord = words[Math.floor(Math.random() * words.length)];
-    let clue = clues[words.indexOf(nextWord)];
-    let totalWords = this.state.totalWords - 1;
+    const indexOfNextWord = words.indexOf(nextWord);
 
-    // remove words and clues
-    words.splice(words.indexOf(nextWord), 1);
-    clues.splice(clues.indexOf(clue), 1);
+    // get the clue for the nextWord
+    let clue = clues[indexOfNextWord];
+    const indexofNextClue = clues.indexOf(clue);
 
+    // reduce the number of totalWords
+    const totalWords = this.state.totalWords - 1;
+
+    // remove words and clues    
+    const newWords = [
+      ...words.slice(0, indexOfNextWord),
+      ...words.slice(indexOfNextWord + 1)
+    ];
+    const newClues = [
+      ...clues.slice(0, indexofNextClue),
+      ...clues.slice(indexofNextClue + 1)
+    ];    
+
+    // update the state
     this.setState({
-      words: words,
+      words: newWords,
       word: nextWord,
       totalWords: totalWords,
+      clues: newClues,
       clue: clue,
     });
   }
@@ -191,14 +210,15 @@ class App extends Component {
 
     // if the input is found
     if (word.indexOf(input) >= 0 && this.state.correct.indexOf(input) === -1) {
-      // count the # of occurences
+      // count the # of occurences in the word
       let count = (word.match(new RegExp(input, 'g')) || []).length;
-      let arr = [];
+      // TODO: find a better way to do this without looping...?
+      let correctArr = [];
       for (let i = 0; i < count; i++) {
-        arr.push(input);
+        correctArr = [...correctArr, input];
       }
       this.setState({
-        correct: [...this.state.correct, ...arr],
+        correct: [...this.state.correct, ...correctArr],
         input: [...this.state.input, input],
         roundScore: this.incrementScore(10),
         yeti: yetiWin,
@@ -300,6 +320,7 @@ class App extends Component {
     }
   }
 
+  // TODO: fix this up.. I feel like it's just bad...
   resetGame() {
     this.setState({
       title: '',
