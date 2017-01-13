@@ -71,7 +71,7 @@ class App extends Component {
       highScoreScreen: false, // hide high score screen 
       validationError: false,
       highScores: [],
-      name: '',
+      fields: {},
     };
   }
 
@@ -128,12 +128,13 @@ class App extends Component {
     this.updateGameState(input);
   }
 
-  handleNameChange(name) {
-    this.setState({ name });
+  handleNameChange(fields) {
+    this.setState({ fields });
   }
 
   submitForm(name) {
-    if (name === '') {
+    alert(name);
+    if (!name) {
       this.setState({
         validationError: true,
       })
@@ -349,7 +350,7 @@ class App extends Component {
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
       validationError: false,
-      name: '',
+      fields: {},
     });
   }
 

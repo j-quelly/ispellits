@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.23.0
+- Client: 0.24.0
 
 ## Getting Started
 1. $ cd src/server && npm run server

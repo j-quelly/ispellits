@@ -28,7 +28,7 @@ const Modal = function(props) {
               <InputForm
                 submitForm={props.submitForm}
                 validationError={state.validationError}
-                name={state.name}
+                fields={state.fields}
                 handleNameChange={props.handleNameChange}
               />
             </ModalBody>);
@@ -103,14 +103,15 @@ class InputForm extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  onNameChange(e) {
-    const name = e.target.value;
-    this.props.handleNameChange(name)
+  onInputChange(e) {
+    const fields = {};
+    fields[e.target.name] = e.target.value;
+    this.props.handleNameChange(fields)
   }
 
   onFormSubmit(e) {
     e.preventDefault();
-    const name = this.props.name;
+    const name = this.props.fields.name;
     this.props.submitForm(name);
   }
 
@@ -122,7 +123,8 @@ class InputForm extends Component {
           type="text"
           placeholder="Name"
           value={this.props.name}
-          onChange={(e) => this.onNameChange(e)}
+          name="name"
+          onChange={(e) => this.onInputChange(e)}
         />
         <p className="error">
           {errorMsg}
