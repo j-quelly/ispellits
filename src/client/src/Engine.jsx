@@ -3,22 +3,17 @@ import React, { Component } from 'react';
 import './css/Engine.css';
 
 const Engine = function(props) {
-  const state = props.state;
   return (
     <div>
-      <Clue clue={state.clue} />
-      <Wordbox word={state.word} correct={state.correct} />
+      <Clue clue={props.clue} />
+      <Wordbox word={props.word} correct={props.correct} />
       <Keyboard
-        pool={state.pool}
-        used={state.input}
-        handleClick={props.handleClick}
+        pool={props.pool}
+        used={props.input}
+        handleKeyboardClick={props.handleKeyboardClick}
       />
     </div>
     );
-};
-Engine.propTypes = {
-  state: React.PropTypes.object.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
 };
 
 const Clue = function(props) {
@@ -66,7 +61,7 @@ const Keyboard = function(props) {
               key={char + i}
               id={i}
               char={char}
-              handleClick={props.handleClick}
+              handleKeyboardClick={props.handleKeyboardClick}
               used={(props.used.indexOf(char) >= 0 ? true : false)}
             />);
   });
@@ -79,12 +74,12 @@ const Keyboard = function(props) {
 Keyboard.propTypes = {
   pool: React.PropTypes.array.isRequired,
   used: React.PropTypes.array.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
+  handleKeyboardClick: React.PropTypes.func.isRequired,
 };
 
 class Key extends Component {
   handleClick() {
-    this.props.handleClick(this.props.id);
+    this.props.handleKeyboardClick(this.props.id);
   }
   render() {
     let className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
@@ -97,7 +92,7 @@ Key.propTypes = {
   id: React.PropTypes.number.isRequired,
   char: React.PropTypes.string.isRequired,
   used: React.PropTypes.bool.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
+  handleKeyboardClick: React.PropTypes.func.isRequired,
 };
 
 export { Engine, Clue, Wordbox, Letter, Keyboard, Key };

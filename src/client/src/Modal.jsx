@@ -4,39 +4,37 @@ import { Score } from './Header';
 import './css/Modal.css';
 
 const Modal = function(props) {
-  let state = props.state;
-  if (state.startScreen) {
+  if (props.startScreen) {
     return (<ModalBody>
-              <Btn handleClick={props.handleClick} btnText="Start" />
+              <Btn handleClick={props.handleStartGame} btnText="Start" />
             </ModalBody>);
-  } else if (state.scoreScreen) {
+  } else if (props.scoreScreen) {
     return (<ModalBody title="Good Job!" body="You're doing great, keep it up.">
               <Score
                 styles="modal__body"
-                score={props.state.roundScore}
+                score={props.roundScore}
                 text="Round Score: "
               />
               <Score
                 styles="modal__body"
-                score={props.state.totalScore}
+                score={props.totalScore}
                 text="Total Score: "
               />
-              <Btn handleClick={props.handleClick} btnText="Next Word" />
+              <Btn handleClick={props.handleStartGame} btnText="Next Word" />
             </ModalBody>);
-  } else if (state.inputScreen) {
-    return (<ModalBody title={state.title} body="Input your name to enter the hall of fame.">
+  } else if (props.inputScreen) {
+    return (<ModalBody title={props.title} body="Input your name to enter the hall of fame.">
               <InputForm
                 submitForm={props.submitForm}
-                validationError={state.validationError}
-                fields={state.fields}
                 handleNameChange={props.handleNameChange}
+                handleFormSubmit={props.handleFormSubmit}
               />
             </ModalBody>);
-  } else if (state.highScoreScreen) {
+  } else if (props.highScoreScreen) {
     return (<ModalBody
               title="Hall of Fame"
               body=""
-              highScores={state.highScores}
+              highScores={props.highScores}
             >
               <Btn handleClick={props.resetGame} btnText="Play again" />
             </ModalBody>);
@@ -100,29 +98,43 @@ Btn.defaultProps = {
 class InputForm extends Component {
   constructor(props) {
     super(props);
+
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+
+    this.state = {
+      fields: {},
+      validationError: false,
+    };
   }
 
   onInputChange(e) {
-    const fields = {};
+    const fields = this.state.fields;
     fields[e.target.name] = e.target.value;
-    this.props.handleNameChange(fields)
+    this.setState({ fields, });
   }
 
   onFormSubmit(e) {
     e.preventDefault();
-    const fields = this.props.fields;
-    this.props.submitForm(fields);
+    if (!this.state.fields.name) {
+      this.setState({
+        validationError: true,
+      })
+    } else {
+      const name = this.state.fields.name;
+      this.props.handleFormSubmit(name);
+      this.setState({ validationError: false, })
+    }
   }
 
   render() {
-    let errorMsg = (this.props.validationError ? 'Please enter your name.' : null);
+    let errorMsg = (this.state.validationError ? 'Please enter your name.' : null);
     return (
       <form onSubmit={(e) => this.onFormSubmit(e)}>
         <input
           type="text"
           placeholder="Name"
-          value={this.props.name}
+          value={this.state.name}
           name="name"
           onChange={(e) => this.onInputChange(e)}
         />
@@ -139,7 +151,7 @@ class InputForm extends Component {
   }
 }
 InputForm.propTypes = {
-  submitForm: React.PropTypes.func.isRequired,
+  handleFormSubmit: React.PropTypes.func.isRequired,
 };
 
 export { InputForm, Btn, ModalBody, Modal };

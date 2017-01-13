@@ -7,6 +7,9 @@ import { Header } from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
+// helpers
+import client from './Client.js';
+
 // yeti states
 import yetiHello from './images/yeti-hello.png';
 import yetiLose from './images/yeti-lose.png';
@@ -17,9 +20,6 @@ import yetiWin from './images/yeti-win.png';
 
 // data
 import dictionary from './data/dictionary';
-
-// helpers
-import client from './Client.js';
 
 /** 
  * @description Represents a game of hangman
@@ -45,8 +45,7 @@ class App extends Component {
     this.updateLives = this.updateLives.bind(this);
     this.bonusLife = this.bonusLife.bind(this);
     this.nextWord = this.nextWord.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.submitForm = this.submitForm.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.resetGame = this.resetGame.bind(this);
 
     this.state = {
@@ -69,9 +68,7 @@ class App extends Component {
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
-      validationError: false,
       highScores: [],
-      fields: {},
     };
   }
 
@@ -79,6 +76,31 @@ class App extends Component {
     // get data from "server" (flat file for now)
     this.loadWordsFromDictionary();
     this.loadCluesFromDictionary();
+  }
+
+  handleFormSubmit(name) {
+      const playerData = {
+        name,
+        score: this.state.totalScore,
+      };
+
+      client.createPlayer(playerData,
+        (err) => {
+          // TODO: improve error message
+          console.log(err);
+        },
+        client.getPlayers((data) => {
+          this.setState({
+            inputScreen: false, // hide the input screen
+            highScoreScreen: true, // show the high score screen
+            yeti: yetiWin,
+            highScores: [...this.state.highScores, ...data],
+          });
+        }, (err) => {
+          // TODO: improve this error message
+          console.log(err);
+        })
+      );    
   }
 
   loadWordsFromDictionary() {
@@ -94,7 +116,7 @@ class App extends Component {
     this.setState({
       clues: [...clues, ...this.createClues(dictionary)],
     });
-  }  
+  }
 
   createClues(dictionary) {
     let clues = [];
@@ -126,41 +148,6 @@ class App extends Component {
   handleKeyboardClick(index) {
     let input = this.state.pool[index];
     this.updateGameState(input);
-  }
-
-  handleNameChange(fields) {
-    this.setState({ fields });
-  }
-
-  submitForm(fields) {
-    if (!fields.name) {
-      this.setState({
-        validationError: true,
-      })
-    } else {
-      const playerData = {
-        name: fields.name,
-        score: this.state.totalScore,
-      };
-
-      client.createPlayer(playerData,
-        (err) => {
-          // TODO: improve error message
-          console.log(err);
-        },
-        client.getPlayers((data) => {
-          this.setState({
-            inputScreen: false, // hide the input screen
-            highScoreScreen: true, // show the high score screen
-            yeti: yetiWin,
-            highScores: [...this.state.highScores, ...data],
-          });
-        }, (err) => {
-          // TODO: improve this error message
-          console.log(err);
-        })
-      );
-    }
   }
 
   proceed() {
@@ -199,7 +186,7 @@ class App extends Component {
     const newClues = [
       ...clues.slice(0, indexofNextClue),
       ...clues.slice(indexofNextClue + 1)
-    ];    
+    ];
 
     // update the state
     this.setState({
@@ -348,8 +335,6 @@ class App extends Component {
       scoreScreen: false, // hide the score screen
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
-      validationError: false,
-      fields: {},
     });
   }
 
@@ -362,13 +347,11 @@ class App extends Component {
           score={this.state.roundScore}
         />
         <Body
-          state={this.state}
+          {...this.state}
           handleStartGame={this.handleStartGame}
-          handleClick={this.handleKeyboardClick}
-          submitForm={this.submitForm}
+          handleKeyboardClick={this.handleKeyboardClick}
           resetGame={this.resetGame}
-          validationError={this.state.validationError}
-          handleNameChange={this.handleNameChange}
+          handleFormSubmit={this.handleFormSubmit}
         />
         <Footer yeti={this.state.yeti} />
       </div>

@@ -3,25 +3,11 @@ import { Engine } from './Engine';
 import { Modal } from './Modal';
 
 const Body = function(props) {
-  if (props.state.modal) {
-    return (<Modal
-              state={props.state}
-              handleClick={props.handleStartGame}
-              submitForm={props.submitForm}
-              resetGame={props.resetGame}
-              validationError={props.validationError}
-              handleNameChange={props.handleNameChange}
-            />);
+  if (props.modal) {
+    return (<Modal {...props} />);
   } else {
-    return <Engine state={props.state} handleClick={props.handleClick} />;
+    return <Engine {...props} />;
   }
-};
-Body.propTypes = {
-  state: React.PropTypes.object.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
-  handleStartGame: React.PropTypes.func.isRequired,
-  submitForm: React.PropTypes.func.isRequired,
-  resetGame: React.PropTypes.func.isRequired,
 };
 
 export default Body;
