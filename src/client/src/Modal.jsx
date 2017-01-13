@@ -25,7 +25,12 @@ const Modal = function(props) {
             </ModalBody>);
   } else if (state.inputScreen) {
     return (<ModalBody title={state.title} body="Input your name to enter the hall of fame.">
-              <InputForm submitForm={props.submitForm} validationError={state.validationError} />
+              <InputForm
+                submitForm={props.submitForm}
+                validationError={state.validationError}
+                name={state.name}
+                handleNameChange={props.handleNameChange}
+              />
             </ModalBody>);
   } else if (state.highScoreScreen) {
     return (<ModalBody
@@ -98,9 +103,14 @@ class InputForm extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  onNameChange(e) {
+    const name = e.target.value;
+    this.props.handleNameChange(name)
+  }
+
   onFormSubmit(e) {
     e.preventDefault();
-    const name = this.name.value;
+    const name = this.props.name;
     this.props.submitForm(name);
   }
 
@@ -111,9 +121,8 @@ class InputForm extends Component {
         <input
           type="text"
           placeholder="Name"
-          ref={ref => {
-                 this.name = ref
-               }}
+          value={this.props.name}
+          onChange={(e) => this.onNameChange(e)}
         />
         <p className="error">
           {errorMsg}

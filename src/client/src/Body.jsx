@@ -10,6 +10,7 @@ const Body = function(props) {
               submitForm={props.submitForm}
               resetGame={props.resetGame}
               validationError={props.validationError}
+              handleNameChange={props.handleNameChange}
             />);
   } else {
     return <Engine state={props.state} handleClick={props.handleClick} />;

@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.22.1
+- Client: 0.23.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -13,8 +13,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Game Core
 - [x] add more words [12/7/2016]
-- [x] update how state is handled to speed up initial render [1/9/2017]
-- [ ] no longer mutating objects/arrays [1/9/2017]
+- [ ] add more words
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
@@ -103,13 +102,16 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] convert font-size to em [12/8/2016]
 - [x] removed header component to improve testability [12/13/2016]
 - [x] rolled back Header.jsx [12/15/2016]
+- [x] update how state is handled to speed up initial render [1/9/2017]
+- [x] no longer mutating objects/arrays [1/9/2017]
+- [x] modify inputForm component to be a controlled component -- https://facebook.github.io/react/docs/forms.html this may make it easier to test [1/13/2017]
 - [ ] inline styles?
 	- https://facebook.github.io/react-native/docs/style.html
 	- https://facebook.github.io/react-native/docs/text.html
 	- https://facebook.github.io/react-native/docs/height-and-width.html
 - [ ] remove propTypes on build 
 - [ ] change modal component to higher order component --practice the decorator pattern
-- [ ] modify inputForm component to be a controlled component -- https://facebook.github.io/react/docs/forms.html this may make it easier to test
+
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game

@@ -45,6 +45,7 @@ class App extends Component {
     this.updateLives = this.updateLives.bind(this);
     this.bonusLife = this.bonusLife.bind(this);
     this.nextWord = this.nextWord.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.resetGame = this.resetGame.bind(this);
 
@@ -70,6 +71,7 @@ class App extends Component {
       highScoreScreen: false, // hide high score screen 
       validationError: false,
       highScores: [],
+      name: '',
     };
   }
 
@@ -124,6 +126,10 @@ class App extends Component {
   handleKeyboardClick(index) {
     let input = this.state.pool[index];
     this.updateGameState(input);
+  }
+
+  handleNameChange(name) {
+    this.setState({ name });
   }
 
   submitForm(name) {
@@ -343,6 +349,7 @@ class App extends Component {
       inputScreen: false, // hide the input screen
       highScoreScreen: false, // hide high score screen 
       validationError: false,
+      name: '',
     });
   }
 
@@ -361,6 +368,7 @@ class App extends Component {
           submitForm={this.submitForm}
           resetGame={this.resetGame}
           validationError={this.state.validationError}
+          handleNameChange={this.handleNameChange}
         />
         <Footer yeti={this.state.yeti} />
       </div>
