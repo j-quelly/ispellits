@@ -132,15 +132,14 @@ class App extends Component {
     this.setState({ fields });
   }
 
-  submitForm(name) {
-    alert(name);
-    if (!name) {
+  submitForm(fields) {
+    if (!fields.name) {
       this.setState({
         validationError: true,
       })
     } else {
       const playerData = {
-        name,
+        name: fields.name,
         score: this.state.totalScore,
       };
 

@@ -111,8 +111,8 @@ class InputForm extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    const name = this.props.fields.name;
-    this.props.submitForm(name);
+    const fields = this.props.fields;
+    this.props.submitForm(fields);
   }
 
   render() {
