@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.26.0
+- Client: 0.27.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -105,7 +105,8 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] update how state is handled to speed up initial render [1/9/2017]
 - [x] no longer mutating objects/arrays [1/9/2017]
 - [x] modify inputForm component to be a controlled component -- https://facebook.github.io/react/docs/forms.html this may make it easier to test [1/13/2017]
-- [ ] perhaps put all form logic and state into the formInput component
+- [x] perhaps put all form logic and state into the formInput component [1/13/2017]
+- [x] improved validation [1/13/2017]
 - [ ] inline styles?
 	- https://facebook.github.io/react-native/docs/style.html
 	- https://facebook.github.io/react-native/docs/text.html
@@ -153,6 +154,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] start easy and progressively get harder or offer different levels of difficulty
 - [ ] add in a helper to add a random letter for user at the cost of n points
 - [ ] add message when a bonus life is achieved (perfect round)
+- [ ] abstract away the input field into it's own component
 
 
 #### Disclaimer

@@ -269,11 +269,12 @@ class App extends Component {
   }
 
   bonusLife(totalScore, lives) {
-    if (totalScore >= 100) {
+    const bonusThreshold = 100;
+    if (totalScore >= bonusThreshold) {
       let score = this.state.bonusScore;
-      if (totalScore - score >= 100) {
+      if (totalScore - score >= bonusThreshold) {
         lives++;
-        score += 100;
+        score += bonusThreshold;
       }
       this.setState({
         bonusScore: score
@@ -289,7 +290,7 @@ class App extends Component {
        */
       this.setState({
         title: 'You beat the game!',
-        modal: true, // show the modal
+        modal: true, // show the modal 1479.95
         inputScreen: true, // show the input screen
       });
     } else if (this.state.lives === 0) {

@@ -100,10 +100,12 @@ class InputForm extends Component {
     super(props);
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.validate = this.validate.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
 
     this.state = {
       fields: {},
+      fieldErrors: {},
       validationError: false,
     };
   }
@@ -111,35 +113,50 @@ class InputForm extends Component {
   onInputChange(e) {
     const fields = this.state.fields;
     fields[e.target.name] = e.target.value;
-    this.setState({ fields, });
+    this.setState({
+      fields,
+    });
+  }
+
+  validate(formData) {
+    const errors = {};
+    if (!formData.name) {
+      errors.name = 'Please enter your name.';
+    }
+    return errors;
   }
 
   onFormSubmit(e) {
     e.preventDefault();
-    if (!this.state.fields.name) {
-      this.setState({
-        validationError: true,
-      })
-    } else {
-      const name = this.state.fields.name;
-      this.props.handleFormSubmit(name);
-      this.setState({ validationError: false, })
-    }
+    const formData = this.state.fields
+    const fieldErrors = this.validate(formData);
+    this.setState({
+      fieldErrors
+    });
+
+    if (Object.keys(fieldErrors).length) return;
+
+    const name = this.state.fields.name;
+    this.props.handleFormSubmit(name);
+    this.setState({
+      fields: {},
+      fieldErrors: {},
+    })
+
   }
 
   render() {
-    let errorMsg = (this.state.validationError ? 'Please enter your name.' : null);
     return (
       <form onSubmit={(e) => this.onFormSubmit(e)}>
         <input
           type="text"
           placeholder="Name"
-          value={this.state.name}
+          value={this.state.fields.name || ''}
           name="name"
           onChange={(e) => this.onInputChange(e)}
         />
         <p className="error">
-          {errorMsg}
+          {this.state.fieldErrors.name}
         </p>
         <input
           type="submit"
