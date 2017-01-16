@@ -26,8 +26,8 @@ Clue.propTypes = {
 };
 
 const Wordbox = function(props) {
-  let lettersArr = props.word.split('');
-  let letters = lettersArr.map((char, i) => <Letter
+  const lettersArr = props.word.split('');
+  const letters = lettersArr.map((char, i) => <Letter
                                               key={char + i}
                                               char={char}
                                               found={(props.correct.indexOf(char) >= 0 ? true : false)}
@@ -56,7 +56,7 @@ Letter.propTypes = {
 };
 
 const Keyboard = function(props) {
-  let letters = props.pool.map((char, i) => {
+  const letters = props.pool.map((char, i) => {
     return (<Key
               key={char + i}
               id={i}
@@ -82,7 +82,7 @@ class Key extends Component {
     this.props.handleKeyboardClick(this.props.id);
   }
   render() {
-    let className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
+    const className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
     return (
       <span>{(this.props.char === '-' ? <br/> : <span onClick={() => this.handleClick()} className={className}>{this.props.char}</span>)}</span>
       );
