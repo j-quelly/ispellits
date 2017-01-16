@@ -1,5 +1,3 @@
-// todo: confirm whether passing the entire state down is good/bad practice..
-
 import React, { Component } from 'react';
 
 // components
@@ -74,6 +72,7 @@ class App extends Component {
 
   componentDidMount() {
     // get data from "server" (flat file for now)
+    // this will help speed up the application
     this.loadWordsFromDictionary();
     this.loadCluesFromDictionary();
   }
@@ -119,10 +118,9 @@ class App extends Component {
   }
 
   createClues(dictionary) {
-    let clues = [];
-    for (let i in dictionary) {
+    const clues = [];
+    for (const i in dictionary) {
       if (dictionary.hasOwnProperty(i)) {
-        // TODO: confirm that this is still okay?
         clues.push(dictionary[i]);
       }
     }
@@ -146,15 +144,15 @@ class App extends Component {
   * @returns {void}
   */
   handleKeyboardClick(index) {
-    let input = this.state.pool[index];
+    const input = this.state.pool[index];
     this.updateGameState(input);
   }
 
   proceed() {
     this.updateWordBank();
     this.setState({
-      correct: [], // from what I gather this is not mutating
-      input: [], // from what I gather this is not mutating
+      correct: [], // from what I gather this is not mutating because it is technicall a new array
+      input: [], // from what I gather this is not mutating because it is technicall a new array
       modal: false, // show the modal
       startScreen: false, // hide the start screen modal
       scoreScreen: false, // hide the score screen
@@ -164,21 +162,21 @@ class App extends Component {
   }
 
   updateWordBank() {
-    let words = this.state.words;
-    let clues = this.state.clues;
+    const words = this.state.words;
+    const clues = this.state.clues;
 
     // get the next word at random
-    let nextWord = words[Math.floor(Math.random() * words.length)];
+    const nextWord = words[Math.floor(Math.random() * words.length)];
     const indexOfNextWord = words.indexOf(nextWord);
 
     // get the clue for the nextWord
-    let clue = clues[indexOfNextWord];
+    const clue = clues[indexOfNextWord];
     const indexofNextClue = clues.indexOf(clue);
 
     // reduce the number of totalWords
     const totalWords = this.state.totalWords - 1;
 
-    // remove words and clues    
+    // remove words and clues without mutating
     const newWords = [
       ...words.slice(0, indexOfNextWord),
       ...words.slice(indexOfNextWord + 1)
@@ -199,17 +197,20 @@ class App extends Component {
   }
 
   updateGameState(input) {
-    let word = this.state.word;
+    const word = this.state.word;
 
-    // if the input is found
+    // if the input is found in the word
     if (word.indexOf(input) >= 0 && this.state.correct.indexOf(input) === -1) {
       // count the # of occurences in the word
-      let count = (word.match(new RegExp(input, 'g')) || []).length;
-      // TODO: find a better way to do this without looping...?
+      const count = (word.match(new RegExp(input, 'g')) || []).length;
+
+      // if the word has duplicate or triplicate letters
+      // TODO: this should probbaly be it's own method
       let correctArr = [];
       for (let i = 0; i < count; i++) {
-        correctArr = [...correctArr, input];
+        correctArr.push(input);
       }
+
       this.setState({
         correct: [...this.state.correct, ...correctArr],
         input: [...this.state.input, input],
@@ -248,7 +249,7 @@ class App extends Component {
   updateLives(cb) {
     let lives = this.state.lives;
     let totalScore = this.state.totalScore;
-    let roundScore = this.state.roundScore;
+    const roundScore = this.state.roundScore;
     totalScore += roundScore;
 
     lives = this.bonusLife(totalScore, lives);

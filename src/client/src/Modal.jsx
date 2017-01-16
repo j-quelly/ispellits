@@ -106,19 +106,26 @@ class InputForm extends Component {
     this.state = {
       fields: {},
       fieldErrors: {},
-      validationError: false,
     };
   }
 
   onInputChange(e) {
+    /** Note: In a scenario such as this where the data
+       strucure is changing with each key stroke, it may 
+       okay to mutate the object for the sake of performance.
+       The actual performance hit has not been tested in this case. 
+    */
     const fields = this.state.fields;
-    fields[e.target.name] = e.target.value;
+    const newFields = {};
+    newFields[e.target.name] = e.target.value;
     this.setState({
-      fields,
+      fields: {...fields, ...newFields}
     });
   }
 
   validate(formData) {
+    /* Note: In this case it also seems unnecessary to avoid mutating the object 
+       as this method only returns a value and does nothing else. */      
     const errors = {};
     if (!formData.name) {
       errors.name = 'Please enter your name.';
@@ -130,6 +137,10 @@ class InputForm extends Component {
     e.preventDefault();
     const formData = this.state.fields
     const fieldErrors = this.validate(formData);
+    /** Note: Again in this case it's probably okay to mutate the state
+        as this only is happening once every time the form is submit. And there is
+        only one form in this entire application.  Besides, the state is reset once
+        all processing of the data is completed. */
     this.setState({
       fieldErrors
     });
