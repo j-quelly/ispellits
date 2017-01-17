@@ -1,0 +1,58 @@
+/**
+ * Letter Component
+ */
+
+
+/* Word block element */
+
+.wb__letter {
+    background: #ddf3fe;
+    color: #000;
+    display: inline-block;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2em;
+    margin: 0 3px 0 0;
+    width: 40px;
+}
+
+@media (min-width: 768px) {
+    .wb__letter {
+        background: #ddf3fe;
+        color: #000;
+        display: inline-block;
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 3em;
+        margin: 0 3px 0 0;
+        width: 48px;
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .wb__letter {
+        background: #ddf3fe;
+        color: #000;
+        display: inline-block;
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 3em;
+        margin: 0 3px 0 0;
+        width: 48px;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .wb__letter {
+        background: #ddf3fe;
+        color: #000;
+        display: inline-block;
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 3em;
+        margin: 0 3px 0 0;
+        width: 48px;
+    }
+}

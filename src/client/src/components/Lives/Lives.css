@@ -1,0 +1,76 @@
+/**
+ * Lives Component
+ */
+
+
+/* Lives block */
+
+.lives {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2em;
+    left: 15px;
+    margin: 0;
+    position: absolute;
+    top: 1%;
+}
+
+
+/* Lives block modifier */
+
+.lives--left {
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    /* Lives block */
+    .lives {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2em;
+        left: 100px;
+        margin: 0;
+        position: absolute;
+        top: 1%;
+    }
+    /* Lives block modifier */
+    .lives--left {
+        text-align: left;
+    }      
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    /* Lives block */
+    .lives {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2em;
+        left: 300px;
+        margin: 0;
+        position: absolute;
+        top: 1%;
+    }
+    /* Lives block modifier */
+    .lives--left {
+        text-align: left;
+    }    
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    /* Lives block */
+    .lives {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2em;
+        left: 350px;
+        margin: 0;
+        position: absolute;
+        top: 1%;
+    }
+    /* Lives block modifier */
+    .lives--left {
+        text-align: left;
+    }
+}

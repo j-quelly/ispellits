@@ -1,0 +1,80 @@
+/**
+ * Score Component
+ */
+
+
+/* Score block */
+
+.score {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2em;
+}
+
+
+/* Score block modifier */
+
+.score--right {
+    margin: 0;
+    position: absolute;
+    right: 15px;
+    text-align: right;
+    top: 1%;
+    width: 200px;
+}
+
+@media (min-width: 768px) {
+    /* Score block */
+    .score {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2em;
+    }
+    /* Score block modifier */
+    .score--right {
+        margin: 0;
+        position: absolute;
+        right: 100px;
+        text-align: right;
+        top: 1%;
+        width: 200px;
+    }    
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    /* Score block */
+    .score {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2em;
+    }
+    /* Score block modifier */
+    .score--right {
+        margin: 0;
+        position: absolute;
+        right: 300px;
+        text-align: right;
+        top: 1%;
+        width: 200px;
+    }   
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    /* Score block */
+    .score {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2em;
+    }
+    /* Score block modifier */
+    .score--right {
+        margin: 0;
+        position: absolute;
+        right: 350px;
+        text-align: right;
+        top: 1%;
+        width: 200px;
+    }
+}

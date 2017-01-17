@@ -1,0 +1,85 @@
+/**
+ * Forest Component
+ */
+
+
+/* Forest block */
+
+.forest {
+    bottom: 0;
+    height: 110px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+
+/* Forest block element */
+
+.forest__tree {
+    background: url('tree.png') no-repeat;
+    background-size: 30px;
+    float: left;
+    height: 50px;
+    width: 30px;
+}
+
+
+/* Forest block element modifier */
+
+.forest__tree--1 {
+    margin: 0 0 0 25px;
+}
+
+
+/* Forest block element modifier */
+
+.forest__tree--2 {
+    margin: 10px 0 0 15px;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    /* Forest block */
+    .forest {
+        bottom: 50px;
+        height: 110px;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+    /* Forest block element */
+    .forest__tree {
+        background: url('tree.png') no-repeat;
+        background-size: 60px;
+        float: left;
+        height: 100px;
+        width: 60px;
+    }
+    /* Forest block element modifier */
+    .forest__tree--1 {
+        margin: 0 0 0 6%;
+    }
+    /* Forest block element modifier */
+    .forest__tree--2 {
+        margin: 2% 0 0 2%;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    /* Forest block element modifier */
+    .forest__tree--1 {
+        margin: 0 0 0 6%;
+    }
+    /* Forest block element modifier */
+    .forest__tree--2 {
+        margin: 1.5% 0 0 1%;
+    }
+}

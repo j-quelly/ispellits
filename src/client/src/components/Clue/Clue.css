@@ -1,0 +1,42 @@
+/**
+ * Clue Component
+ */
+
+
+/* Clue block */
+
+.clue {
+    font-family: 'Gloria Hallelujah', cursive;
+    margin: 70px 15px 15px 15px;
+    font-size: 1.4em;
+}
+
+@media (min-width: 768px) {
+    .clue {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2.2em;
+        margin: 160px 15px 15px 15px;
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .clue {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2.2em;
+        margin: 140px 15px 15px 15px;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .clue {
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 2.2em;
+        margin: 190px 15px 15px 15px;
+    }
+}

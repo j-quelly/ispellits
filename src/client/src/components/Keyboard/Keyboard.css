@@ -1,0 +1,51 @@
+/**
+ * Keyboard Component
+ */
+
+
+/* Keyboard block */
+
+.keyboard {
+    color: #000;
+    margin: 0 auto 0 auto;
+    padding: 2% 1% 2% 1%;
+}
+
+
+/* Keyboard block pseudo-element */
+
+.keyboard:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+@media (min-width: 768px) {
+    .keyboard {
+        color: #000;
+        margin: 0 auto 0 auto;
+        padding: 0% 4% 4% 4%;
+    }   
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .keyboard {
+        color: #000;
+        margin: 0 auto 0 auto;
+        padding: 0% 4% 4% 4%;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .keyboard {
+        color: #000;
+        margin: 0 auto 0 auto;
+        padding: 0% 4% 4% 4%;
+    }
+}

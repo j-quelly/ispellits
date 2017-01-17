@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.28.0
+- Client: 0.29.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -47,22 +47,23 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha
 	- http://airbnb.io/enzyme/docs/api/mount.html
 	- http://facebook.github.io/jest/docs/api.html#expectvalue
-	- [x] unit test lives component [12/12/2016]
-	- [x] unit test score component [12/12/2016]
-	- [x] unit test logo component [12/13/2016]
+	- [x] unit test Lives component [12/12/2016]
+	- [x] unit test Score component [12/12/2016]
+	- [x] unit test Logo component [12/13/2016]
 	- [x] unit test Body component [12/14/2016]
+	- [x] unit test Yeti component [1/16/2017]
+	- [x] unit test WordBox component [1/16/2017]
+	- [x] unit test Trees component [1/16/2017]
 	- [ ] unit test Modal component
-		- * Perhaps events, props and state can be tested in app.test.js
-		- [ ] InputForm
-			- [ ] test refs
-			- [ ] test props
-			- [ ] test state
-			- [ ] test events
-		- [ ] Btn
-			- [ ] test props
-			- [ ] test state
-			- [ ] test events
-		- [ ] ModalBody		
+	- [ ] InputForm
+		- [ ] test refs
+		- [ ] test props
+		- [ ] test state
+		- [ ] test events
+	- [ ] Btn
+		- [ ] test props
+		- [ ] test state
+		- [ ] test events	
 - [ ] server testing 
 	- [ ] read up on this
 - [x] platform testing [12/7/2016]
@@ -146,10 +147,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### 2.x.x
 - [ ] react native	
-- [ ] graphql - read more on this
 - [ ] relay - read more on this
+	- [ ] graphql - read more on this
 - [ ] accessibility?
-- [ ] read chapters on redux for better state management
+- [ ] read chapters on redux for better state management --probably not necessary
 - [ ] document client JS once redux has been addded
 - [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
 - [ ] start easy and progressively get harder or offer different levels of difficulty

@@ -1,0 +1,20 @@
+/**
+ * Word Box Component
+ */
+
+
+/* Word block */
+
+.wb {
+    margin: 5px auto 0 auto;
+    padding: 2%;
+}
+
+
+/* Word block pseudo-element */
+
+.wb:after {
+    clear: both;
+    content: "";
+    display: table;
+}

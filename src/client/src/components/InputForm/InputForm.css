@@ -1,0 +1,21 @@
+ /** 
+  * InputForm Component 
+  */
+
+ input[type="text"] {
+     border: solid 1px #e4e4e4;
+     border-radius: 6px;
+     color: #999999;
+     font-size: 1.2em;
+     height: 29px;
+     margin: 0 0 15px 0;
+     padding: 10px 15px 5px 15px;
+ }
+ 
+ .error {
+     color: red;
+     font-family: 'Gloria Hallelujah', cursive;
+     font-size: 1.2em;
+     margin: 0;
+     padding: 0;
+ }

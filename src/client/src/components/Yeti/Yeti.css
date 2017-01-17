@@ -1,0 +1,55 @@
+/**
+ * Yeti Component
+ */
+
+
+/* Yeti block */
+
+.yeti {
+    bottom: 2%;
+    position: fixed;
+    right: 2%;
+    z-index: 2;
+    width: 110px;
+}
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    /* Yeti block */
+    .yeti {
+        bottom: 2%;
+        position: fixed;
+        right: 2%;
+        z-index: 2;
+        width: 150px;
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    /* Yeti block */
+    .yeti {
+        bottom: 2%;
+        position: fixed;
+        right: 2%;
+        z-index: 2;
+        width: 15%;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    /* Yeti block */
+    .yeti {
+        bottom: 2%;
+        position: fixed;
+        right: 10%;
+        z-index: 2;
+        width: 170px;
+    }
+}

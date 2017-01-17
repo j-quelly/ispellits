@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 // components
-import { Header } from './Header';
-import Body from './Body';
-import Footer from './Footer';
+import Header from './components/Header/Header';
+import Body from './components/Body/Body';
+import Footer from './components/Footer/Footer';
 
 // helpers
-import client from './Client.js';
+import client from './lib/Client.js';
 
 // yeti states
 import yetiHello from './images/yeti-hello.png';
