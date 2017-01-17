@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.29.0
+- Client: 0.30.0
 
 ## Getting Started
 1. $ cd src/server && npm run server
@@ -43,7 +43,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Testing
 - [x] read chapters on this [11/30/2016]
-- [ ] finish client testing
+- [ ] finish front-end unit testing
 	- https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha
 	- http://airbnb.io/enzyme/docs/api/mount.html
 	- http://facebook.github.io/jest/docs/api.html#expectvalue
@@ -54,16 +54,24 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [x] unit test Yeti component [1/16/2017]
 	- [x] unit test WordBox component [1/16/2017]
 	- [x] unit test Trees component [1/16/2017]
-	- [ ] unit test Modal component
+	- [x] unit test Modal component [1/17/2017]
+	- [x] unit test Keyboard component [1/17/2017]
+	- [x] unit test Key component [1/17/2017]
+	- [x] unit test Letter component [1/17/2017]
+	- [x] unit test Header component [1/17/2017]
+	- [x] unit test Footer component [1/17/2017]
+	- [x] unit test Engine component [1/17/2017]
+	- [x] unit test Clue component [1/17/2017]
 	- [ ] InputForm
 		- [ ] test refs
 		- [ ] test props
 		- [ ] test state
 		- [ ] test events
-	- [ ] Btn
-		- [ ] test props
-		- [ ] test state
-		- [ ] test events	
+	- [x] Btn [1/17/2017]		
+		- [x] test events	
+	- [ ] add more tests to App.jsx
+	- [ ] double all tests (events)
+- [ ] end to end testing?
 - [ ] server testing 
 	- [ ] read up on this
 - [x] platform testing [12/7/2016]

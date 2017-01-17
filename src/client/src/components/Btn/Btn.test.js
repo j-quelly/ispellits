@@ -1,6 +1,7 @@
 // dependencies
 import React from 'react';
 import { shallow } from 'enzyme';
+import { spy } from 'sinon';
 
 // components
 import Btn from './Btn.jsx';
@@ -40,8 +41,15 @@ describe('<Btn />', () => {
     ).toEqual(props.btnText);
   });
 
-  // TODO: test handleClick method?
-  // TODO: test handleClick event
+  it('simulates click events', () => {
+    const onButtonClick = spy();
+    wrapper = shallow(<Btn handleClick={onButtonClick} />);
+    wrapper.find('button').simulate('click');
+    expect(
+      onButtonClick.calledOnce
+    ).toBe(true);
+  });  
+
   // TODO: test props after event
   // TODO: test state after event?
 

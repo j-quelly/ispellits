@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import './Key.css';
 
 class Key extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   handleClick() {
     this.props.handleKeyboardClick(this.props.id);
   }
+  
   render() {
     const className = (this.props.used ? 'keyboard__key keyboard__key--used' : 'keyboard__key');
     return (
