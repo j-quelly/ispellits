@@ -62,11 +62,9 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [x] unit test Footer component [1/17/2017]
 	- [x] unit test Engine component [1/17/2017]
 	- [x] unit test Clue component [1/17/2017]
-	- [ ] InputForm
-		- [ ] test refs
-		- [ ] test props
-		- [ ] test state
-		- [ ] test events
+	- [x] InputForm [1/17/2017]
+		- [x] test state
+		- [x] test events
 	- [x] Btn [1/17/2017]		
 		- [x] test events	
 	- [ ] add more tests to App.jsx

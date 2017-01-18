@@ -11,9 +11,8 @@ describe('<InputForm />', () => {
 
   beforeEach(() => {
     props = {
-      submitForm: () => {
+      handleFormSubmit: () => {
       },
-      validationError: false,
     };
     wrapper = shallow(<InputForm {...props} />);
   });
@@ -37,13 +36,13 @@ describe('<InputForm />', () => {
       ).toBe(true);
     });
 
-    it('`<form>` element should have an `<input type="text" />` element', () => {
+    it('`<form>` element should have an `<input />` element', () => {
       expect(
         wrapper.find('form').childAt(0).type()
       ).toBe('input');
     });
 
-    describe('<input type="text" />', () => {
+    describe('<input />', () => {
 
       it('`<input>` element should be of type `text`', () => {
         expect(
@@ -57,7 +56,52 @@ describe('<InputForm />', () => {
         ).toBe('Name');
       });
 
-      // TODO: test ref
+      it('`<input>` element value should be empty', () => {
+        expect(
+          wrapper.find('form').childAt(0).props().value
+        ).toBe('');
+      });
+
+      it('`<input>` element value should be empty', () => {
+        expect(
+          wrapper.find('form').childAt(0).props().value
+        ).toBe('');
+      });
+
+      it('`<input>` element should have an onChange attribute', () => {
+        expect(
+          wrapper.find('form').childAt(0).props().onChange
+        ).toBeDefined();
+      });
+
+      it('onChange attribute should be of type `function`', () => {
+        expect(
+          typeof wrapper.find('form').childAt(0).props().onChange === 'function'
+        ).toBe(true);
+      });
+
+      it('should update the state when a value is input', () => {
+        const name = 'Blerch';
+        const input = wrapper.find('form').childAt(0);
+        input.simulate('change', {
+          target: {
+            name: 'name',
+            value: name,
+          }
+        });
+        expect(
+          wrapper.state().fields.name
+        ).toBe(name);
+      });
+
+      it('should display an error when no value is input', () => {
+        const handleFormSubmit = spy();
+        wrapper = mount(<InputForm handleFormSubmit={handleFormSubmit} />);
+        wrapper.find('form').simulate('submit');
+        expect(
+          wrapper.state().fieldErrors.name
+        ).toBe('Please enter your name.');
+      });
 
     });
 
@@ -81,12 +125,13 @@ describe('<InputForm />', () => {
       });
 
       it('`<p>` element should be `Please enter your name` when passed validationError: true', () => {
-        props.validationError = true;
-        wrapper = shallow(<InputForm {...props} />);
+        const handleFormSubmit = spy();
+        wrapper = mount(<InputForm handleFormSubmit={handleFormSubmit} />);
+        wrapper.find('form').simulate('submit');
         expect(
           wrapper.text()
         ).toBe('Please enter your name.');
-      });
+      });    
 
     });
 
@@ -116,35 +161,6 @@ describe('<InputForm />', () => {
       });
 
     });
-
-  });
-
-  describe('the user populates the input field', () => {
-    const name = 'Jorlon';
-    let input;
-
-    beforeEach(() => {
-      wrapper = mount(<InputForm {...props} />);
-      input = wrapper.find('input').first();
-    });
-
-    it('`<input />` should have a value', () => {
-      input.value = name;
-      expect(
-        input.value
-      ).toBe(name);
-    });
-
-    it('`<input />` should have no value', () => {
-      input.value = null;
-      expect(
-        input.value
-      ).toBe(null);
-    });
-
-    // TODO: test submitting the form with and without data
-    // TODO: test props after form submit
-    // TODO: test state after form submit
 
   });
 

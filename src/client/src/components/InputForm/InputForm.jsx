@@ -34,7 +34,7 @@ class InputForm extends Component {
     /* Note: In this case it also seems unnecessary to avoid mutating the object 
        as this method only returns a value and does nothing else. */      
     const errors = {};
-    if (!formData.name) {
+    if (!formData.name || formData.name === '' || formData.name === null) {
       errors.name = 'Please enter your name.';
     }
     return errors;
