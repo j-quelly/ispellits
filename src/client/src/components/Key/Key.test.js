@@ -1,6 +1,7 @@
 // dependencies
 import React from 'react';
 import { shallow } from 'enzyme';
+import { spy } from 'sinon';
 
 // components
 import Key from './Key';
@@ -62,8 +63,16 @@ describe('<Key />', () => {
         wrapper.find('span').at(0).find('br').length
       ).toBe(1);
     });
-            
 
+    it('simulates click events', () => {
+      const onButtonClick = spy();
+      wrapper = shallow(<Key {...props} handleKeyboardClick={onButtonClick} />);
+      wrapper.find('span').at(1).simulate('click');
+      expect(
+        onButtonClick.calledOnce
+      ).toBe(true);
+    });       
+              
   });
 
 });

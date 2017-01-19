@@ -31,7 +31,7 @@ describe('<Wordbox />', () => {
   it('should render a `<Letter />` component for every letter in props.word', () => {
     expect(
       wrapper.find('Letter').length
-    ).toBe(4);
+    ).toBe(props.word.length);
   });
 
 });

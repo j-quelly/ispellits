@@ -3,17 +3,17 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.9.0
-- Client: 0.31.0
+- Client: 0.32.0
 
 ## Getting Started
-1. $ cd src/server && npm run server
-2. $ cd src/client && npm start
+1. ```$ cd src/server && npm run server````
+2. ```$ cd src/client && npm start```
 
 ## Changelog
 
 ### Game Core
 - [x] add more words [12/7/2016]
-- [ ] add more words
+- [x] add more words [1/18/2017]
  
 ### Server
 - [x] express server (using fsr template) [11/3/2016]
@@ -43,7 +43,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Testing
 - [x] read chapters on this [11/30/2016]
-- [ ] finish front-end unit testing
+- [x] finish front-end unit testing [1/18/2017]
 	- https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha
 	- http://airbnb.io/enzyme/docs/api/mount.html
 	- http://facebook.github.io/jest/docs/api.html#expectvalue
@@ -67,8 +67,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 		- [x] test events
 	- [x] Btn [1/17/2017]		
 		- [x] test events	
-	- [ ] add more tests to App.jsx
-	- [ ] double all tests (events)
+	- [x] double check all tests (events) [1/18/2017]
 - [ ] end to end testing?
 - [ ] server testing 
 	- [ ] read up on this
@@ -150,6 +149,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] server seems to try and GET before finishing POST --need promise?
 - [ ] production server is not displaying saved players, may need promise
 	- [ ] there could be an issue with deprecated use of mpromise?
+- [ ] try to speed up the application, the logo loads after the modal
 
 ### 2.x.x
 - [ ] react native	
@@ -163,7 +163,3 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] add in a helper to add a random letter for user at the cost of n points
 - [ ] add message when a bonus life is achieved (perfect round)
 - [ ] abstract away the input field into it's own component
-
-
-#### Disclaimer
-Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.

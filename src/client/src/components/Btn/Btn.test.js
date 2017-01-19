@@ -50,7 +50,4 @@ describe('<Btn />', () => {
     ).toBe(true);
   });  
 
-  // TODO: test props after event
-  // TODO: test state after event?
-
 });

@@ -39,7 +39,6 @@ describe('<App />', () => {
     });
 
     it('should have props for score', function() {
-
       expect(
         wrapper.find('Header').props().score
       ).toBeDefined()

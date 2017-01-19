@@ -34,5 +34,10 @@ let dictionary = {
   'carbon': 'Carbon dioxide or other gaseous carbon compounds',
   'weight': 'Hold (something) down by placing a heavy object on top of it',
   'mystery': 'Something that is difficult or impossible to understand or explain',
+  'sweet': 'Having the pleasant taste characteristic of sugar or honey',
+  'hip': 'A projection of the pelvis and upper thigh bone on each side of the body',
+  'glide': 'Make an unpowered flight, either in a glider or in an aircraft with engine failure',
+  'sleep': 'A condition of body and mind such as that which typically recurs for several hours every night',
+  'morale': 'The confidence, enthusiasm, and discipline of a person or group at a particular time',
 };
 export default dictionary;

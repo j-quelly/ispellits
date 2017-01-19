@@ -34,7 +34,7 @@ describe('<Keyboard />', () => {
   it('should render 28 <Key /> components', () => {
     expect(
       wrapper.find('Key').length
-    ).toEqual(28);
+    ).toEqual(props.pool.length);
   });
 
   describe('<Key />', () => {

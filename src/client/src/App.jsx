@@ -25,7 +25,7 @@ import dictionary from './data/dictionary';
  */
 class App extends Component {
   /**
-   * @description Set the state of the application
+   * @description Set the initial state of the application
    * @constructor
    * @param {object} props - application properties
    */
@@ -77,31 +77,6 @@ class App extends Component {
     this.loadCluesFromDictionary();
   }
 
-  handleFormSubmit(name) {
-      const playerData = {
-        name,
-        score: this.state.totalScore,
-      };
-
-      client.createPlayer(playerData,
-        (err) => {
-          // TODO: improve error message
-          console.log(err);
-        },
-        client.getPlayers((data) => {
-          this.setState({
-            inputScreen: false, // hide the input screen
-            highScoreScreen: true, // show the high score screen
-            yeti: yetiWin,
-            highScores: [...this.state.highScores, ...data],
-          });
-        }, (err) => {
-          // TODO: improve this error message
-          console.log(err);
-        })
-      );    
-  }
-
   loadWordsFromDictionary() {
     const words = this.state.words;
     this.setState({
@@ -125,7 +100,7 @@ class App extends Component {
       }
     }
     return clues;
-  }
+  }  
 
   /**
   * @function handleStartGame 
@@ -134,18 +109,6 @@ class App extends Component {
   */
   handleStartGame() {
     this.proceed();
-  }
-
-  /**
-  * @function handleKeyboardClick 
-  * @description Handles keyboard input from user then invokes
-  * the @updateGameState method
-  * @param {number} index - index value of letter on keyboard
-  * @returns {void}
-  */
-  handleKeyboardClick(index) {
-    const input = this.state.pool[index];
-    this.updateGameState(input);
   }
 
   proceed() {
@@ -196,6 +159,18 @@ class App extends Component {
     });
   }
 
+  /**
+  * @function handleKeyboardClick 
+  * @description Handles keyboard input from user then invokes
+  * the @updateGameState method
+  * @param {number} index - index value of letter on keyboard
+  * @returns {void}
+  */
+  handleKeyboardClick(index) {
+    const input = this.state.pool[index];
+    this.updateGameState(input);
+  }
+
   updateGameState(input) {
     const word = this.state.word;
 
@@ -232,7 +207,7 @@ class App extends Component {
         });
       }
     }
-  }
+  }  
 
   incrementScore(n) {
     let score = this.state.roundScore;
@@ -313,6 +288,31 @@ class App extends Component {
         scoreScreen: true, // show the score screen
       });
     }
+  }
+
+  handleFormSubmit(name) {
+      const playerData = {
+        name,
+        score: this.state.totalScore,
+      };
+
+      client.createPlayer(playerData,
+        (err) => {
+          // TODO: improve error message
+          console.log(err);
+        },
+        client.getPlayers((data) => {
+          this.setState({
+            inputScreen: false, // hide the input screen
+            highScoreScreen: true, // show the high score screen
+            yeti: yetiWin,
+            highScores: [...this.state.highScores, ...data],
+          });
+        }, (err) => {
+          // TODO: improve this error message
+          console.log(err);
+        })
+      );    
   }
 
   // TODO: fix this up.. I feel like it's just bad...

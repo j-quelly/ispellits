@@ -33,9 +33,11 @@ describe('<Engine />', () => {
         wrapper.find('Clue').length
       ).toBe(1);
     });
+
     it('should pass props clue: `string`', () => {
       expect(wrapper.find('Clue').props().clue).toBe(props.clue)
     });
+
   });
 
   describe('<Wordbox />', () => {
@@ -52,6 +54,7 @@ describe('<Engine />', () => {
     it('should pass props correct', () => {
       expect(wrapper.find('Wordbox').props().correct).toBe(props.correct)
     });
+
   });
 
   describe('<Keyboard />', () => {
@@ -71,7 +74,8 @@ describe('<Engine />', () => {
 
     it('should pass props handleKeyboardClick', () => {
       expect(wrapper.find('Keyboard').props().handleKeyboardClick).toBe(props.handleKeyboardClick)
-    });    
+    });  
+      
   });  
 
 });

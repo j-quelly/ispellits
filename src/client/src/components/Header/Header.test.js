@@ -23,10 +23,22 @@ describe('<Header />', () => {
     ).toBe(1);
   });
 
+  it('<Lives /> should have props for lives when modal:false', () => {
+    expect(
+      wrapper.find('Lives').props().lives
+    ).toBeDefined();
+  });  
+
   it('should render the <Score /> component when modal:false', () => {
     expect(
       wrapper.find('Score').length
     ).toBe(1);
+  });
+
+  it('<Score /> component should pass props when modal:false', () => {
+    expect(
+      wrapper.find('Score').props().score
+    ).toBeDefined();
   });
 
   it('should render the <Logo /> component when modal:true', () => {
@@ -35,6 +47,14 @@ describe('<Header />', () => {
     expect(
       wrapper.find('Logo').length
     ).toBe(1);
+  });
+
+  it('<Logo /> component should pass props when modal:true', () => {
+    props.modal = !props.modal;
+    wrapper = shallow(<Header {...props} />);
+    expect(
+      wrapper.find('Logo').props().logo
+    ).toBeDefined();
   });
 
 });
