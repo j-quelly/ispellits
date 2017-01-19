@@ -13,11 +13,11 @@ ROUTER.post('/', (req, res) => {
       res.send(err);
     }
 
-    res.json(player);
+    res.status(201).json(player);
   });
 });
 
-ROUTER.get('/', (req, res) => {  
+ROUTER.get('/', (req, res) => {
   Player.find({})
     .sort({
       score: 'desc'
@@ -28,7 +28,7 @@ ROUTER.get('/', (req, res) => {
         res.send(err);
       }
 
-      res.json(players);
+      res.status(200).json(players);
     });
 });
 

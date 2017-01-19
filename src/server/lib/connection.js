@@ -7,9 +7,9 @@ let config;
 let dbUrl;
 try {
   config = require('../creds');
-  dbUrl = `mongodb://${config.dev.user}:${config.dev.pass}${config.dev.host}`;
+  dbUrl = (process.env.NODE_ENV === 'testing' ? `mongodb://${config.testing.user}:${config.testing.pass}${config.testing.host}` : `mongodb://${config.dev.user}:${config.dev.pass}${config.dev.host}`);
 } catch (e) {
-  config = {};  
+  config = {};
 }
 
 // db url

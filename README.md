@@ -2,7 +2,7 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.9.0
+- Server: 0.10.0
 - Client: 0.32.0
 
 ## Getting Started
@@ -40,6 +40,8 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] endpoint for getting top players [12/2/2016]
 - [x] removed index route [12/7/2016]
 - [x] removed favicon middleware [12/7/2016]
+- [x] updates response codes [1/19/2017]
+- [x] adds test db [1/19/2017]
 
 ### Testing
 - [x] read chapters on this [11/30/2016]
@@ -68,9 +70,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [x] Btn [1/17/2017]		
 		- [x] test events	
 	- [x] double check all tests (events) [1/18/2017]
-- [ ] end to end testing?
-- [ ] server testing 
-	- [ ] read up on this
+- [x] server testing [1/19/2017]
 - [x] platform testing [12/7/2016]
 	- [x] mobile [12/5/2016]
 	- [x] phablet [12/5/2016]
@@ -84,10 +84,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 			- [x] 9 
 			- [x] 10 
 			- [x] edge 
+- [ ] end to end testing?			
 
 ### Aesthetics
 - [x] better buttons [11/29/2016]
-- [ ] animations
 
 ### Client
 - [x] read - https://github.com/airbnb/javascript/tree/master/react#parentheses [11/22/2016]
@@ -163,3 +163,4 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] add in a helper to add a random letter for user at the cost of n points
 - [ ] add message when a bonus life is achieved (perfect round)
 - [ ] abstract away the input field into it's own component
+- [ ] animations

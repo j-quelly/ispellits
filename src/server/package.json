@@ -1,6 +1,6 @@
 {
   "name": "ispellits-server",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "babel": {
     "presets": [
@@ -27,15 +27,22 @@
     "dev": "nf start -p 3000 --procfile Procfile.dev",
     "server": "./node_modules/.bin/babel-node ./bin/www",
     "lint": "esw *.js routes models lib bin --color",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --compilers js:babel-core/register -R spec test/unit/spec.js --timeout 10000"
   },
   "devDependencies": {
+    "chance": "^1.0.4",
+    "colors": "^1.1.2",
     "eslint": "^3.9.1",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
-    "eslint-watch": "^2.1.14"
+    "eslint-watch": "^2.1.14",
+    "mocha": "^3.2.0",
+    "really-need": "^1.9.2",
+    "should": "^11.1.2",
+    "supertest": "^2.0.1"
   }
 }

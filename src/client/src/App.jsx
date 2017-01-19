@@ -302,6 +302,7 @@ class App extends Component {
           console.log(err);
         },
         client.getPlayers((data) => {
+          console.log(data);
           this.setState({
             inputScreen: false, // hide the input screen
             highScoreScreen: true, // show the high score screen
