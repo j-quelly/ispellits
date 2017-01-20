@@ -1,6 +1,6 @@
 {
   "name": "ispellits-server",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "private": true,
   "babel": {
     "presets": [
@@ -19,7 +19,8 @@
     "foreman": "^2.0.0",
     "mongoose": "^4.6.6",
     "morgan": "^1.7.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "q": "^1.4.1"
   },
   "scripts": {
     "start": "nf start -p $PORT",
