@@ -5,31 +5,26 @@ import Player from '../models/player';
 const ROUTER = express.Router();
 
 ROUTER.post('/', (req, res) => {
-  Player.create({
-    name: req.body.name,
-    score: req.body.score
-  }, (err, player) => {
-    if (err) {
-      res.send(err);
-    }
+  const name = req.body.name;
+  const score = req.body.score;
+  const promise = Player.createPlayer(name, score);
 
-    res.status(201).json(player);
+  promise.then((response) => {
+    res.status(201).json(response);
+  }).catch((err) => {
+    res.send(err)
   });
+
 });
 
 ROUTER.get('/', (req, res) => {
-  Player.find({})
-    .sort({
-      score: 'desc'
-    })
-    .limit(5)
-    .exec((err, players) => {
-      if (err) {
-        res.send(err);
-      }
+  const promise = Player.getPlayers();
 
-      res.status(200).json(players);
-    });
+  promise.then((response) => {
+    res.status(200).json(response);
+  }).catch((err) => {
+    res.send(err)
+  });
 });
 
 export default ROUTER;

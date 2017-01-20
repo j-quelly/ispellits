@@ -8,21 +8,22 @@ function createPlayer(playerData, onError, cb) {
       'Content-Type': 'application/json',
     },
   }).then(checkStatus)
-    .catch(onError)
-    .then(cb);
+    .then(parseJSON)
+    .then(cb)
+    .catch(onError);
 }
 
 function getPlayers(success, onError) {
-  console.log('getting players?');
   return fetch('/api/players', {
+    method: 'get',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
   }).then(checkStatus)
-    .catch(onError)
     .then(parseJSON)
-    .then(success);
+    .then(success)
+    .catch(onError);
 }
 
 function checkStatus(response) {
@@ -37,7 +38,6 @@ function checkStatus(response) {
 }
 
 function parseJSON(response) {
-  // console.log('response: ', response);
   return response.json();
 }
 
@@ -45,4 +45,5 @@ const Client = {
   createPlayer,
   getPlayers
 };
+
 export default Client;

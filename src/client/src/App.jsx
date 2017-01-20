@@ -296,24 +296,24 @@ class App extends Component {
         score: this.state.totalScore,
       };
 
-      client.createPlayer(playerData,
-        (err) => {
-          // TODO: improve error message
-          console.log(err);
-        },
-        client.getPlayers((data) => {
-          console.log(data);
-          this.setState({
-            inputScreen: false, // hide the input screen
-            highScoreScreen: true, // show the high score screen
-            yeti: yetiWin,
-            highScores: [...this.state.highScores, ...data],
-          });
-        }, (err) => {
-          // TODO: improve this error message
-          console.log(err);
-        })
-      );    
+      client.createPlayer(playerData, (err) => {
+        console.error(err);
+      }, (data) => {
+        this.setState({
+          highScores: [...this.state.highScores, ...data],
+        });
+      });      
+
+      client.getPlayers((data) => {
+        this.setState({
+          inputScreen: false, // hide the input screen
+          highScoreScreen: true, // show the high score screen
+          yeti: yetiWin,
+          highScores: [...this.state.highScores, ...data],
+        });
+      }, (err) => {
+        console.error(err);
+      });
   }
 
   // TODO: fix this up.. I feel like it's just bad...

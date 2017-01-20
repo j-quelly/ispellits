@@ -2,7 +2,7 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.10.0
+- Server: 0.10.4
 - Client: 0.32.0
 
 ## Getting Started
@@ -42,6 +42,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] removed favicon middleware [12/7/2016]
 - [x] updates response codes [1/19/2017]
 - [x] adds test db [1/19/2017]
+- [x] updates Player model, adds 2 new methods and promises [1/19/2017]
 
 ### Testing
 - [x] read chapters on this [11/30/2016]
@@ -146,9 +147,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] fixed version bump task [12/15/2016]
 - [x] need space after lives [12/15/2016]
 - [x] fixed an issue with displaying the wrong clue [1/9/2017]
-- [ ] server seems to try and GET before finishing POST --need promise?
-- [ ] production server is not displaying saved players, may need promise
-	- [ ] there could be an issue with deprecated use of mpromise?
+- [x] server seems to try and GET before finishing POST --need promise? [1/19/2017]
+- [x] production server is not displaying saved players, may need promise 
+	- [x] there could be an issue with deprecated use of mpromise? [1/19/2017]
+- [x] fixes issues with players model [1/19/2017]
 - [ ] try to speed up the application, the logo loads after the modal
 
 ### 2.x.x
