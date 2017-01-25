@@ -1,8 +1,9 @@
 {
   "name": "ispellits-client",
-  "version": "0.32.0",
+  "version": "0.32.1",
   "private": true,
   "devDependencies": {
+    "babel-plugin-transform-react-remove-prop-types": "^0.2.11",
     "enzyme": "^2.6.0",
     "react-addons-test-utils": "^15.4.1",
     "react-scripts": "0.7.0",

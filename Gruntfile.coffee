@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
 	grunt.initConfig
 		path: require "path"
-		client: "0.32.0"
+		client: "0.32.1"
 		server: "0.10.5"
 
 		# list our available tasks

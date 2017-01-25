@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 0.10.5
-- Client: 0.32.0
+- Client: 0.32.1
 
 ## Getting Started
 1. ```$ cd src/server && npm run server````
@@ -84,8 +84,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 			- [x] 8	FAILED 
 			- [x] 9 
 			- [x] 10 
-			- [x] edge 
-- [ ] end to end testing?			
+			- [x] edge 			
 
 ### Aesthetics
 - [x] better buttons [11/29/2016]
@@ -115,13 +114,6 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] perhaps put all form logic and state into the formInput component [1/13/2017]
 - [x] improved validation [1/13/2017]
 - [x] try and remove all instances of let [1/15/2017]
-- [ ] inline styles?
-	- https://facebook.github.io/react-native/docs/style.html
-	- https://facebook.github.io/react-native/docs/text.html
-	- https://facebook.github.io/react-native/docs/height-and-width.html
-- [ ] remove propTypes on build 
-- [ ] change modal component to higher order component --practice the decorator pattern
-
 
 ### Issues
 - [x] if user finishes all words and dies at the same time they beat the game before dying when they should die before ending the game
@@ -151,10 +143,12 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] production server is not displaying saved players, may need promise 
 	- [x] there could be an issue with deprecated use of mpromise? [1/19/2017]
 - [x] fixes issues with players model [1/19/2017]
+- [x] disable zooming on safari [1/25/2017]
 - [ ] try to speed up the application, the logo loads after the modal
 
 ### 2.x.x
 - [ ] react native	
+	- [ ] inline styles?
 - [ ] relay - read more on this
 	- [ ] graphql - read more on this
 - [ ] accessibility?
@@ -166,3 +160,6 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] add message when a bonus life is achieved (perfect round)
 - [ ] abstract away the input field into it's own component
 - [ ] animations
+- [ ] end to end testing?
+- [ ] remove propTypes on build 
+- [ ] change modal component to higher order component --practice the decorator pattern
