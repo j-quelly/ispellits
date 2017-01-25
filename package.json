@@ -1,6 +1,6 @@
 {
   "name": "ispellits-server",
-  "version": "0.10.5",
+  "version": "1.0.0",
   "private": true,
   "babel": {
     "presets": [

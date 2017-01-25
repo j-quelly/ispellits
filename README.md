@@ -2,8 +2,8 @@
 A spin on the classic hangman game, built with React [https://ispellits.herokuapp.com/](https://ispellits.herokuapp.com/)
 
 ### Current Version
-- Server: 0.10.5
-- Client: 0.32.1
+- Server: 1.0.0
+- Client: 1.0.0
 
 ## Getting Started
 1. ```$ cd src/server && npm run server````
@@ -143,23 +143,26 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] production server is not displaying saved players, may need promise 
 	- [x] there could be an issue with deprecated use of mpromise? [1/19/2017]
 - [x] fixes issues with players model [1/19/2017]
-- [x] disable zooming on safari [1/25/2017]
-- [ ] try to speed up the application, the logo loads after the modal
+- [x] try to speed up the application, the logo loads after the modal [1/25/2017]
 
 ### 2.x.x
+- [ ] read chapters on redux for better state management 
+- [ ] document client JS once redux has been addded
+- [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
+
+### 3.x.x
 - [ ] react native	
 	- [ ] inline styles?
 - [ ] relay - read more on this
 	- [ ] graphql - read more on this
-- [ ] accessibility?
-- [ ] read chapters on redux for better state management --probably not necessary
-- [ ] document client JS once redux has been addded
-- [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
+
+### Hopeful
+- [ ] abstract away the input field into it's own component
+- [ ] change modal component to higher order component --practice the decorator pattern
+- [ ] accessibility? --probably not necessary
 - [ ] start easy and progressively get harder or offer different levels of difficulty
 - [ ] add in a helper to add a random letter for user at the cost of n points
 - [ ] add message when a bonus life is achieved (perfect round)
-- [ ] abstract away the input field into it's own component
 - [ ] animations
 - [ ] end to end testing?
 - [ ] remove propTypes on build 
-- [ ] change modal component to higher order component --practice the decorator pattern

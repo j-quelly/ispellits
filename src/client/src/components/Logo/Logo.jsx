@@ -3,7 +3,7 @@ import './Logo.css'
 
 const Logo = function(props) {
   return (
-    <div>
+    <div style={{height: '107px'}}>
       <img
         src={props.logo}
         className="logo logo--xs"
