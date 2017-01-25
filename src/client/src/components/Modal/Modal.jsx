@@ -10,7 +10,7 @@ import './Modal.css';
 const Modal = function(props) {
   if (props.startScreen) {
     return (<ModalBody>
-              <Btn handleClick={props.handleStartGame} btnText="Start" />
+              <Btn handleClick={props.proceed} btnText="Start" />
             </ModalBody>);
   } else if (props.scoreScreen) {
     return (<ModalBody title="Good Job!" body="You're doing great, keep it up.">
@@ -24,7 +24,7 @@ const Modal = function(props) {
                 score={props.totalScore}
                 text="Total Score: "
               />
-              <Btn handleClick={props.handleStartGame} btnText="Next Word" />
+              <Btn handleClick={props.proceed} btnText="Next Word" />
             </ModalBody>);
   } else if (props.inputScreen) {
     return (<ModalBody title={props.title} body="Input your name to enter the hall of fame.">
