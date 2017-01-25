@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 1.0.0
-- Client: 1.0.0
+- Client: 1.1.1
 
 ## Getting Started
 1. ```$ cd src/server && npm run server````
@@ -84,7 +84,9 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 			- [x] 8	FAILED 
 			- [x] 9 
 			- [x] 10 
-			- [x] edge 			
+			- [x] edge 		
+- [ ] end to end testing?
+	- for example testing that the resetGame method works correctly
 
 ### Aesthetics
 - [x] better buttons [11/29/2016]
@@ -144,8 +146,10 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 	- [x] there could be an issue with deprecated use of mpromise? [1/19/2017]
 - [x] fixes issues with players model [1/19/2017]
 - [x] try to speed up the application, the logo loads after the modal [1/25/2017]
+- [x] fixes reset game bug [1/25/2017]
 
 ### 2.x.x
+- [x] cleans up app.jsx methods [1/25/2017]
 - [ ] read chapters on redux for better state management 
 - [ ] document client JS once redux has been addded
 - [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
@@ -164,5 +168,4 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [ ] add in a helper to add a random letter for user at the cost of n points
 - [ ] add message when a bonus life is achieved (perfect round)
 - [ ] animations
-- [ ] end to end testing?
 - [ ] remove propTypes on build 

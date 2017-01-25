@@ -15,7 +15,7 @@ describe('<ModalBody modal={true} startScreen={true} />', () => {
       scoreScreen: false,
       inputScreen: false,
       highScoreScreen: false,
-      handleStartGame: () => {
+      proceed: () => {
       },
       handleKeyboardClick: () => {
       },
@@ -42,7 +42,7 @@ describe('<ModalBody modal={true} startScreen={true} />', () => {
   it('<Btn /> should have props `handleClick`', () => {
     expect(
       wrapper.find('ModalBody').at(0).find('Btn').props().handleClick
-    ).toBe(props.handleStartGame);
+    ).toBe(props.proceed);
   });
 
   it('<Btn /> should have props `btnText`', () => {
@@ -63,7 +63,7 @@ describe('<ModalBody modal={true} scoreScreen={true} />', () => {
       scoreScreen: true,
       inputScreen: false,
       highScoreScreen: false,
-      handleStartGame: () => {
+      proceed: () => {
       },
       handleKeyboardClick: () => {
       },
@@ -163,7 +163,7 @@ describe('<ModalBody modal={true} scoreScreen={true} />', () => {
       const btn = wrapper.find('ModalBody').at(0).find('Btn')
       expect(
         btn.props().handleClick
-      ).toBe(props.handleStartGame);
+      ).toBe(props.proceed);
     });
 
     it('should contain props `btnText`', () => {
@@ -189,7 +189,7 @@ describe('<ModalBody modal={true} inputScreen={true} />', () => {
       scoreScreen: false,
       inputScreen: true,
       highScoreScreen: false,
-      handleStartGame: () => {
+      proceed: () => {
       },
       handleKeyboardClick: () => {
       },
@@ -272,7 +272,7 @@ describe('<ModalBody modal={true} highScoreScreen={true} />', () => {
       scoreScreen: false,
       inputScreen: false,
       highScoreScreen: true,
-      handleStartGame: () => {
+      proceed: () => {
       },
       handleKeyboardClick: () => {
       },

@@ -60,9 +60,9 @@ describe('<App />', () => {
       ).toBeDefined();
     });
 
-    it('should have props for handleStartGame', () => {
+    it('should have props for proceed', () => {
       expect(
-        wrapper.find('Body').props().handleStartGame
+        wrapper.find('Body').props().proceed
       ).toBeDefined();
     });
 
