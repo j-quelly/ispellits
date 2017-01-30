@@ -3,7 +3,7 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 
 ### Current Version
 - Server: 1.0.0
-- Client: 1.1.1
+- Client: 1.2.0
 
 ## Getting Started
 1. ```$ cd src/server && npm run server````
@@ -147,11 +147,16 @@ A spin on the classic hangman game, built with React [https://ispellits.herokuap
 - [x] fixes issues with players model [1/19/2017]
 - [x] try to speed up the application, the logo loads after the modal [1/25/2017]
 - [x] fixes reset game bug [1/25/2017]
+- [ ] fix InputForm.test.js
 
 ### 2.x.x
 - [x] cleans up app.jsx methods [1/25/2017]
 - [ ] read chapters on redux for better state management 
-- [ ] document client JS once redux has been addded
+	- [ ] determine best way to organize code with redux
+	- [ ] redux middleware for clean organization, thunk, redux-multi, applyMiddleware
+	- [ ] document client JS once redux has been addded
+	- [x] InputFormReducer test [1/29/2017]
+	- [ ] modify store to be a single store
 - [ ] document server - http://usejsdoc.org/about-getting-started.html / https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
 
 ### 3.x.x

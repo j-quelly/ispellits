@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import store from './store/configureStore.js';
 
 // components
 import Header from './components/Header/Header';
@@ -84,6 +85,7 @@ class App extends Component {
     // this will help speed up the application
     this.loadWordsFromDictionary();
     this.loadCluesFromDictionary();
+    // store.subscribe(() => console.log(store.getState()));
   }
 
   loadWordsFromDictionary() {
